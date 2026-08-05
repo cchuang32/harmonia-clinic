@@ -1,0 +1,22 @@
+{
+  // ==========================================================================
+  // Cloudflare Workers 靜態網站設定
+  //
+  // 這個檔案讓 Cloudflare 從 GitHub 自動建置時，知道要把 dist/ 這個資料夾
+  // 當成網站發佈出去。沒有它，Git 連接的建置會找不到要部署什麼。
+  //
+  // 手動部署（平常不需要，Cloudflare 會自動做）：
+  //   npm run build && wrangler deploy
+  // ==========================================================================
+
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "harmonia-clinic",
+  "compatibility_date": "2026-08-01",
+
+  "assets": {
+    // 網站檔案在哪（由 npm run build 產生）
+    "directory": "./dist",
+    // 找不到頁面時，回傳我們自己的 404 頁
+    "not_found_handling": "404-page"
+  }
+}
