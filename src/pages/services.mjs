@@ -29,8 +29,13 @@ const groups = [
   },
   {
     icon: 'syringe',
+    title: '再生注射治療',
+    items: ['自體骨髓再生注射治療', 'PRP 再生注射治療'],
+    note: '自費項目。是否適合、療程次數與費用，由醫師於門診評估後說明。',
+  },
+  {
+    icon: 'heart',
     title: '其他',
-    wide: true,
     items: ['預防保健', '疫苗施打', '抽血健康檢查', '慢性疲勞調理'],
   },
 ];
@@ -44,6 +49,7 @@ const block = (g) => `<div class="card service-block${g.wide ? ' service-block--
           </div>
         </div>
         <ul class="chip-list">${g.items.map((i) => `<li class="chip">${esc(i)}</li>`).join('')}</ul>
+        ${g.note ? `<p class="service-block-note">${esc(g.note)}</p>` : ''}
       </div>`;
 
 export function servicesPage() {
@@ -96,7 +102,7 @@ export function servicesPage() {
 
   return {
     title: '治療項目',
-    description: `${site.nameZh}主治項目：慢性病（糖尿病、高血壓、高血脂）、感冒與呼吸道腸胃道等急性症狀、肌肉骨骼神經疼痛（肩頸痠痛、坐骨神經痛、五十肩、膝退化性關節炎等）、預防保健與疫苗施打。`,
+    description: `${site.nameZh}主治項目：慢性病（糖尿病、高血壓、高血脂）、感冒與呼吸道腸胃道等急性症狀、肌肉骨骼神經疼痛（肩頸痠痛、坐骨神經痛、五十肩、膝退化性關節炎等）、再生注射治療（自體骨髓、PRP）、預防保健與疫苗施打。`,
     active: '/services/',
     canonical: '/services/',
     slug: 'services',
