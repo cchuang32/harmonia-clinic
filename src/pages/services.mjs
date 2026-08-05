@@ -43,10 +43,7 @@ const groups = [
 const block = (g) => `<div class="card service-block${g.wide ? ' service-block--wide' : ''}">
         <div class="service-block-head">
           <div class="card-icon">${icons[g.icon]}</div>
-          <div>
-            <h3>${esc(g.title)}</h3>
-            <p class="service-block-count">共 ${g.items.length} 項</p>
-          </div>
+          <h3>${esc(g.title)}</h3>
         </div>
         <ul class="chip-list">${g.items.map((i) => `<li class="chip">${esc(i)}</li>`).join('')}</ul>
         ${g.note ? `<p class="service-block-note">${esc(g.note)}</p>` : ''}

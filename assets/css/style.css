@@ -301,7 +301,6 @@ button { font: inherit; color: inherit; }
 
 .service-block-head { display: flex; align-items: center; gap: 14px; min-width: 0; }
 .service-block-head .card-icon { margin-bottom: 0; flex: 0 0 auto; }
-.service-block .service-block-count { margin-top: 3px; font-size: 13.5px; color: var(--ink-500); }
 .service-block .service-block-note {
   margin-top: 16px; padding-top: 14px; border-top: 1px dashed var(--line);
   font-size: 14px; line-height: 1.8; color: var(--ink-500);
