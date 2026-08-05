@@ -292,6 +292,28 @@ button { font: inherit; color: inherit; }
 .card ul { margin-top: 14px; color: var(--ink-700); font-size: 15px; }
 .card li { margin-top: 6px; }
 
+/* ---------- 治療項目：分類區塊 + 項目膠囊 ---------- */
+.service-grid {
+  display: grid; gap: clamp(16px, 3vw, 24px);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr));
+}
+.service-block--wide { grid-column: 1 / -1; }
+
+.service-block-head { display: flex; align-items: center; gap: 14px; min-width: 0; }
+.service-block-head .card-icon { margin-bottom: 0; flex: 0 0 auto; }
+.service-block .service-block-count { margin-top: 3px; font-size: 13.5px; color: var(--ink-500); }
+
+ul.chip-list, .card ul.chip-list {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  margin-top: 18px; padding: 0; list-style: none;
+}
+.chip {
+  display: inline-block; max-width: 100%;
+  padding: 7px 14px; border-radius: 999px;
+  background: var(--green-050); border: 1px solid var(--green-100);
+  color: var(--ink-700); font-size: 14.5px; line-height: 1.5;
+}
+
 .card--num { position: relative; }
 .card--num .card-num {
   font-family: var(--serif); font-size: 15px; font-weight: 700;

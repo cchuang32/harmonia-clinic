@@ -32,19 +32,18 @@ const pillars = [
   },
 ];
 
-// ★ 請改成實際的醫師資料
-const team = [
-  {
-    name: '王君禾 醫師', role: '院長．家庭醫學專科',
-    bio: '相信醫療的價值不只在治好一次病，而是讓人有能力照顧自己。門診中最常做的事，是把複雜的醫學翻譯成病人能實踐的日常。',
-    tags: ['家庭醫學專科醫師', '慢性病照護', '成人預防保健'],
-  },
-  {
-    name: '李和安 醫師', role: '主治醫師．內科',
-    bio: '專注慢性病與代謝問題的長期管理，習慣從飲食、作息與工作型態一起找原因，而不只是調整藥量。',
-    tags: ['內科專科醫師', '糖尿病衛教', '代謝症候群'],
-  },
-];
+// ★★ 待填：醫師團隊
+//    原本這裡放的是示範用的虛構醫師，為避免誤導病人已經移除。
+//    填入實際資料後，「醫師團隊」這一區就會自動出現在網頁上；留空則整區不顯示。
+//
+//    格式範例：
+//    {
+//      name: '黃佳君 醫師',
+//      role: '院長．家醫科／疼痛科',
+//      bio: '一段介紹文字，講看診理念或專長方向。',
+//      tags: ['專科醫師證書', '專長一', '專長二'],
+//    },
+const team = [];
 
 export function featuresPage() {
   const body = `
@@ -52,7 +51,7 @@ export function featuresPage() {
   <div class="wrap">
     <span class="eyebrow">Why Harmonia</span>
     <h1>本院特色</h1>
-    <p>「君禾」取自和諧與溫潤之意，英文 Harmonia 也是同一個念頭。我們希望這裡不只是生病才來的地方，而是你想到健康時，第一個信任的名字。</p>
+    <p>${esc(site.nameZh)}是一間以家醫科與疼痛科為主的診所。「君禾」取自和諧與溫潤之意，英文 Harmonia 也是同一個念頭——我們希望這裡不只是生病才來的地方，而是你想到健康時，第一個信任的名字。</p>
   </div>
 </section>
 
@@ -69,7 +68,7 @@ export function featuresPage() {
   </div>
 </section>
 
-<section class="section section--tint">
+${team.length ? `<section class="section section--tint">
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">Our Team</span>
@@ -85,7 +84,7 @@ export function featuresPage() {
       </div>`).join('\n      ')}
     </div>
   </div>
-</section>
+</section>` : ''}
 
 <section class="section section--paper">
   <div class="wrap measure">

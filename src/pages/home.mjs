@@ -3,10 +3,10 @@ import { url, esc } from '../layout.mjs';
 import { icons, postCard } from '../components.mjs';
 
 const services = [
-  { icon: 'stethoscope', title: '一般內科門診', desc: '感冒、腸胃不適、頭暈疲倦等日常症狀，由醫師完整問診、對症處理。' },
-  { icon: 'shield', title: '慢性病照護', desc: '高血壓、糖尿病、高血脂長期追蹤，定期抽血、調整用藥，把數字穩穩顧好。' },
-  { icon: 'heart', title: '健康檢查', desc: '成人預防保健與自費健檢，報告由醫師逐項解讀，聽得懂才有用。' },
-  { icon: 'leaf', title: '預防接種', desc: '流感、肺炎鏈球菌等疫苗接種，接種前評估、接種後衛教一次說清楚。' },
+  { icon: 'shield', title: '慢性病', desc: '糖尿病、高血壓、高血脂。' },
+  { icon: 'stethoscope', title: '急性症狀', desc: '感冒、呼吸道、腸胃道、皮膚、過敏。' },
+  { icon: 'bone', title: '肌肉骨骼神經疼痛', desc: '肩頸痠痛、腰痠背痛、坐骨神經痛、五十肩、網球肘、膝退化性關節炎等 22 項。' },
+  { icon: 'syringe', title: '其他', desc: '預防保健、疫苗施打、抽血健康檢查、慢性疲勞調理。' },
 ];
 
 const features = [
@@ -28,7 +28,7 @@ export function homePage(articles) {
       <div class="hero-inner">
         <span class="hero-eyebrow">${esc(site.nameEn)}</span>
         <h1>陪你，把健康過成日常</h1>
-        <p class="hero-lead">在${esc(site.nameZh)}，看診不只是解決眼前的不舒服，<br class="only-wide">而是理解你的生活，一起找到走得長久的方式。</p>
+        <p class="hero-lead">以家醫科與疼痛科為主的診所。<br class="only-wide">看診不只是解決眼前的不舒服，而是理解你的生活，一起找到走得長久的方式。</p>
         <div class="btn-row">
           <a class="btn btn--primary" href="${site.contact.phoneHref}">${icons.phone} 預約掛號 ${esc(site.contact.phone)}</a>
           <a class="btn btn--ghost" href="${url('/services/')}">看看治療項目</a>
@@ -56,7 +56,7 @@ export function homePage(articles) {
     <div class="section-head section-head--center">
       <span class="eyebrow">Services</span>
       <h2 class="section-title">我們看什麼</h2>
-      <p class="section-lead">從突然的不舒服，到需要長期照顧的慢性問題，君禾都想陪你一起處理。</p>
+      <p class="section-lead">${esc(site.nameZh)}以家醫科與疼痛科為主。從全家人的日常病痛與慢性病追蹤，到肩頸腰背與關節的疼痛問題，都在同一個診間處理。</p>
     </div>
     <div class="grid grid--3">
       ${services.map((s) => `<div class="card">
