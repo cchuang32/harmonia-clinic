@@ -15,13 +15,13 @@ export const site = {
 
   // 聯絡資訊（請改成診所實際資料）
   contact: {
-    phone: '02-1234-5678',
-    phoneHref: 'tel:+886212345678',
+    phone: '03-5900298',
+    phoneHref: 'tel:+88635900298',
     lineId: '@harmonia',
     email: 'service@harmonia-clinic.tw',
-    address: '台北市大安區和平東路二段 100 號 1 樓',
+    address: '新竹縣湖口鄉中山路一段 596 號',
     // Google 地圖用的查詢字串（地址或店名）
-    mapQuery: '台北市大安區和平東路二段100號',
+    mapQuery: '新竹縣湖口鄉中山路一段596號',
   },
 
   // 看診時間（地理位置頁 + 頁尾使用）

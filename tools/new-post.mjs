@@ -34,8 +34,8 @@ if (await access(file).then(() => true, () => false)) {
 await writeFile(file, `---
 title: ${title}
 slug: ${slug}
-author: 王君禾 醫師
-authorRole: 院長．家庭醫學專科
+author: 黃佳君 醫師
+authorRole:
 tag: 健康知識
 date: ${ymd}
 hero: /assets/img/hero-${key}.jpg

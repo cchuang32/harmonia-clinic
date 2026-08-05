@@ -2,11 +2,12 @@ import { site } from '../../site.config.mjs';
 import { esc } from '../layout.mjs';
 import { icons } from '../components.mjs';
 
-// ★ 請改成診所實際的交通方式
+// ★★ 待填：以下是待補欄位，不是實際交通資訊。
+//    請填入湖口診所真正的轉乘方式、公車路線與停車資訊，填好後跑 npm run build。
 const transport = [
-  { icon: 'train', title: '捷運', desc: '古亭站 5 號出口，沿和平東路步行約 6 分鐘；科技大樓站步行約 8 分鐘。' },
-  { icon: 'bus', title: '公車', desc: '「和平龍安街口」站下車即達。可搭 3、15、18、236、278、662、663 等路線。' },
-  { icon: 'car', title: '開車／機車', desc: '診所大樓地下室有付費停車場，機車可停放於騎樓旁停車格。假日車位較少，建議多留 10 分鐘。' },
+  { icon: 'train', title: '火車', desc: '最近的車站為台鐵湖口車站，下車後可轉乘公車或計程車。（請補上實際車程與轉乘方式）' },
+  { icon: 'bus', title: '公車', desc: '（請補上實際可搭乘的公車路線與下車站名）' },
+  { icon: 'car', title: '開車／機車', desc: '（請補上停車資訊：診所是否有專屬停車位、附近停車場位置、機車停放處）' },
 ];
 
 export function locationPage() {
@@ -89,7 +90,7 @@ export function locationPage() {
 
   return {
     title: '地理位置',
-    description: `${site.nameZh}地址：${site.contact.address}。看診時間、捷運公車路線、停車資訊與聯絡方式。`,
+    description: `${site.nameZh}地址：${site.contact.address}，電話 ${site.contact.phone}。看診時間、交通方式、停車資訊與聯絡方式。`,
     active: '/location/',
     canonical: '/location/',
     slug: 'location',

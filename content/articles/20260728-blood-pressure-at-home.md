@@ -1,8 +1,8 @@
 ---
 title: 在家量血壓，怎麼量才算數？
 slug: 20260728-blood-pressure-at-home
-author: 李和安 醫師
-authorRole: 主治醫師．內科
+author: 黃佳君 醫師
+authorRole:
 tag: 慢性病照護
 date: 2026-07-28
 hero: /assets/img/hero-blood-pressure.jpg
