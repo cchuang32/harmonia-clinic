@@ -1,5 +1,5 @@
 import { site } from '../../site.config.mjs';
-import { url, esc } from '../layout.mjs';
+import { esc } from '../layout.mjs';
 import { icons } from '../components.mjs';
 
 // ---------------------------------------------------------------------------
@@ -80,17 +80,6 @@ export function servicesPage() {
       <div class="info-row"><dt>疼痛問題</dt><dd>建議穿寬鬆好活動的衣物，方便醫師檢查活動角度與施力狀況。</dd></div>
       <div class="info-row"><dt>想問的問題</dt><dd>先寫在手機備忘錄裡。看診時很容易忘記，寫下來最實在。</dd></div>
     </dl>
-  </div>
-</section>
-
-<section class="section cta">
-  <div class="wrap">
-    <h2>不確定該看哪一科？</h2>
-    <p>打給我們，我們幫你判斷。</p>
-    <div class="btn-row">
-      <a class="btn btn--primary" href="${esc(site.contact.phoneHref)}">${icons.phone} ${esc(site.contact.phone)}</a>
-      <a class="btn btn--ghost" href="${url('/location/')}">診所位置與時間</a>
-    </div>
   </div>
 </section>
 `;
