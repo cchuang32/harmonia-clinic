@@ -53,14 +53,12 @@ const block = (g) => `<div class="card service-block${g.wide ? ' service-block--
       </div>`;
 
 export function servicesPage() {
-  const total = groups.reduce((n, g) => n + g.items.length, 0);
-
   const body = `
 <section class="page-head">
   <div class="wrap">
     <span class="eyebrow">Services</span>
     <h1>治療項目</h1>
-    <p>${esc(site.nameZh)}以家醫科與疼痛科為主。從慢性病的長期追蹤、突發的急性症狀，到肩頸腰背與關節的疼痛問題，共 ${total} 項主治範圍。不確定自己該看哪一項，直接打電話問我們也可以。</p>
+    <p>${esc(site.nameZh)}服務範圍以家醫科與疼痛科為主。從慢性病的長期追蹤、突發的急性症狀，到肩頸腰背與關節的疼痛問題，都是我們看診的範圍。不確定自己該看哪一項，直接打電話問我們也可以。</p>
   </div>
 </section>
 
