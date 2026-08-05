@@ -9,9 +9,9 @@ export const site = {
   nameEn: 'Harmonia Clinic',
   tagline: '健康，像深呼吸一樣自然。',
 
-  // 網站正式網址（結尾不要加 /）。部署到 Cloudflare Pages 後改成正式網址，
-  // 用於產生 sitemap.xml 與 og:url。
-  url: 'https://harmonia-clinic.pages.dev',
+  // 網站正式網址（結尾不要加 /），用於 canonical、og:url 與 sitemap.xml。
+  // 之後接上自己的子網域（例如 https://blog.你的網域.tw）時，記得一起改這裡。
+  url: 'https://harmonia-clinic.cc-huang32.workers.dev',
 
   // 聯絡資訊（請改成診所實際資料）
   contact: {

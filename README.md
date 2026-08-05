@@ -145,19 +145,26 @@ export const supabase = {
 
 ## 五、部署
 
-推上 `main` 之後：
+推上 `main` 之後，兩邊都會自動重新建置：
 
-- **GitHub Pages**：`.github/workflows/deploy.yml` 自動建置並發佈
-- **Cloudflare Pages**：偵測到 GitHub 有新 commit，自動拉下來重新建置
+| 平台 | 網址 | 怎麼觸發 |
+| --- | --- | --- |
+| Cloudflare（正式站） | https://harmonia-clinic.cc-huang32.workers.dev | Cloudflare 偵測到 GitHub 有新 commit，自動拉下來重建 |
+| GitHub Pages（備援） | https://cchuang32.github.io/harmonia-clinic/ | `.github/workflows/deploy.yml` |
 
-Cloudflare Pages 的專案設定：
+Cloudflare 端的建置設定：
 
 | 項目 | 值 |
 | --- | --- |
-| Framework preset | None |
 | Build command | `node tools/build.mjs` |
 | Build output directory | `dist` |
-| Node version（環境變數） | `NODE_VERSION` = `20` |
+| Node 版本 | 由 repo 根目錄的 `.node-version`（20）決定 |
+
+> Cloudflare 目前是用新版的 **Workers + 靜態資源**（不是舊的 Pages 專案），
+> 所以網址結尾是 `.workers.dev` 而不是 `.pages.dev`。兩者對這個網站來說功能相同。
+>
+> GitHub Pages 掛在 `/harmonia-clinic/` 子目錄底下，所以 workflow 會帶入
+> `BASE_PATH` 讓連結自動加上前綴；Cloudflare 是根目錄，不需要前綴。
 
 所以日常流程就是：
 
