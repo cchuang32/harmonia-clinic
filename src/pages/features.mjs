@@ -115,7 +115,7 @@ ${team.length ? `<section class="section section--tint">
 
   return {
     title: '本院特色',
-    description: `${site.nameZh}的看診理念、空間規劃與醫師團隊介紹。看診不趕時間、一位醫師長期陪伴、把話說成聽得懂的話。`,
+    description: `${site.nameZh}是以家醫科與疼痛科為主的診所。看診不趕時間、一位醫師長期陪伴、把話說成聽得懂的話——這是我們的看診理念與空間規劃。`,
     active: '/features/',
     canonical: '/features/',
     slug: 'features',
