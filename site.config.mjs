@@ -1,0 +1,59 @@
+// ===========================================================================
+// 君禾診所 Harmonia Clinic — 全站設定
+// 只要改這個檔案，全站（頁首、頁尾、SEO、計數器）都會跟著換。
+// 改完記得跑：npm run build
+// ===========================================================================
+
+export const site = {
+  nameZh: '君禾診所',
+  nameEn: 'Harmonia Clinic',
+  tagline: '健康，像深呼吸一樣自然。',
+
+  // 網站正式網址（結尾不要加 /）。部署到 Cloudflare Pages 後改成正式網址，
+  // 用於產生 sitemap.xml 與 og:url。
+  url: 'https://harmonia-clinic.pages.dev',
+
+  // 聯絡資訊（請改成診所實際資料）
+  contact: {
+    phone: '02-1234-5678',
+    phoneHref: 'tel:+886212345678',
+    lineId: '@harmonia',
+    email: 'service@harmonia-clinic.tw',
+    address: '台北市大安區和平東路二段 100 號 1 樓',
+    // Google 地圖用的查詢字串（地址或店名）
+    mapQuery: '台北市大安區和平東路二段100號',
+  },
+
+  // 看診時間（地理位置頁 + 頁尾使用）
+  hours: [
+    { day: '星期一 ~ 星期五', time: '上午 09:00–12:30　下午 14:30–21:00' },
+    { day: '星期六', time: '上午 09:00–12:30　下午 14:30–17:30' },
+    { day: '星期日 / 國定假日', time: '休診' },
+  ],
+
+  // 頁籤（頁首導覽列）
+  nav: [
+    { label: '首頁', href: '/' },
+    { label: '治療項目', href: '/services/' },
+    { label: '本院特色', href: '/features/' },
+    { label: '文章', href: '/articles/' },
+    { label: '地理位置', href: '/location/' },
+  ],
+
+  // 首頁 HERO 主視覺（請把照片放到 assets/img/ 之後改這裡的檔名）
+  hero: {
+    image: '/assets/img/hero-home.jpg',
+    alt: '君禾診所明亮溫馨的候診空間',
+  },
+};
+
+// ---------------------------------------------------------------------------
+// Supabase 瀏覽計數器設定
+// 到 Supabase 專案 → Project Settings → Data API 取得，貼在下面。
+// anon key 是「可公開」的金鑰，放在前端是正常且安全的用法。
+// 沒填也不會壞：計數器會安靜地不顯示，網站其他部分照常運作。
+// ---------------------------------------------------------------------------
+export const supabase = {
+  url: '',      // 例：https://abcdefghijkl.supabase.co
+  anonKey: '',  // 例：eyJhbGciOi...
+};

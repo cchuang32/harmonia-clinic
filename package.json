@@ -1,0 +1,16 @@
+{
+  "name": "harmonia-clinic",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "君禾診所 Harmonia Clinic 官方網站與部落格",
+  "scripts": {
+    "build": "node tools/build.mjs",
+    "dev": "node tools/build.mjs && node tools/serve.mjs",
+    "serve": "node tools/serve.mjs",
+    "new": "node tools/new-post.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

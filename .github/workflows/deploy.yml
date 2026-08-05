@@ -1,0 +1,56 @@
+name: Build and deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # 專案型 Pages 站台會掛在 /<repo>/ 底下，網站連結要加上這段前綴。
+      # 若 repo 名稱是 <帳號>.github.io，則不需要前綴。
+      - name: 決定 base path
+        id: base
+        run: |
+          if [ "${{ github.event.repository.name }}" = "${{ github.repository_owner }}.github.io" ]; then
+            echo "path=" >> "$GITHUB_OUTPUT"
+          else
+            echo "path=/${{ github.event.repository.name }}" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: 建置網站
+        run: node tools/build.mjs
+        env:
+          BASE_PATH: ${{ steps.base.outputs.path }}
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
