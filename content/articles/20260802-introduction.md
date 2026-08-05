@@ -2,7 +2,7 @@
 title: 君禾診所開幕：我們想做的，是一間讓人放鬆的診所
 slug: 20260802-introduction
 author: 黃佳君 醫師
-authorRole:
+authorRole: 麻醉科．疼痛科專科醫師
 tag: 診所公告
 date: 2026-08-02
 hero: /assets/img/hero-introduction.jpg

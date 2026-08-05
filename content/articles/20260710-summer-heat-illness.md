@@ -2,7 +2,7 @@
 title: 夏天頭暈想吐，是中暑還是別的問題？
 slug: 20260710-summer-heat-illness
 author: 黃佳君 醫師
-authorRole:
+authorRole: 麻醉科．疼痛科專科醫師
 tag: 季節保養
 date: 2026-07-10
 hero: /assets/img/hero-summer.jpg

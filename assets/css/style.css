@@ -314,6 +314,50 @@ ul.chip-list, .card ul.chip-list {
   color: var(--ink-700); font-size: 14.5px; line-height: 1.5;
 }
 
+/* ---------- 醫師介紹 ---------- */
+.doctor {
+  display: grid; gap: clamp(24px, 4vw, 44px);
+  grid-template-columns: minmax(0, 260px) minmax(0, 1fr);
+  align-items: start;
+  background: var(--paper-card); border: 1px solid var(--line);
+  border-radius: var(--radius); box-shadow: var(--shadow);
+  padding: clamp(26px, 4vw, 44px);
+}
+.doctor + .doctor { margin-top: clamp(16px, 3vw, 24px); }
+
+.doctor-id { text-align: center; min-width: 0; }
+.doctor-avatar {
+  width: 92px; height: 92px; border-radius: 50%;
+  background: linear-gradient(145deg, var(--green-500), var(--green-700));
+  color: #fff; font-family: var(--serif); font-size: 40px; font-weight: 700;
+  display: grid; place-items: center; line-height: 1;
+  margin: 0 auto 18px;
+}
+.doctor-name { font-family: var(--serif); font-size: clamp(21px, 4.4vw, 25px); font-weight: 700; color: var(--green-900); line-height: 1.4; }
+.doctor-role { margin-top: 8px; color: var(--gold-600); font-weight: 500; font-size: 15px; line-height: 1.6; }
+
+.doctor-groups { display: grid; gap: clamp(20px, 3vw, 26px); min-width: 0; }
+.doctor-group { min-width: 0; }
+.doctor-group-title {
+  font-family: var(--sans); font-size: 13px; font-weight: 700;
+  letter-spacing: .14em; color: var(--gold-600); margin-bottom: 12px;
+}
+.doctor-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 9px; }
+.doctor-list li {
+  position: relative; padding-left: 20px; min-width: 0;
+  color: var(--ink-700); font-size: 15.5px; line-height: 1.75;
+}
+.doctor-list li::before {
+  content: ""; position: absolute; left: 3px; top: .68em;
+  width: 6px; height: 6px; border-radius: 50%; background: var(--green-500);
+}
+
+@media (max-width: 760px) {
+  .doctor { grid-template-columns: 1fr; }
+  .doctor-id { text-align: left; display: flex; align-items: center; gap: 16px; }
+  .doctor-avatar { width: 66px; height: 66px; font-size: 29px; margin: 0; flex: 0 0 auto; }
+}
+
 .card--num { position: relative; }
 .card--num .card-num {
   font-family: var(--serif); font-size: 15px; font-weight: 700;

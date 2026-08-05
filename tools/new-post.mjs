@@ -35,7 +35,7 @@ await writeFile(file, `---
 title: ${title}
 slug: ${slug}
 author: 黃佳君 醫師
-authorRole:
+authorRole: 麻醉科．疼痛科專科醫師
 tag: 健康知識
 date: ${ymd}
 hero: /assets/img/hero-${key}.jpg

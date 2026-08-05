@@ -32,18 +32,37 @@ const pillars = [
   },
 ];
 
-// ★★ 待填：醫師團隊
-//    原本這裡放的是示範用的虛構醫師，為避免誤導病人已經移除。
-//    填入實際資料後，「醫師團隊」這一區就會自動出現在網頁上；留空則整區不顯示。
+// ---------------------------------------------------------------------------
+// 醫師介紹。要新增醫師就往陣列裡再加一個物件；陣列留空則整區不顯示。
 //
-//    格式範例：
-//    {
-//      name: '黃佳君 醫師',
-//      role: '院長．家醫科／疼痛科',
-//      bio: '一段介紹文字，講看診理念或專長方向。',
-//      tags: ['專科醫師證書', '專長一', '專長二'],
-//    },
-const team = [];
+// role 目前只寫「麻醉科．疼痛科專科醫師」，依據是下方兩張專科醫師證書。
+// 若黃醫師是君禾診所院長，可改成「院長．麻醉科／疼痛科專科醫師」。
+// ---------------------------------------------------------------------------
+const team = [
+  {
+    name: '黃佳君 醫師',
+    role: '麻醉科．疼痛科專科醫師',
+    education: ['長庚大學醫學系'],
+    experience: [
+      '林口長庚醫院麻醉部主治醫師',
+      '花蓮慈濟醫院麻醉部主治醫師',
+      '花蓮門諾醫院疼痛科醫師',
+      '新竹菁英診所院長',
+    ],
+    credentials: [
+      '台灣麻醉醫學會專科醫師',
+      '台灣疼痛醫學會專科醫師',
+      '台灣增生療法醫學會會員',
+      '台灣區域麻醉暨止痛醫學會會員',
+      '台灣區域麻醉暨止痛醫學會工作坊講師',
+    ],
+  },
+];
+
+const credList = (label, items) => items && items.length ? `<div class="doctor-group">
+            <h3 class="doctor-group-title">${esc(label)}</h3>
+            <ul class="doctor-list">${items.map((i) => `<li>${esc(i)}</li>`).join('')}</ul>
+          </div>` : '';
 
 export function featuresPage() {
   const body = `
@@ -72,17 +91,21 @@ ${team.length ? `<section class="section section--tint">
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">Our Team</span>
-      <h2 class="section-title">醫師團隊</h2>
+      <h2 class="section-title">醫師介紹</h2>
       <p class="section-lead">認識為你看診的人。</p>
     </div>
-    <div class="grid grid--2">
-      ${team.map((t) => `<div class="card">
-        <h3>${esc(t.name)}</h3>
-        <p style="color:var(--gold-600);font-weight:500;margin-top:4px">${esc(t.role)}</p>
-        <p>${esc(t.bio)}</p>
-        <ul>${t.tags.map((g) => `<li>${esc(g)}</li>`).join('')}</ul>
-      </div>`).join('\n      ')}
-    </div>
+    ${team.map((t) => `<article class="doctor">
+      <div class="doctor-id">
+        <span class="doctor-avatar" aria-hidden="true">${esc(t.name.slice(0, 1))}</span>
+        <h3 class="doctor-name">${esc(t.name)}</h3>
+        <p class="doctor-role">${esc(t.role)}</p>
+      </div>
+      <div class="doctor-groups">
+        ${credList('學歷', t.education)}
+        ${credList('經歷', t.experience)}
+        ${credList('專科證照與學會', t.credentials)}
+      </div>
+    </article>`).join('\n    ')}
   </div>
 </section>` : ''}
 
@@ -115,7 +138,7 @@ ${team.length ? `<section class="section section--tint">
 
   return {
     title: '本院特色',
-    description: `${site.nameZh}是以家醫科與疼痛科為主的診所。看診不趕時間、一位醫師長期陪伴、把話說成聽得懂的話——這是我們的看診理念與空間規劃。`,
+    description: `${site.nameZh}是以家醫科與疼痛科為主的診所，由黃佳君醫師（台灣麻醉醫學會、台灣疼痛醫學會專科醫師）看診。看診理念、空間規劃與醫師學經歷介紹。`,
     active: '/features/',
     canonical: '/features/',
     slug: 'features',
