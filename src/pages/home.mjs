@@ -6,7 +6,8 @@ const services = [
   { icon: 'shield', title: '慢性病', desc: '糖尿病、高血壓、高血脂。' },
   { icon: 'stethoscope', title: '急性症狀', desc: '感冒、呼吸道、腸胃道、皮膚、過敏。' },
   { icon: 'bone', title: '肌肉骨骼神經疼痛', desc: '肩頸痠痛、腰痠背痛、坐骨神經痛、五十肩、網球肘、膝退化性關節炎等 22 項。' },
-  { icon: 'syringe', title: '再生注射治療', desc: '自體骨髓再生注射治療、PRP 再生注射治療。（自費項目，門診評估後說明）' },
+  // href：填了就整張卡片可以點，並在卡片下方出現「看完整說明 →」
+  { icon: 'syringe', title: '再生注射治療', desc: '自體骨髓再生注射治療、PRP 再生注射治療。（自費項目，門診評估後說明）', href: '/regeneration/', more: '看完整說明' },
   { icon: 'heart', title: '其他', desc: '預防保健、疫苗施打、抽血健康檢查、慢性疲勞調理。' },
 ];
 
@@ -63,7 +64,14 @@ export function homePage(articles) {
       <p class="section-lead">${esc(site.nameZh)}以家醫科與疼痛科為主。從全家人的日常病痛與慢性病追蹤，到肩頸腰背與關節的疼痛問題，都在同一個診間處理。</p>
     </div>
     <div class="grid grid--3">
-      ${services.map((s) => `<div class="card">
+      ${services.map((s) => s.href
+        ? `<a class="card card--link" href="${url(s.href)}">
+        <div class="card-icon">${icons[s.icon]}</div>
+        <h3>${esc(s.title)}</h3>
+        <p>${esc(s.desc)}</p>
+        <span class="card-more">${esc(s.more || '看完整說明')}<span aria-hidden="true">→</span></span>
+      </a>`
+        : `<div class="card">
         <div class="card-icon">${icons[s.icon]}</div>
         <h3>${esc(s.title)}</h3>
         <p>${esc(s.desc)}</p>

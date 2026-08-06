@@ -32,6 +32,8 @@ const groups = [
     title: '再生注射治療',
     items: ['自體骨髓再生注射治療', 'PRP 再生注射治療'],
     note: '自費項目。是否適合、療程次數與費用，由醫師於門診評估後說明。',
+    // link：填了就在區塊底部出現一行連結
+    link: { href: '/regeneration/', label: '看自體骨髓及 PRP 再生注射的完整說明' },
   },
   {
     icon: 'heart',
@@ -47,6 +49,7 @@ const block = (g) => `<div class="card service-block${g.wide ? ' service-block--
         </div>
         <ul class="chip-list">${g.items.map((i) => `<li class="chip">${esc(i)}</li>`).join('')}</ul>
         ${g.note ? `<p class="service-block-note">${esc(g.note)}</p>` : ''}
+        ${g.link ? `<a class="service-block-link" href="${url(g.link.href)}">${esc(g.link.label)}<span aria-hidden="true">→</span></a>` : ''}
       </div>`;
 
 export function servicesPage() {

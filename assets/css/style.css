@@ -306,6 +306,29 @@ button { font: inherit; color: inherit; }
 .card ul { margin-top: 14px; color: var(--ink-700); font-size: 15px; }
 .card li { margin-top: 6px; }
 
+/* 整張可點擊的卡片（例如首頁的再生注射治療） */
+a.card--link {
+  display: block; text-decoration: none; color: inherit;
+  transition: transform .2s, box-shadow .2s, border-color .2s;
+}
+a.card--link:hover, a.card--link:focus-visible {
+  transform: translateY(-2px);
+  border-color: var(--green-500);
+  box-shadow: var(--shadow-lift);
+}
+/* 卡片與區塊底部的「看說明 →」 */
+.card-more, .service-block-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  margin-top: 14px;
+  color: var(--green-700); font-size: 15px; font-weight: 500;
+  text-decoration: none;
+}
+.card-more span, .service-block-link span { transition: transform .2s; }
+a.card--link:hover .card-more span,
+.service-block-link:hover span { transform: translateX(4px); }
+.service-block-link { margin-top: 16px; }
+.service-block-link:hover { color: var(--green-900); }
+
 /* ---------- 治療項目：分類區塊 + 項目膠囊 ---------- */
 .service-grid {
   display: grid; gap: clamp(16px, 3vw, 24px);
