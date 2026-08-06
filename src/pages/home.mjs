@@ -5,7 +5,7 @@ import { icons, postCard } from '../components.mjs';
 const services = [
   { icon: 'shield', title: '慢性病', desc: '糖尿病、高血壓、高血脂。' },
   { icon: 'stethoscope', title: '急性症狀', desc: '感冒、呼吸道、腸胃道、皮膚、過敏。' },
-  { icon: 'bone', title: '肌肉骨骼神經疼痛', desc: '肩頸痠痛、腰痠背痛、坐骨神經痛、五十肩、網球肘、膝退化性關節炎等 22 項。' },
+  { icon: 'bone', title: '肌肉骨骼神經疼痛', desc: '肩頸痠痛、腰痠背痛、坐骨神經痛、五十肩、網球肘、膝退化性關節炎等項目。' },
   // href：填了就整張卡片可以點，並在卡片下方出現「看完整說明 →」
   { icon: 'syringe', title: '再生注射治療', desc: '自體骨髓再生注射治療、PRP 再生注射治療。（自費項目，門診評估後說明）', href: '/regeneration/', more: '看完整說明' },
   { icon: 'heart', title: '其他', desc: '預防保健、疫苗施打、抽血健康檢查、慢性疲勞調理。' },
