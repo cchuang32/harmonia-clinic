@@ -231,6 +231,13 @@ button { font: inherit; color: inherit; }
   line-height: 1.32; font-weight: 700; color: #fff;
   text-shadow: 0 2px 20px rgba(0, 0, 0, .28);
 }
+/* 品牌標語：拉開字距讓它讀起來像標語。
+   字級沿用 .hero h1 —— 實測 320px～1280px 都剛好單行不斷，
+   刻意不再放大，否則小螢幕會斷成「君之健康，禾你／同行」。 */
+.hero h1.hero-slogan {
+  letter-spacing: .04em;
+  text-wrap: balance;   /* 萬一真的換行，讓兩行長度平均 */
+}
 .hero-lead {
   margin-top: 20px;
   font-size: clamp(15px, 3.8vw, 18.5px);

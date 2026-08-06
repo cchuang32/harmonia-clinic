@@ -7,7 +7,8 @@
 export const site = {
   nameZh: '君禾診所',
   nameEn: 'Harmonia Clinic',
-  tagline: '健康，像深呼吸一樣自然。',
+  slogan: '君之健康，禾你同行',        // 品牌標語（首頁主視覺）
+  tagline: '健康，像深呼吸一樣自然。',  // 頁尾與預設 SEO 描述用
 
   // 網站正式網址（結尾不要加 /），用於 canonical、og:url 與 sitemap.xml。
   // 之後接上自己的子網域（例如 https://blog.你的網域.tw）時，記得一起改這裡。

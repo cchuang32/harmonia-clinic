@@ -31,7 +31,7 @@ export function homePage(articles) {
     <div class="wrap">
       <div class="hero-inner">
         <span class="hero-eyebrow">${esc(site.nameEn)}</span>
-        <h1>陪你，把健康過成日常</h1>
+        <h1 class="hero-slogan">${esc(site.slogan)}</h1>
         <p class="hero-lead">以家醫科與疼痛科為主的診所。<br class="only-wide">看診不只是解決眼前的不舒服，而是理解你的生活，一起找到走得長久的方式。</p>
         <div class="btn-row">
           <a class="btn btn--primary" href="${site.contact.phoneHref}">${icons.phone} 預約掛號 ${esc(site.contact.phone)}</a>
@@ -127,7 +127,7 @@ export function homePage(articles) {
 
   return {
     title: '',
-    description: `${site.nameZh} ${site.nameEn}｜健康，像深呼吸一樣自然。從手心的陪伴到溫馨的空間，用專業與溫度，陪你把健康過成最安心的日常。`,
+    description: `${site.nameZh} ${site.nameEn}｜${site.slogan}。位於新竹縣湖口鄉，以家醫科與疼痛科為主的診所。健康，像深呼吸一樣自然——用專業與溫度，陪你把健康過成最安心的日常。`,
     active: '/',
     canonical: '/',
     slug: 'home',
