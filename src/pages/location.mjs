@@ -49,7 +49,7 @@ export function locationPage() {
         <dl class="info-list">
           ${site.hours.map((h) => `<div class="info-row"><dt>${esc(h.day)}</dt><dd>${esc(h.time)}</dd></div>`).join('\n          ')}
         </dl>
-        <p class="section-lead" style="font-size:14.5px">※ 國定假日與颱風天看診時間請以本站公告為準。掛號於每節門診結束前 30 分鐘截止。</p>
+        <p class="section-lead" style="font-size:14.5px">※ 國定假日與颱風天看診時間可能異動，出發前建議先來電 <a href="${esc(site.contact.phoneHref)}">${esc(site.contact.phone)}</a> 確認。</p>
       </div>
 
       <div>
