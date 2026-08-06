@@ -5,30 +5,23 @@ import { icons } from '../components.mjs';
 // ---------------------------------------------------------------------------
 // ★ 請改成診所實際的特色與團隊資料。
 // ---------------------------------------------------------------------------
+// 診療設備與服務。只列名稱，不加療效描述。
+// 要增減項目直接改這個陣列，然後 npm run build。
+const facilities = [
+  { icon: 'xray', title: '數位 X 光機' },
+  { icon: 'ultrasound', title: '肌肉骨骼神經超音波檢查' },
+  { icon: 'syringe', title: '自體骨髓再生注射治療' },
+  { icon: 'target', title: '超音波導引再生注射治療' },
+  { icon: 'shockwave', title: '體外震波治療' },
+  { icon: 'iv', title: '營養點滴' },
+];
+
+// 敘述型特色，每一項會在「診療設備與服務」下方各自成為一個區塊。
+// 陣列留空則整段不顯示。
 const pillars = [
   {
-    num: 'ONE', icon: 'clock', title: '看診不趕時間',
-    desc: '我們刻意把每位病人的門診時間拉長。三分鐘看完一個人，很難聽出真正的問題；把話說完，醫師才有辦法做出對的判斷。',
-  },
-  {
-    num: 'TWO', icon: 'user', title: '一位醫師，長期陪伴',
-    desc: '固定主治醫師制。你的病史、體質、工作型態與生活習慣，不需要每次重講一遍；醫師記得你，照顧才接得起來。',
-  },
-  {
-    num: 'THREE', icon: 'heart', title: '把話說成聽得懂的話',
-    desc: '不用醫學名詞把人擋在門外。檢查數字代表什麼、藥為什麼要這樣吃、什麼情況要立刻回診，我們會講到你點頭為止。',
-  },
-  {
-    num: 'FOUR', icon: 'leaf', title: '空間像家一樣安心',
+    title: '空間像家一樣安心',
     desc: '木質調候診區、柔和照明與充足採光，並保留寬敞動線，讓推車與行動不便的長輩都能自在進出。',
-  },
-  {
-    num: 'FIVE', icon: 'shield', title: '感染管控不打折',
-    desc: '診間與器械依標準流程消毒，候診區定時換氣。呼吸道症狀者提供分流動線，讓每個人都安心候診。',
-  },
-  {
-    num: 'SIX', icon: 'sparkle', title: '看完診，照顧不中斷',
-    desc: '慢性病追蹤提醒、檢查報告通知、用藥調整回覆，透過電話與 LINE 持續聯繫，不讓治療斷在離開診所那一刻。',
   },
 ];
 
@@ -76,16 +69,28 @@ export function featuresPage() {
 
 <section class="section">
   <div class="wrap">
-    <div class="grid grid--3">
-      ${pillars.map((p) => `<div class="card card--num">
-        <div class="card-icon">${icons[p.icon]}</div>
-        <span class="card-num">${esc(p.num)}</span>
-        <h3>${esc(p.title)}</h3>
-        <p>${esc(p.desc)}</p>
+    <div class="section-head">
+      <span class="eyebrow">Facilities</span>
+      <h2 class="section-title">診療設備與服務</h2>
+    </div>
+    <div class="facility-grid">
+      ${facilities.map((f) => `<div class="facility">
+        <div class="card-icon">${icons[f.icon]}</div>
+        <h3>${esc(f.title)}</h3>
       </div>`).join('\n      ')}
     </div>
   </div>
 </section>
+
+${pillars.map((p) => `<section class="section section--paper">
+  <div class="wrap measure">
+    <div class="section-head">
+      <span class="eyebrow">Our Space</span>
+      <h2 class="section-title">${esc(p.title)}</h2>
+    </div>
+    <p class="section-lead">${esc(p.desc)}</p>
+  </div>
+</section>`).join('\n')}
 
 ${team.length ? `<section class="section section--tint">
   <div class="wrap">
@@ -138,7 +143,7 @@ ${team.length ? `<section class="section section--tint">
 
   return {
     title: '本院特色',
-    description: `${site.nameZh}是以家醫科與疼痛科為主的診所，由黃佳君醫師（台灣麻醉醫學會、台灣疼痛醫學會專科醫師）看診。看診理念、空間規劃與醫師學經歷介紹。`,
+    description: `${site.nameZh}是以家醫科與疼痛科為主的診所，由黃佳君醫師（台灣麻醉醫學會、台灣疼痛醫學會專科醫師）看診。設有數位 X 光機、肌肉骨骼神經超音波檢查、超音波導引再生注射治療、體外震波治療與營養點滴。`,
     active: '/features/',
     canonical: '/features/',
     slug: 'features',

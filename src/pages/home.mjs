@@ -11,9 +11,12 @@ const services = [
 ];
 
 const features = [
-  { num: 'ONE', title: '看診不趕時間', desc: '我們刻意把每位病人的看診時間留長一些。把話說完，醫師才能真正做出判斷。' },
-  { num: 'TWO', title: '一位醫師，長期陪伴', desc: '固定主治醫師制，你的病史、體質與生活習慣，不必每次重講一遍。' },
-  { num: 'THREE', title: '空間像家一樣安心', desc: '木質調的候診區、柔和照明與充足採光，讓看病這件事少一點緊張。' },
+  { icon: 'xray', title: '數位 X 光機' },
+  { icon: 'ultrasound', title: '肌肉骨骼神經超音波檢查' },
+  { icon: 'syringe', title: '自體骨髓再生注射治療' },
+  { icon: 'target', title: '超音波導引再生注射治療' },
+  { icon: 'shockwave', title: '體外震波治療' },
+  { icon: 'iv', title: '營養點滴' },
 ];
 
 export function homePage(articles) {
@@ -77,13 +80,12 @@ export function homePage(articles) {
     <div class="section-head">
       <span class="eyebrow">Why Harmonia</span>
       <h2 class="section-title">本院特色</h2>
-      <p class="section-lead">診所不大，但每個決定都圍繞著同一件事：讓你被好好照顧。</p>
+      <p class="section-lead">診斷靠得住，治療才有方向。診所備有影像與超音波檢查設備，以及多種疼痛治療選擇。</p>
     </div>
-    <div class="grid grid--3">
-      ${features.map((f) => `<div class="card card--num">
-        <span class="card-num">${esc(f.num)}</span>
+    <div class="facility-grid">
+      ${features.map((f) => `<div class="facility">
+        <div class="card-icon">${icons[f.icon]}</div>
         <h3>${esc(f.title)}</h3>
-        <p>${esc(f.desc)}</p>
       </div>`).join('\n      ')}
     </div>
     <div class="btn-row">
