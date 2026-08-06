@@ -36,9 +36,10 @@ export const site = {
   nav: [
     { label: '首頁', href: '/' },
     { label: '治療項目', href: '/services/' },
+    { label: '自體骨髓及PRP再生注射', href: '/regeneration/' },
     { label: '本院特色', href: '/features/' },
     { label: '醫師介紹', href: '/doctors/' },
-    { label: '文章', href: '/articles/' },
+    { label: '衛教文章', href: '/articles/' },
     { label: '地理位置', href: '/location/' },
   ],
 

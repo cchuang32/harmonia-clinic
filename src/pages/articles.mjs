@@ -11,7 +11,7 @@ export function articlesPage(articles) {
 <section class="page-head">
   <div class="wrap">
     <span class="eyebrow">Journal</span>
-    <h1>文章</h1>
+    <h1>衛教文章</h1>
     <p>診間裡最常被問到的問題、季節性的提醒、還有那些「醫師到底在說什麼」的名詞解釋，都寫在這裡。共 ${articles.length} 篇，最新的排在最前面。</p>
   </div>
 </section>
@@ -27,8 +27,8 @@ export function articlesPage(articles) {
 `;
 
   return {
-    title: '文章',
-    description: `${site.nameZh}的健康文章：常見症狀說明、慢性病照護、季節保養與就診須知，由診所醫師撰寫。`,
+    title: '衛教文章',
+    description: `${site.nameZh}的衛教文章：常見症狀說明、慢性病照護、季節保養與就診須知，由診所醫師撰寫。`,
     active: '/articles/',
     canonical: '/articles/',
     slug: 'articles',

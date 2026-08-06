@@ -135,7 +135,14 @@ button { font: inherit; color: inherit; }
 .site-nav a:hover { background: var(--green-050); color: var(--green-900); }
 .site-nav a.is-active { background: var(--green-700); color: #fff; }
 
-@media (max-width: 860px) {
+/* 筆電寬度：頁籤稍微收窄，才容得下較長的頁籤名稱 */
+@media (max-width: 1180px) {
+  .site-nav ul { gap: 2px; }
+  .site-nav a { padding: 9px 10px; font-size: 15px; }
+}
+
+/* 頁籤總長度超過一列時就改用漢堡選單（頁籤變多或變長時要一起調整） */
+@media (max-width: 1000px) {
   .nav-toggle { display: flex; }
   .site-nav {
     position: absolute; left: 0; right: 0; top: 100%;

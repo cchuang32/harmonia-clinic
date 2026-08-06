@@ -38,7 +38,7 @@ export function articlePage(a, nav = {}) {
 <article class="article">
   <div class="wrap article-head">
     <nav class="breadcrumb" aria-label="麵包屑">
-      <a href="${url('/')}">首頁</a><span>›</span><a href="${url('/articles/')}">文章</a><span>›</span>${esc(a.title)}
+      <a href="${url('/')}">首頁</a><span>›</span><a href="${url('/articles/')}">衛教文章</a><span>›</span>${esc(a.title)}
     </nav>
     <div class="measure">
       ${a.tag ? `<span class="article-tag">${esc(a.tag)}</span>` : ''}
@@ -66,7 +66,7 @@ ${a.html}
       </nav>
 
       <div class="btn-row">
-        <a class="btn btn--ghost" href="${url('/articles/')}">回文章列表</a>
+        <a class="btn btn--ghost" href="${url('/articles/')}">回衛教文章列表</a>
       </div>
     </div>
   </div>

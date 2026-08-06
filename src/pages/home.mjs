@@ -98,14 +98,14 @@ export function homePage(articles) {
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">Journal</span>
-      <h2 class="section-title">最新文章</h2>
+      <h2 class="section-title">最新衛教文章</h2>
       <p class="section-lead">把診間裡最常被問到的問題，寫成你在家也讀得懂的說明。</p>
     </div>
     ${latest.length ? `<div class="post-grid">
       ${latest.map(postCard).join('\n      ')}
     </div>
     <div class="btn-row">
-      <a class="btn btn--ghost" href="${url('/articles/')}">看全部文章</a>
+      <a class="btn btn--ghost" href="${url('/articles/')}">看全部衛教文章</a>
     </div>` : '<p class="section-lead">文章準備中，很快就與您見面。</p>'}
   </div>
 </section>
