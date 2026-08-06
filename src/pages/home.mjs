@@ -117,7 +117,6 @@ export function homePage(articles) {
       <a class="btn btn--ghost" href="${url('/location/')}">${icons.pin} 診所位置與交通</a>
     </div>
     <div class="stat-bar">
-      <span class="meta-item">${icons.pin}<span>${esc(site.contact.address)}</span></span>
       <span class="meta-item" data-view-wrap data-empty="1">${icons.eye}<span>本站瀏覽 <span class="view-count" data-count-slug="home">—</span> 次</span></span>
     </div>
   </div>

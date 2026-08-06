@@ -561,6 +561,8 @@ ul.chip-list, .card ul.chip-list {
   display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 34px;
   margin-top: 30px; font-size: 14px; color: var(--ink-500);
 }
+/* 裡面的項目都還沒有資料時整條收起來，不留一段空白 */
+.stat-bar:not(:has([data-empty="0"])) { display: none; }
 
 /* CTA */
 .cta { background: linear-gradient(160deg, var(--green-900), var(--green-700)); color: #fff; text-align: center; }
