@@ -98,14 +98,35 @@ npm run build
 
 改 `site.config.mjs`，全站頁首、頁尾、地圖、SEO 會一起更新。
 
-各頁面的**內容文字**（治療項目清單、醫師介紹、交通方式）在：
+各頁面的**內容文字**在下面這些檔案，一頁一個檔：
 
-- 治療項目 → `src/pages/services.mjs`
-- 本院特色 + 醫師團隊 → `src/pages/features.mjs`
-- 地理位置 + 交通 → `src/pages/location.mjs`
-- 首頁 → `src/pages/home.mjs`
+| 頁籤 | 網址 | 檔案 |
+| --- | --- | --- |
+| 首頁 | `/` | `src/pages/home.mjs` |
+| 治療項目 | `/services/` | `src/pages/services.mjs` |
+| 自體骨髓及PRP再生注射 | `/regeneration/` | `src/pages/regeneration.mjs` |
+| 本院特色（診療設備與服務） | `/features/` | `src/pages/features.mjs` |
+| 醫師介紹 | `/doctors/` | `src/pages/doctors.mjs` |
+| 衛教文章 | `/articles/` | `src/pages/articles.mjs` |
+| 地理位置 | `/location/` | `src/pages/location.mjs` |
 
 檔案最上面都有一段 `★ 請改成診所實際的⋯⋯` 的註解，照著改就好。
+
+### 新增一個頁籤要動三個地方
+
+1. `src/pages/新頁.mjs` — 寫頁面內容，匯出一個回傳 `{ title, description, active, canonical, slug, body }` 的函式
+2. `tools/build.mjs` — `import` 進來、加一行 `await emit('網址', page(新頁()))`、在 sitemap 的 `urls` 補一筆
+3. `site.config.mjs` 的 `nav` — 加上頁籤
+
+> **頁籤名稱不要太長。** 導覽列是一整列橫排，太長會擠到左上角的診所名稱。
+> 目前 1000px 以下會切換成漢堡選單（`assets/css/style.css` 的 `@media (max-width: 1000px)`），
+> 若之後頁籤再變多或名稱再變長，這個斷點要跟著往上調。
+
+### 醫療文案的寫法原則
+
+衛教內容一律**只描述「這是什麼、過程如何」，不寫療效、不寫成功率**，適不適合一律導回
+「由醫師門診評估後說明」，自費項目要標明。這是醫療廣告規範下最安全的寫法。
+任何新增的療效相關敘述，**上線前請醫師確認過**。
 
 ---
 
@@ -175,7 +196,12 @@ git commit -m "新增文章：冬天的流感疫苗"
 git push
 ```
 
-推完幾十秒後，網站就更新了。
+推完之後 Cloudflare 大約要 **1～2 分鐘**才重建完成，期間打開網站看到的還是舊版，
+不用重推。想確認新版上線了沒，可以直接查頁面內容：
+
+```bash
+curl -s https://harmonia-clinic.cc-huang32.workers.dev/ | grep -o '要找的那句話'
+```
 
 ---
 
