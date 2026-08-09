@@ -272,7 +272,6 @@ button { font: inherit; color: inherit; }
   background: #fff; border-radius: var(--radius);
   box-shadow: var(--shadow); border: 1px solid var(--line);
 }
-.creed-mark { font-family: var(--serif); font-size: 44px; line-height: 1; color: var(--gold-500); display: block; margin-bottom: 8px; }
 .creed-lead {
   font-family: var(--serif);
   font-size: clamp(21px, 5vw, 30px); line-height: 1.6;

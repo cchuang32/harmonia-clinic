@@ -46,7 +46,6 @@ export function homePage(articles) {
 <section class="section creed">
   <div class="wrap">
     <div class="creed-card">
-      <span class="creed-mark" aria-hidden="true">「</span>
       <p class="creed-lead">健康，像深呼吸一樣自然。</p>
       <p class="creed-body">
         從手心的陪伴到溫馨的空間，用專業與溫度，陪你把健康過成最安心的日常。<br>
