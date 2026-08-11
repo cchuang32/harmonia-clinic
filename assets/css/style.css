@@ -19,6 +19,12 @@
   --green-100: #e3e9d7;      /* 圖示底色 */
   --green-050: #f2f5eb;      /* 區塊淡底 */
 
+  /* 琥珀橘。原則：只做「裝飾」——短線、邊框、hover，
+     絕對不拿來當小字的顏色（放白底只有 2.72），也不要貼在 --brand 上
+     （兩者亮度幾乎相同，對比僅 1.11，會糊在一起）。
+     需要文字用的暖色，一律用下面深一階的 --gold-600。 */
+  --accent:   #d18f40;
+
   --gold-600: #8a6a2f;
   --gold-500: #b08a46;
   --gold-100: #f5eedf;
@@ -190,10 +196,21 @@ button { font: inherit; color: inherit; }
 .section--brand .btn--ghost { color: var(--green-900); border-color: var(--green-900); }
 .section--brand .btn--ghost:hover { background: var(--green-900); color: #fff; }
 
+/* 小標籤：字本身維持深金（白底上要讀得清楚），
+   前面那截短橫線用亮橘 --accent，是全站唯一固定出現的橘色點綴。 */
 .eyebrow {
-  display: inline-block;
+  display: inline-flex; align-items: center; gap: 9px;
   font-size: 12.5px; font-weight: 700; letter-spacing: .2em;
   color: var(--gold-600); text-transform: uppercase; margin-bottom: 14px;
+}
+.eyebrow::before {
+  content: ""; width: 22px; height: 2px; border-radius: 2px;
+  background: var(--accent); flex: 0 0 auto;
+}
+/* 置中的小標籤：左右各一截，才不會偏一邊 */
+.section-head--center .eyebrow::after {
+  content: ""; width: 22px; height: 2px; border-radius: 2px;
+  background: var(--accent); flex: 0 0 auto;
 }
 .section-title {
   font-family: var(--serif);
@@ -315,7 +332,7 @@ a.card--link {
 }
 a.card--link:hover, a.card--link:focus-visible {
   transform: translateY(-2px);
-  border-color: var(--green-500);
+  border-color: var(--accent);      /* 滑過時亮起琥珀橘 */
   box-shadow: var(--shadow-lift);
 }
 /* 卡片與區塊底部的「看說明 →」 */
@@ -639,7 +656,14 @@ ul.chip-list, .card ul.chip-list {
 .footer-brand { font-family: var(--serif); font-size: 21px; font-weight: 700; color: #fff; }
 .footer-brand span { display: block; font-family: var(--sans); font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: rgba(255, 255, 255, .6); margin-top: 4px; }
 .footer-tagline { margin-top: 12px; font-size: 15px; line-height: 1.9; }
-.footer-title { font-size: 14px; font-weight: 700; color: var(--gold-500); letter-spacing: .08em; margin-bottom: 12px; }
+/* 標題改用暖白（原本的金色放在深橄欖上只有 3.77，小字讀起來吃力），
+   暖色的角色交給下面那條橘線 */
+.footer-title {
+  font-size: 14px; font-weight: 700; color: var(--gold-100);
+  letter-spacing: .08em; margin-bottom: 12px;
+  padding-bottom: 10px; border-bottom: 2px solid var(--accent);
+  display: inline-block;
+}
 .footer-col p { font-size: 15px; line-height: 1.85; }
 .footer-col a { color: #fff; text-decoration: none; }
 .footer-col a:hover { text-decoration: underline; }
