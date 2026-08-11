@@ -58,7 +58,7 @@ export function page(o) {
 <meta property="og:url" content="${canonical}">
 <meta property="og:image" content="${ogImage}">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#2c5f55">
+<meta name="theme-color" content="#9cab80">
 <link rel="icon" href="${url('/assets/img/favicon.svg')}" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -72,7 +72,7 @@ ${o.headExtra || ''}
 <header class="site-header">
   <div class="wrap header-inner">
     <a class="brand" href="${url('/')}">
-      <span class="brand-mark" aria-hidden="true">禾</span>
+      <span class="brand-mark" aria-hidden="true"></span>
       <span class="brand-text">
         <span class="brand-zh">${esc(site.nameZh)}</span>
         <span class="brand-en">${esc(site.nameEn)}</span>

@@ -25,13 +25,12 @@ export function homePage(articles) {
 
   const body = `
 <section class="hero">
-  <div class="hero-media">
-    <img src="${url(site.hero.image)}" alt="${esc(site.hero.alt)}" width="1920" height="1080" fetchpriority="high">
+  <div class="hero-banner">
+    <img src="${url(site.hero.image)}" alt="${esc(site.hero.alt)}" width="1500" height="1500" fetchpriority="high">
   </div>
   <div class="hero-body">
     <div class="wrap">
       <div class="hero-inner">
-        <span class="hero-eyebrow">${esc(site.nameEn)}</span>
         <h1 class="hero-slogan">${esc(site.slogan)}</h1>
         <p class="hero-lead">以家醫科與疼痛科為主的診所。<br class="only-wide">看診不只是解決眼前的不舒服，而是理解你的生活，一起找到走得長久的方式。</p>
         <div class="btn-row">

@@ -43,10 +43,11 @@ export const site = {
     { label: '地理位置', href: '/location/' },
   ],
 
-  // 首頁 HERO 主視覺（請把照片放到 assets/img/ 之後改這裡的檔名）
+  // 首頁最上方的 banner。目前放的是診所 logo（正方形，網頁上等比例顯示不裁切）。
+  // 換圖時若新圖底色不是橄欖綠 #9cab80，記得同時改 assets/css/style.css 的 --brand。
   hero: {
-    image: '/assets/img/hero-home.jpg',
-    alt: '君禾診所明亮溫馨的候診空間',
+    image: '/assets/img/logo-banner.jpg',
+    alt: '君禾診所 Harmonia Clinic',
   },
 };
 

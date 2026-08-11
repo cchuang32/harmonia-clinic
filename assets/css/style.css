@@ -4,16 +4,24 @@
    手機優先；所有區塊都有防破框保護
    ========================================================================== */
 
+/* ---------------------------------------------------------------------------
+   全站配色以 logo 為基準。
+   --brand 就是 assets/img/logo-banner.jpg 背景的那個橄欖綠（實際取色 #9cab80），
+   首頁 banner 兩側的留白靠它跟圖片無縫接在一起，改色前請先確認圖檔也一起換。
+   其餘綠色是同一個色相（黃綠）的深淺版本，深色供文字使用以確保對比度。
+--------------------------------------------------------------------------- */
 :root {
-  --green-900: #1e4640;
-  --green-700: #2c5f55;
-  --green-500: #4a8578;
-  --green-100: #e3efec;
-  --green-050: #f1f7f5;
+  --brand:     #9cab80;      /* logo 橄欖綠：banner 底色、品牌識別 */
 
-  --gold-600: #b8894a;
-  --gold-500: #c89b5a;
-  --gold-100: #f6ecdd;
+  --green-900: #2e3a22;      /* 深橄欖：標題、頁尾 */
+  --green-700: #5a6d42;      /* 中橄欖：按鈕、連結、選中的頁籤 */
+  --green-500: #8da06e;      /* 淺橄欖：邊框、hover */
+  --green-100: #e3e9d7;      /* 圖示底色 */
+  --green-050: #f2f5eb;      /* 區塊淡底 */
+
+  --gold-600: #8a6a2f;
+  --gold-500: #b08a46;
+  --gold-100: #f5eedf;
 
   --ink-900: #23261f;
   --ink-700: #3d443b;
@@ -62,7 +70,7 @@ body {
 img, svg, video, iframe { max-width: 100%; height: auto; display: block; }
 h1, h2, h3, h4, p, ul, ol, figure, blockquote { margin: 0; }
 ul, ol { padding-left: 1.25em; }
-a { color: var(--green-700); text-decoration-color: rgba(44, 95, 85, .35); text-underline-offset: .22em; }
+a { color: var(--green-700); text-decoration-color: rgba(90, 109, 66, .35); text-underline-offset: .22em; }
 a:hover { color: var(--green-900); text-decoration-color: currentColor; }
 button { font: inherit; color: inherit; }
 
@@ -104,12 +112,13 @@ button { font: inherit; color: inherit; }
 }
 
 .brand { display: flex; align-items: center; gap: 11px; text-decoration: none; color: inherit; min-width: 0; }
+/* 頁首標誌：logo-mark.png 是正方形，圖案只佔中間（上下各留白 28%），
+   所以用一個比較扁的視窗框住、圖片放大置中，等於把多餘留白裁掉，
+   圖案本身仍是等比例縮放，不會變形。 */
 .brand-mark {
   flex: 0 0 auto;
-  width: 38px; height: 38px; border-radius: 11px;
-  background: linear-gradient(145deg, var(--green-700), var(--green-500));
-  color: #fff; font-family: var(--serif); font-size: 20px; font-weight: 700;
-  display: grid; place-items: center; line-height: 1;
+  width: 58px; height: 38px;
+  background: url("../img/logo-mark.png") no-repeat center / 80px 80px;
 }
 .brand-text { display: flex; flex-direction: column; min-width: 0; }
 .brand-zh { font-family: var(--serif); font-size: 19px; font-weight: 700; line-height: 1.25; color: var(--green-900); white-space: nowrap; }
@@ -169,6 +178,18 @@ button { font: inherit; color: inherit; }
 .section--tint { background: var(--green-050); }
 .section--paper { background: #fff; }
 
+/* 品牌綠整片底色。目前沒有頁面在用，留著備用：想讓哪一區呼應 banner 的綠，
+   把該 <section> 的 section--paper／section--tint 換成 section--brand 即可。
+   文字一律用深橄欖（實測對比度 4.9，通過無障礙標準）；
+   千萬不要在這個底色上放白字或淺色字，會看不清楚。 */
+.section--brand { background: var(--brand); }
+.section--brand .eyebrow { color: var(--green-900); }
+.section--brand .section-title,
+.section--brand .section-lead { color: var(--green-900); }
+/* 這一區的線框按鈕要加深，原本的中橄欖放在品牌綠上只有 2.3 */
+.section--brand .btn--ghost { color: var(--green-900); border-color: var(--green-900); }
+.section--brand .btn--ghost:hover { background: var(--green-900); color: #fff; }
+
 .eyebrow {
   display: inline-block;
   font-size: 12.5px; font-weight: 700; letter-spacing: .2em;
@@ -209,34 +230,25 @@ button { font: inherit; color: inherit; }
 /* ==========================================================================
    首頁 HERO
    ========================================================================== */
-.hero { position: relative; overflow: hidden; background: var(--green-900); }
-.hero-media { position: relative; }
-.hero-media img {
-  width: 100%;
-  height: clamp(360px, 62vh, 620px);
-  object-fit: cover;
-  object-position: center 42%;
+.hero { background: var(--paper); }
+
+/* Banner：logo 圖片原尺寸等比顯示（正方形，絕不裁切、絕不拉伸），
+   兩側留白用 --brand 補滿，跟圖片自身的底色相同，看起來就是一整條橫幅。
+   要換圖時，新圖的底色若不是 #9cab80，記得一起改 --brand。 */
+.hero-banner { background: var(--brand); }
+.hero-banner img {
+  display: block;
+  width: min(100%, clamp(280px, 34vw, 420px));
+  height: auto;                 /* 高度跟著寬度走 → 比例永遠不變 */
+  margin-inline: auto;
 }
-.hero-media::after {
-  content: ""; position: absolute; inset: 0;
-  background: linear-gradient(180deg, rgba(20, 40, 36, .58) 0%, rgba(20, 40, 36, .34) 42%, rgba(20, 40, 36, .78) 100%);
-}
-.hero-body {
-  position: absolute; inset: 0; z-index: 2;
-  display: flex; align-items: center;
-}
-.hero-inner { max-width: 660px; color: #fff; padding-block: 40px; }
-.hero-eyebrow {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-size: 12px; letter-spacing: .22em; text-transform: uppercase;
-  color: var(--gold-100); margin-bottom: 18px;
-}
-.hero-eyebrow::before { content: ""; width: 26px; height: 1px; background: var(--gold-500); }
+
+.hero-body { background: var(--paper); padding-block: clamp(30px, 5vw, 52px); }
+.hero-inner { max-width: 680px; margin-inline: auto; text-align: center; }
 .hero h1 {
   font-family: var(--serif);
   font-size: clamp(28px, 6.6vw, 50px);
-  line-height: 1.32; font-weight: 700; color: #fff;
-  text-shadow: 0 2px 20px rgba(0, 0, 0, .28);
+  line-height: 1.32; font-weight: 700; color: var(--green-900);
 }
 /* 品牌標語：拉開字距讓它讀起來像標語。
    字級沿用 .hero h1 —— 實測 320px～1280px 都剛好單行不斷，
@@ -248,18 +260,9 @@ button { font: inherit; color: inherit; }
 .hero-lead {
   margin-top: 20px;
   font-size: clamp(15px, 3.8vw, 18.5px);
-  line-height: 1.95; color: rgba(255, 255, 255, .93);
-  text-shadow: 0 1px 14px rgba(0, 0, 0, .3);
+  line-height: 1.95; color: var(--ink-700);
 }
-.hero .btn-row { margin-top: 30px; }
-.hero .btn--ghost { border-color: rgba(255, 255, 255, .75); color: #fff; }
-.hero .btn--ghost:hover { background: rgba(255, 255, 255, .14); color: #fff; }
-
-@media (max-width: 700px) {
-  .hero-media img { height: 78vh; min-height: 460px; max-height: 640px; }
-  .hero-body { align-items: flex-end; }
-  .hero-inner { padding-bottom: 46px; }
-}
+.hero .btn-row { margin-top: 30px; justify-content: center; }
 
 /* 只在寬螢幕生效的斷行；窄螢幕交給瀏覽器自動折行，避免奇怪的斷句 */
 @media (max-width: 640px) { br.only-wide { display: none; } }
@@ -542,7 +545,7 @@ ul.chip-list, .card ul.chip-list {
   padding: .1em .4em; border-radius: 6px; font-size: .9em;
 }
 .article-body pre {
-  background: var(--green-900); color: #e8f0ee;
+  background: var(--green-900); color: #e9ecdf;
   padding: 18px; border-radius: var(--radius-sm);
   overflow-x: auto; -webkit-overflow-scrolling: touch;
 }

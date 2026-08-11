@@ -1,13 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" role="img" aria-label="君禾診所">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#2c5f55"/>
-      <stop offset="0.55" stop-color="#3d7568"/>
-      <stop offset="1" stop-color="#1e4640"/>
+      <stop offset="0" stop-color="#5a6d42"/>
+      <stop offset="0.55" stop-color="#8da06e"/>
+      <stop offset="1" stop-color="#2e3a22"/>
     </linearGradient>
     <linearGradient id="glow" x1="0" y1="1" x2="1" y2="0">
-      <stop offset="0" stop-color="#c89b5a" stop-opacity="0.30"/>
-      <stop offset="1" stop-color="#c89b5a" stop-opacity="0"/>
+      <stop offset="0" stop-color="#b08a46" stop-opacity="0.30"/>
+      <stop offset="1" stop-color="#b08a46" stop-opacity="0"/>
     </linearGradient>
   </defs>
 
