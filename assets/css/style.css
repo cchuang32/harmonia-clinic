@@ -409,16 +409,16 @@ ul.chip-list, .card ul.chip-list {
   display: grid; place-items: center; line-height: 1;
   margin: 0 auto 18px;
 }
-/* 插畫肖像：去背 PNG 坐落在淡橄欖綠底板上 */
+/* 插畫肖像：方形照片 */
 .doctor-photo {
   width: 100%; max-width: 210px; margin: 0 auto 18px;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 1 / 1;
   border-radius: var(--radius);
-  background: linear-gradient(160deg, var(--green-050), var(--green-100));
-  display: flex; align-items: flex-end; justify-content: center;
+  border: 1px solid var(--line);
+  background: var(--green-050);
   overflow: hidden;
 }
-.doctor-photo img { width: 100%; height: 100%; object-fit: contain; object-position: bottom; }
+.doctor-photo img { width: 100%; height: 100%; object-fit: cover; }
 
 .doctor-name { font-family: var(--serif); font-size: clamp(21px, 4.4vw, 25px); font-weight: 700; color: var(--green-900); line-height: 1.4; }
 .doctor-role { margin-top: 8px; color: var(--gold-600); font-weight: 500; font-size: 15px; line-height: 1.6; }

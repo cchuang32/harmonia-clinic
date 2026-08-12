@@ -12,8 +12,8 @@ const team = [
   {
     name: '黃佳君 醫師',
     role: '麻醉科．疼痛科專科醫師',
-    // 插畫肖像（已去背的透明 PNG）。留空則改用姓氏文字頭像
-    photo: '/assets/img/doctor-huang.png',
+    // 插畫肖像（方形照片）。留空則改用姓氏文字頭像
+    photo: '/assets/img/doctor-huang.jpg',
     education: ['長庚大學醫學系'],
     experience: [
       '林口長庚醫院麻醉部主治醫師',
@@ -52,7 +52,7 @@ export function doctorsPage() {
       <div class="doctor-id">
         ${t.photo
           ? `<div class="doctor-photo">
-          <img src="${url(t.photo)}" alt="${esc(t.name)}的插畫肖像" width="378" height="560" loading="lazy">
+          <img src="${url(t.photo)}" alt="${esc(t.name)}在診間的插畫肖像" width="560" height="560" loading="lazy">
         </div>`
           : `<span class="doctor-avatar" aria-hidden="true">${esc(t.name.slice(0, 1))}</span>`}
         <h2 class="doctor-name">${esc(t.name)}</h2>
