@@ -1,6 +1,13 @@
 import { site } from '../../site.config.mjs';
-import { esc } from '../layout.mjs';
+import { url, esc } from '../layout.mjs';
 import { icons } from '../components.mjs';
+
+// ---------------------------------------------------------------------------
+// 診所外觀照片：幫病人在現場認出門面，比地圖更實用。
+// 留空 → 整區不顯示，版面不變。建議 3:2 橫幅，第一張放正面招牌。
+//   { src: '/assets/img/place-front.jpg', alt: '君禾診所正面招牌', caption: '（可留空）' }
+// ---------------------------------------------------------------------------
+const exterior = [];
 
 // ★★ 待填：以下是待補欄位，不是實際交通資訊。
 //    請填入湖口診所真正的轉乘方式、公車路線與停車資訊，填好後跑 npm run build。
@@ -20,6 +27,22 @@ export function locationPage() {
     <p>${esc(site.contact.address)}<br>找不到路的時候，直接打電話給我們，我們會在電話裡帶你走。</p>
   </div>
 </section>
+
+${exterior.length ? `<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Our Place</span>
+      <h2 class="section-title">認得出這個門面</h2>
+      <p class="section-lead">到了中山路一段，看到這裡就是了。</p>
+    </div>
+    <div class="photo-grid photo-grid--${Math.min(exterior.length, 3)}">
+      ${exterior.map((ph) => `<figure class="photo">
+        <img src="${url(ph.src)}" alt="${esc(ph.alt)}" loading="lazy">
+        ${ph.caption ? `<figcaption>${esc(ph.caption)}</figcaption>` : ''}
+      </figure>`).join('\n      ')}
+    </div>
+  </div>
+</section>` : ''}
 
 <section class="section">
   <div class="wrap">

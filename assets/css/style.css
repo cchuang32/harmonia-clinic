@@ -373,6 +373,37 @@ ul.chip-list, .card ul.chip-list {
   color: var(--ink-700); font-size: 14.5px; line-height: 1.5;
 }
 
+/* ---------- 實拍照片：空間、外觀 ---------- */
+.photo-grid {
+  display: grid; gap: clamp(14px, 2.5vw, 22px);
+  margin-top: clamp(24px, 4vw, 36px);
+}
+/* 一張時放大置中，兩三張時並排 */
+.photo-grid--1 { grid-template-columns: 1fr; max-width: 860px; margin-inline: auto; }
+.photo-grid--2 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+.photo-grid--3 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); }
+
+.photo { margin: 0; min-width: 0; }
+.photo img {
+  width: 100%; aspect-ratio: 3 / 2; object-fit: cover;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: var(--green-050);
+  box-shadow: var(--shadow);
+}
+.photo figcaption {
+  margin-top: 10px; font-size: 13.5px; line-height: 1.7;
+  color: var(--ink-500); text-align: center;
+}
+
+/* 設備卡片改放實拍照時，取代原本的線條圖示 */
+.card-photo {
+  margin: calc(clamp(24px, 4vw, 32px) * -1) calc(clamp(24px, 4vw, 32px) * -1) 20px;
+  border-radius: var(--radius) var(--radius) 0 0;
+  overflow: hidden; background: var(--green-050);
+}
+.card-photo img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
+
 /* ---------- 診療設備與服務 ---------- */
 .facility-grid {
   display: grid; gap: clamp(14px, 2.5vw, 20px);

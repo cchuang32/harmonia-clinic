@@ -8,6 +8,11 @@ import { icons } from '../components.mjs';
 // ---------------------------------------------------------------------------
 // 診療設備與服務。
 //
+// 每一項可加設備照片，取代預設的線條圖示（建議 3:2 橫幅）：
+//   photo: '/assets/img/facility-xray.jpg',
+//   photoAlt: '診間內的數位 X 光機',
+// 不填則沿用圖示，版面不變。
+//
 // 衛教文字的寫法原則：只描述「這是什麼、過程如何」，不寫療效保證，
 // 是否適用一律導回醫師評估。這是醫療廣告規範下最安全的寫法，
 // 若要加入療效相關敘述，請先由醫師確認過再放。
@@ -48,6 +53,9 @@ const pillars = [
   {
     title: '空間像家一樣安心',
     desc: '木質調候診區、柔和照明與充足採光，並保留寬敞動線，讓推車與行動不便的長輩都能自在進出。',
+    // 空間照片。留空 → 不顯示，版面照常。建議 3:2 橫幅，第一張為主圖
+    // 格式：{ src: '/assets/img/space-waiting.jpg', alt: '候診區⋯', caption: '（可留空）' }
+    photos: [],
   },
 ];
 
@@ -69,8 +77,10 @@ export function featuresPage() {
       <p class="section-lead">每一項檢查或治療在做什麼、過程是什麼樣子，先在這裡說清楚。</p>
     </div>
     <div class="grid grid--2">
-      ${facilities.map((f) => `<div class="card">
-        <div class="card-icon">${icons[f.icon]}</div>
+      ${facilities.map((f) => `<div class="card${f.photo ? ' card--photo' : ''}">
+        ${f.photo
+          ? `<div class="card-photo"><img src="${url(f.photo)}" alt="${esc(f.photoAlt || f.title)}" loading="lazy"></div>`
+          : `<div class="card-icon">${icons[f.icon]}</div>`}
         <h3>${esc(f.title)}</h3>
         <p>${esc(f.desc)}</p>
       </div>`).join('\n      ')}
@@ -87,6 +97,14 @@ ${pillars.map((p) => `<section class="section section--paper">
     </div>
     <p class="section-lead">${esc(p.desc)}</p>
   </div>
+  ${p.photos && p.photos.length ? `<div class="wrap">
+    <div class="photo-grid photo-grid--${Math.min(p.photos.length, 3)}">
+      ${p.photos.map((ph) => `<figure class="photo">
+        <img src="${url(ph.src)}" alt="${esc(ph.alt)}" loading="lazy">
+        ${ph.caption ? `<figcaption>${esc(ph.caption)}</figcaption>` : ''}
+      </figure>`).join('\n      ')}
+    </div>
+  </div>` : ''}
 </section>`).join('\n')}
 
 <section class="section section--paper">
