@@ -20,6 +20,8 @@ import { icons } from '../components.mjs';
 const facilities = [
   {
     icon: 'xray', title: '數位 X 光機',
+    photo: '/assets/img/facility-xray.jpg',
+    photoAlt: '君禾診所 X 光室，右側為球管，左側為立位攝影板',
     desc: '用數位感測器取代傳統底片，拍完幾秒內影像就出現在螢幕上，醫師可以當場放大、調整對比，跟你一起看。輻射劑量比傳統 X 光低，也省去沖洗等待。主要用來觀察骨骼結構，例如關節間隙、骨刺、脊椎排列與骨折。',
   },
   {
