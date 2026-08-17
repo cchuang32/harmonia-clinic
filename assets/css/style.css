@@ -451,8 +451,21 @@ ul.chip-list, .card ul.chip-list {
 }
 .doctor-photo img { width: 100%; height: 100%; object-fit: cover; }
 
+/* 姓名＋職稱。手機版時與照片並排，這層讓兩行文字自己堆疊、不被擠成直的 */
+.doctor-idtext { min-width: 0; }
 .doctor-name { font-family: var(--serif); font-size: clamp(21px, 4.4vw, 25px); font-weight: 700; color: var(--green-900); line-height: 1.4; }
 .doctor-role { margin-top: 8px; color: var(--gold-600); font-weight: 500; font-size: 15px; line-height: 1.6; }
+
+/* 醫師自述（姓名下方的一段話） */
+.doctor-quote {
+  margin: 0; min-width: 0;
+  padding: clamp(14px, 2.4vw, 18px) clamp(16px, 2.6vw, 20px);
+  border-left: 3px solid var(--green-500);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  background: var(--green-050);
+  color: var(--ink-700);
+  font-size: clamp(15px, 3.5vw, 16.5px); line-height: 2;
+}
 
 .doctor-groups { display: grid; gap: clamp(20px, 3vw, 26px); min-width: 0; }
 .doctor-group { min-width: 0; }
@@ -469,6 +482,10 @@ ul.chip-list, .card ul.chip-list {
   content: ""; position: absolute; left: 3px; top: .68em;
   width: 6px; height: 6px; border-radius: 50%; background: var(--green-500);
 }
+
+/* 持續在學：講師經歷／進修課程清單 */
+.learn-block { margin-top: clamp(26px, 4vw, 36px); }
+.learn-block .doctor-group-title { margin-bottom: 14px; }
 
 @media (max-width: 760px) {
   .doctor { grid-template-columns: 1fr; }
