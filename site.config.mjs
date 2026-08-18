@@ -32,6 +32,21 @@ export const site = {
     { day: '星期日 / 國定假日', time: '休診' },
   ],
 
+  // 給 Google 看的診所資料（不會顯示在網頁上，寫在原始碼裡）。
+  // 上面的 address 或 hours 有改，記得回來一起改這裡。
+  seo: {
+    streetAddress: '中山路一段 596 號',
+    addressLocality: '湖口鄉',
+    addressRegion: '新竹縣',
+    postalCode: '303',
+    // 看診時間的機器可讀版本。days 用英文星期，時間用 24 小時制。
+    openingHours: [
+      { days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '09:00', closes: '12:00' },
+      { days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '16:00', closes: '20:30' },
+      { days: ['Saturday'], opens: '09:00', closes: '12:00' },
+    ],
+  },
+
   // 頁籤（頁首導覽列）
   nav: [
     { label: '首頁', href: '/' },

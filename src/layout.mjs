@@ -25,6 +25,46 @@ function navHtml(active) {
 }
 
 /**
+ * 診所的結構化資料（JSON-LD）。
+ *
+ * 這段不會顯示在網頁上，是寫在原始碼裡給 Google 看的：診所名稱、地址、
+ * 電話、看診時間與科別。Google 靠它判斷「這是新竹縣湖口鄉的一間診所」，
+ * 是地區搜尋（例如「湖口 家醫科」）最重要的一塊。
+ *
+ * 資料全部來自 site.config.mjs，改那邊這裡就會跟著變，不用動這個函式。
+ */
+function clinicSchema() {
+  const s = site.seo || {};
+  const data = {
+    '@context': 'https://schema.org',
+    '@type': 'MedicalClinic',
+    name: site.nameZh,
+    alternateName: site.nameEn,
+    description: site.tagline,
+    url: site.url + '/',
+    image: site.url + url(site.hero.image),
+    telephone: site.contact.phoneHref.replace('tel:', ''),
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: s.streetAddress,
+      addressLocality: s.addressLocality,
+      addressRegion: s.addressRegion,
+      postalCode: s.postalCode,
+      addressCountry: 'TW',
+    },
+    // schema.org 規定的科別代號：家醫科、麻醉科、肌肉骨骼
+    medicalSpecialty: ['PrimaryCare', 'Anesthesia', 'Musculoskeletal'],
+    openingHoursSpecification: (s.openingHours || []).map((h) => ({
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: h.days,
+      opens: h.opens,
+      closes: h.closes,
+    })),
+  };
+  return `<script type="application/ld+json">${JSON.stringify(data)}</script>`;
+}
+
+/**
  * 產生完整 HTML 頁面
  * @param {object} o
  * @param {string} o.title      <title> 用
@@ -64,6 +104,7 @@ export function page(o) {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700&display=swap">
 <link rel="stylesheet" href="${url('/assets/css/style.css')}">
+${clinicSchema()}
 ${o.headExtra || ''}
 </head>
 <body${o.bodyClass ? ` class="${o.bodyClass}"` : ''} data-page-slug="${esc(o.slug || 'home')}">
