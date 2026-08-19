@@ -6,7 +6,7 @@
 
 /* ---------------------------------------------------------------------------
    全站配色以 logo 為基準。
-   --brand 就是 assets/img/logo-banner.jpg 背景的那個橄欖綠（實際取色 #9cab80），
+   --brand 就是 assets/img/logo-horizontal.jpg 背景的那個橄欖綠（實際取色 #9cab80），
    首頁 banner 兩側的留白靠它跟圖片無縫接在一起，改色前請先確認圖檔也一起換。
    其餘綠色是同一個色相（黃綠）的深淺版本，深色供文字使用以確保對比度。
 --------------------------------------------------------------------------- */
@@ -255,7 +255,8 @@ button { font: inherit; color: inherit; }
 .hero-banner { background: var(--brand); }
 .hero-banner img {
   display: block;
-  width: min(100%, clamp(280px, 34vw, 420px));
+  /* 橫式 logo：比正方形的舊圖需要更寬才看得清楚 */
+  width: min(100%, clamp(300px, 50vw, 640px));
   height: auto;                 /* 高度跟著寬度走 → 比例永遠不變 */
   margin-inline: auto;
 }

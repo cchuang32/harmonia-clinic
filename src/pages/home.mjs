@@ -26,7 +26,7 @@ export function homePage(articles) {
   const body = `
 <section class="hero">
   <div class="hero-banner">
-    <img src="${url(site.hero.image)}" alt="${esc(site.hero.alt)}" width="1500" height="1500" fetchpriority="high">
+    <img src="${url(site.hero.image)}" alt="${esc(site.hero.alt)}" width="${site.hero.width}" height="${site.hero.height}" fetchpriority="high">
   </div>
   <div class="hero-body">
     <div class="wrap">
