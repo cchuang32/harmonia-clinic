@@ -58,6 +58,14 @@ ${exterior.length ? `<section class="section">
       <a class="btn btn--primary" href="https://www.google.com/maps/search/?api=1&query=${mapQ}" target="_blank" rel="noopener">${icons.pin} 用 Google 地圖導航</a>
       <a class="btn btn--ghost" href="${esc(site.contact.phoneHref)}">${icons.phone} 撥打電話 ${esc(site.contact.phone)}</a>
     </div>
+
+    <figure class="area-map">
+      <div class="area-map-scroll">
+      <img src="${url('/assets/img/area-map.svg')}" width="1120" height="760" loading="lazy"
+        alt="君禾診所周邊示意圖：診所位於中山路一段東側的湖心花園大樓，正對面為蝦皮店到店湖口湖心店，西南斜對面為石二鍋，西北斜對面為星巴克湖口竹笪門市。大樓後方為王爺壟停車場，可沿湖心花園與新傳遠景之間的消防通道步行約一分鐘至診所正門。台鐵湖口車站位於北方約一公里。">
+      </div>
+      <figcaption>到了附近怎麼走：停車場在大樓後方，沿兩棟大樓中間的消防通道即可走到正門。<span class="only-narrow">（手機可左右滑動看細節）</span></figcaption>
+    </figure>
   </div>
 </section>
 

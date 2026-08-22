@@ -698,6 +698,25 @@ ul.chip-list, .card ul.chip-list {
 .prose > p { color: var(--ink-700); font-size: clamp(15.5px, 3.6vw, 17px); line-height: 2.02; }
 .prose > p + p { margin-top: 1.15em; }
 
+/* 地理位置頁：周邊示意圖 */
+.area-map { margin: clamp(24px, 4vw, 34px) 0 0; }
+/* 窄螢幕時圖不再等比縮小到看不清楚，改成可左右滑動 */
+.area-map-scroll {
+  overflow-x: auto; -webkit-overflow-scrolling: touch;
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--paper);
+}
+.area-map img { width: 100%; height: auto; display: block; }
+.only-narrow { display: none; }
+@media (max-width: 720px) {
+  .area-map img { width: auto; min-width: 680px; }
+  .only-narrow { display: inline; }
+}
+.area-map figcaption {
+  margin-top: 12px; text-align: center;
+  font-size: 14.5px; color: var(--ink-500); line-height: 1.8;
+}
+
 .info-list { display: grid; gap: 14px; }
 .info-row {
   display: grid; gap: 4px 20px; grid-template-columns: 128px 1fr;
