@@ -35,6 +35,7 @@ export function homePage(articles) {
         <p class="hero-lead">位於新竹湖口，以家醫科與疼痛科為主的診所。<br class="only-wide">看診不只是解決眼前的不舒服，而是理解你的生活，一起找到走得長久的方式。</p>
         <div class="btn-row">
           <a class="btn btn--primary" href="${site.contact.phoneHref}">${icons.phone} 預約掛號 ${esc(site.contact.phone)}</a>
+          <a class="btn btn--ghost" href="${esc(site.contact.lineUrl)}" target="_blank" rel="noopener">${icons.chat} LINE 線上掛號</a>
           <a class="btn btn--ghost" href="${url('/services/')}">看看治療項目</a>
         </div>
       </div>

@@ -26,6 +26,7 @@ export const icons = {
   train: ic('<rect x="5" y="3" width="14" height="13" rx="4"/><path d="M5 11h14"/><circle cx="9" cy="13.5" r="1"/><circle cx="15" cy="13.5" r="1"/><path d="m7 20 2-3M17 20l-2-3"/>'),
   bus: ic('<rect x="4" y="4" width="16" height="12" rx="3"/><path d="M4 11h16"/><circle cx="8" cy="14" r="1"/><circle cx="16" cy="14" r="1"/><path d="M7 16v3M17 16v3"/>'),
   car: ic('<path d="M4 15h16v-3l-1.8-4.2A2 2 0 0 0 16.4 6H7.6a2 2 0 0 0-1.8 1.2L4 12Z"/><circle cx="7.5" cy="17.5" r="1.5"/><circle cx="16.5" cy="17.5" r="1.5"/>'),
+  chat: ic('<path d="M21 12a8 7.5 0 0 1-8 7.5 9 9 0 0 1-2.6-.37L5 21l1.2-3.4A7.4 7.4 0 0 1 5 12a8 7.5 0 0 1 16 0Z"/><path d="M9 11h6M9 14h4"/>'),
   phone: ic('<path d="M5 3h3.5l1.8 4.5-2.2 1.4a12 12 0 0 0 5.5 5.5l1.4-2.2L19.5 14V17a2 2 0 0 1-2.2 2A15.8 15.8 0 0 1 3 5.2 2 2 0 0 1 5 3Z"/>'),
 };
 
