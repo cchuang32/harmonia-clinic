@@ -111,9 +111,8 @@ ${exterior.length ? `<section class="section">
     <dl class="info-list">
       <div class="info-row"><dt>電話</dt><dd><a href="${esc(site.contact.phoneHref)}">${esc(site.contact.phone)}</a></dd></div>
       <div class="info-row"><dt>LINE</dt><dd>${esc(site.contact.lineId)}（可線上掛號）</dd></div>
-      <div class="info-row"><dt>Email</dt><dd><a href="mailto:${esc(site.contact.email)}">${esc(site.contact.email)}</a></dd></div>
       <div class="info-row"><dt>地址</dt><dd>${esc(site.contact.address)}</dd></div>
-      <div class="info-row"><dt>無障礙</dt><dd>大樓設有電梯與斜坡道，輪椅可直接進入診間。</dd></div>
+      <div class="info-row"><dt>無障礙</dt><dd>輪椅可直接進入診間。</dd></div>
     </dl>
 
     ${site.contact.lineQr ? `<div class="line-card">
