@@ -55,7 +55,7 @@ export const site = {
   nav: [
     { label: '首頁', href: '/' },
     { label: '治療項目', href: '/services/' },
-    { label: '再生注射治療', href: '/regeneration/' },
+    { label: '自體骨髓再生注射', href: '/regeneration/' },
     { label: '本院特色', href: '/features/' },
     { label: '醫師介紹', href: '/doctors/' },
     { label: '衛教文章', href: '/articles/' },
