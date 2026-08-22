@@ -107,6 +107,16 @@ ${exterior.length ? `<section class="section">
       <div class="info-row"><dt>地址</dt><dd>${esc(site.contact.address)}</dd></div>
       <div class="info-row"><dt>無障礙</dt><dd>大樓設有電梯與斜坡道，輪椅可直接進入診間。</dd></div>
     </dl>
+
+    ${site.contact.lineQr ? `<div class="line-card">
+      <img class="line-qr" src="${url(site.contact.lineQr)}" alt="${esc(site.nameZh)} LINE 官方帳號加入好友 QR 碼" width="600" height="600" loading="lazy">
+      <div class="line-card-body">
+        <h3>加入 LINE 好友</h3>
+        <p>掛號詢問、門診時間異動，都可以透過 LINE 聯絡我們。用電腦看這一頁的話，請拿手機掃描左邊的 QR 碼；用手機看的話，直接按下面的按鈕就可以。</p>
+        <a class="btn btn--primary" href="${esc(site.contact.lineUrl)}" target="_blank" rel="noopener">加入好友</a>
+        <p class="line-id">LINE ID：${esc(site.contact.lineId)}</p>
+      </div>
+    </div>` : ''}
   </div>
 </section>
 `;

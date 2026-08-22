@@ -668,6 +668,32 @@ ul.chip-list, .card ul.chip-list {
 .page-head h1 { font-family: var(--serif); font-size: clamp(27px, 6vw, 42px); line-height: 1.35; font-weight: 700; }
 .page-head p { margin-top: 16px; max-width: var(--measure); color: rgba(255, 255, 255, .88); font-size: clamp(15px, 3.6vw, 17px); line-height: 1.95; }
 
+/* 地理位置頁：LINE 加入好友（QR 碼 + 按鈕） */
+.line-card {
+  margin-top: clamp(24px, 4vw, 32px);
+  display: flex; align-items: center; gap: clamp(20px, 3vw, 30px);
+  background: var(--green-050); border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: clamp(20px, 3vw, 28px);
+}
+.line-qr {
+  flex: 0 0 auto;
+  width: clamp(120px, 26vw, 170px); height: auto;
+  border-radius: var(--radius-sm);
+  background: #fff;
+}
+.line-card-body { min-width: 0; }
+.line-card-body h3 {
+  font-family: var(--serif); font-size: 19px; font-weight: 700; color: var(--green-900);
+}
+.line-card-body p { margin-top: 8px; color: var(--ink-700); font-size: 15.5px; line-height: 1.9; }
+.line-card .btn { margin-top: 16px; }
+.line-id { font-size: 14.5px; color: var(--ink-500); }
+
+@media (max-width: 560px) {
+  .line-card { flex-direction: column; text-align: center; }
+}
+
 .info-list { display: grid; gap: 14px; }
 .info-row {
   display: grid; gap: 4px 20px; grid-template-columns: 128px 1fr;

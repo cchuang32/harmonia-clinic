@@ -18,7 +18,10 @@ export const site = {
   contact: {
     phone: '03-5900298',
     phoneHref: 'tel:+88635900298',
-    lineId: '@harmonia',
+    lineId: '@855wbxpl',
+    // 加入好友的連結與 QR 碼（LINE 官方帳號後台可以重新產生）
+    lineUrl: 'https://lin.ee/symEgb8',
+    lineQr: '/assets/img/line-qr.png',
     email: 'service@harmonia-clinic.tw',
     address: '新竹縣湖口鄉中山路一段 596 號',
     // Google 地圖用的查詢字串（地址或店名）
