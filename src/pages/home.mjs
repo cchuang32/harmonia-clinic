@@ -60,7 +60,7 @@ export function homePage(articles) {
     <div class="section-head section-head--center">
       <span class="eyebrow">Services</span>
       <h2 class="section-title">我們看什麼</h2>
-      <p class="section-lead">${esc(site.nameZh)}以家醫科與疼痛科為主。從全家人的日常病痛與慢性病追蹤，到肩頸腰背與關節的疼痛問題，都在同一個診間處理。</p>
+      <p class="section-lead">${esc(site.nameZh)}以家醫科與疼痛科為主。從全家人的各種急性症狀與慢性病追蹤，到肩頸腰背與關節的疼痛問題，都在同一個診間處理。</p>
     </div>
     <div class="grid grid--3">
       ${services.map((s) => s.href
