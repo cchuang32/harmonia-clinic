@@ -19,8 +19,9 @@ const team = [
   {
     name: '黃佳君 醫師',
     role: '麻醉科．疼痛科專科醫師',
-    // 插畫肖像（方形照片）。留空則改用姓氏文字頭像
-    photo: '/assets/img/doctor-huang.jpg',
+    // 肖像（方形照片）。留空則改用姓氏文字頭像
+    photo: '/assets/img/doctor-huang-photo.jpg',
+    photoAlt: '黃佳君醫師，身穿君禾診所醫師袍',
     quote: '疼痛很少是一天造成的，所以也很少能一天解決。我希望我幫你看診時看的不只是今天這個痛點，而是它為什麼會來、以後還會不會再來。',
     education: ['長庚大學醫學系'],
     experience: [
@@ -137,7 +138,7 @@ export function doctorsPage() {
       <div class="doctor-id">
         ${t.photo
           ? `<div class="doctor-photo">
-          <img src="${url(t.photo)}" alt="${esc(t.name)}在診間的插畫肖像" width="560" height="560" loading="lazy">
+          <img src="${url(t.photo)}" alt="${esc(t.photoAlt || t.name)}" width="900" height="900" loading="lazy">
         </div>`
           : `<span class="doctor-avatar" aria-hidden="true">${esc(t.name.slice(0, 1))}</span>`}
         <div class="doctor-idtext">
