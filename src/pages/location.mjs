@@ -10,8 +10,7 @@ import { icons } from '../components.mjs';
 const exterior = [];
 
 // 交通方式。要新增項目就往陣列裡再加一筆，圖示可用 train / bus / car。
-// 公車資訊尚未取得，暫不顯示；之後有路線再把下面這一行的註解拿掉並填上：
-//   { icon: 'bus', title: '公車', desc: '搭乘 ○○ 路線，於○○站下車，步行約 ○ 分鐘。' },
+// 已確認沒有可直達診所的公車路線，因此不列公車項目，改在清單下方說明。
 const transport = [
   { icon: 'train', title: '火車', desc: '最近的車站為台鐵湖口車站，距離診所約 1 公里，步行約 15 分鐘；行動不便或天氣不好時，建議轉乘計程車。' },
   { icon: 'car', title: '開車／機車', desc: '診所大樓後方有湖口鄉王爺壟停車場可利用。' },
@@ -97,6 +96,7 @@ ${exterior.length ? `<section class="section">
             </div>
           </div>`).join('\n          ')}
         </div>
+        <p class="section-lead" style="font-size:14.5px">※ 診所附近沒有可直達的公車路線，建議開車、騎車，或由湖口車站轉乘計程車。</p>
       </div>
     </div>
   </div>
