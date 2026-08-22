@@ -30,10 +30,10 @@ const groups = [
   {
     icon: 'syringe',
     title: '再生注射治療',
-    items: ['自體骨髓再生注射治療', 'PRP 再生注射治療'],
+    items: ['自體骨髓再生注射治療'],
     note: '自費項目。是否適合、療程次數與費用，由醫師於門診評估後說明。',
     // link：填了就在區塊底部出現一行連結
-    link: { href: '/regeneration/', label: '看自體骨髓及 PRP 再生注射的完整說明' },
+    link: { href: '/regeneration/', label: '看自體骨髓再生注射的完整說明' },
   },
   {
     icon: 'heart',
@@ -78,7 +78,6 @@ export function servicesPage() {
     </div>
     <dl class="info-list">
       <div class="info-row"><dt>健保卡</dt><dd>初診請攜帶健保卡與身分證明文件。</dd></div>
-      <div class="info-row"><dt>目前用藥</dt><dd>正在服用的藥（含保健食品）請帶藥袋或拍照，避免重複用藥。</dd></div>
       <div class="info-row"><dt>過去報告</dt><dd>近期抽血、X 光、超音波、核磁共振影像或他院病歷摘要，帶來能省下不少時間。</dd></div>
       <div class="info-row"><dt>疼痛問題</dt><dd>建議穿寬鬆好活動的衣物，方便醫師檢查活動角度與施力狀況。</dd></div>
       <div class="info-row"><dt>想問的問題</dt><dd>先寫在手機備忘錄裡。看診時很容易忘記，寫下來最實在。</dd></div>
@@ -100,7 +99,7 @@ export function servicesPage() {
 
   return {
     title: '治療項目',
-    description: `${site.nameZh}主治項目：慢性病（糖尿病、高血壓、高血脂）、感冒與呼吸道腸胃道等急性症狀、肌肉骨骼神經疼痛（肩頸痠痛、坐骨神經痛、五十肩、膝退化性關節炎等）、再生注射治療（自體骨髓、PRP）、預防保健與疫苗施打。`,
+    description: `${site.nameZh}主治項目：慢性病（糖尿病、高血壓、高血脂）、感冒與呼吸道腸胃道等急性症狀、肌肉骨骼神經疼痛（肩頸痠痛、坐骨神經痛、五十肩、膝退化性關節炎等）、再生注射治療（自體骨髓）、預防保健與疫苗施打。`,
     active: '/services/',
     canonical: '/services/',
     slug: 'services',

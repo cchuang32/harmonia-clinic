@@ -190,7 +190,7 @@ async function build() {
   await emit('doctors', page(doctorsPage()));
   await emit('articles', page(articlesPage(articles)));
   await emit('location', page(locationPage()));
-  ok('首頁、治療項目、自體骨髓及 PRP 再生注射、本院特色、醫師介紹、衛教文章、地理位置');
+  ok('首頁、治療項目、自體骨髓再生注射、本院特色、醫師介紹、衛教文章、地理位置');
 
   // --- 文章頁：每篇一個獨立網址 /<slug>/ ---
   for (let i = 0; i < articles.length; i++) {
