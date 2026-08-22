@@ -41,6 +41,19 @@ const team = [
 ];
 
 // ---------------------------------------------------------------------------
+// 「回湖口開業」——醫師與在地的關係。
+// paragraphs 一個元素就是一段，留空陣列則整個區塊不顯示。
+// 文字由診所提供。
+// ---------------------------------------------------------------------------
+const roots = {
+  title: '回湖口開業',
+  paragraphs: [
+    '我在湖口長大，後來離開念書、工作，最後選擇回到這裡開診所。',
+    '回來之後發現，即使很多建築的外貌已經改變，有些鄰居長輩甚至已經不在，但我對湖口的記憶其實還很清楚。',
+  ],
+};
+
+// ---------------------------------------------------------------------------
 // 「診間裡，我怎麼做」— 醫師的看診方式。
 // 這裡寫的是「過程如何」，不寫療效保證；要加療效相關敘述請先由醫師確認。
 // ---------------------------------------------------------------------------
@@ -142,6 +155,18 @@ export function doctorsPage() {
     </article>`).join('\n    ')}
   </div>
 </section>
+
+${roots.paragraphs.length ? `<section class="section section--tint">
+  <div class="wrap measure">
+    <div class="section-head">
+      <span class="eyebrow">Local Roots</span>
+      <h2 class="section-title">${esc(roots.title)}</h2>
+    </div>
+    <div class="prose">
+      ${roots.paragraphs.map((t) => `<p>${esc(t)}</p>`).join('\n      ')}
+    </div>
+  </div>
+</section>` : ''}
 
 <section class="section section--paper">
   <div class="wrap">

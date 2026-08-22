@@ -694,6 +694,10 @@ ul.chip-list, .card ul.chip-list {
   .line-card { flex-direction: column; text-align: center; }
 }
 
+/* 多段落的敘述文字（醫師介紹頁「回湖口開業」） */
+.prose > p { color: var(--ink-700); font-size: clamp(15.5px, 3.6vw, 17px); line-height: 2.02; }
+.prose > p + p { margin-top: 1.15em; }
+
 .info-list { display: grid; gap: 14px; }
 .info-row {
   display: grid; gap: 4px 20px; grid-template-columns: 128px 1fr;
