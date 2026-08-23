@@ -45,7 +45,7 @@ const aftercare = [
 const tellUs = [
   '目前有感染，或注射部位有傷口、皮膚發炎',
   '凝血功能異常，或正在服用抗凝血劑、抗血小板藥物',
-  '腫瘤或血液疾病',
+  '惡性腫瘤或血液疾病',
   '自體免疫疾病（例如：類風濕性關節炎、僵直性脊椎炎、紅斑性狼瘡、皮肌炎等）',
   '懷孕或哺乳中',
   '對局部麻醉藥曾有不良反應',
@@ -105,7 +105,7 @@ export function regenerationPage() {
         <div class="card-icon">${icons.shield}</div>
         <h3>看診時請主動告訴醫師</h3>
         <ul class="doctor-list">${tellUs.map((i) => `<li>${esc(i)}</li>`).join('')}</ul>
-        <p class="service-block-note">這些狀況不一定不能做，但會影響醫師的判斷與安排，請務必事先說明。</p>
+        <p class="service-block-note">以上這些情形會影響醫師的判斷與最後處置方式，如果你有以上任何狀況，請務必主動告知醫師，讓醫師協助評估這項治療是否適合你。</p>
       </div>
     </div>
     <p class="article-notice" style="margin-top:clamp(20px,3vw,28px)">※ ${esc(notice)}</p>
