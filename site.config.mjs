@@ -31,7 +31,7 @@ export const site = {
 
   // 看診時間（地理位置頁 + 頁尾使用）
   hours: [
-    { day: '星期一 ~ 星期五', time: '09:00–12:00　16:00–20:30' },
+    { day: '星期一 ~ 星期五', time: '09:00–12:00　16:00–18:00　18:30–20:30' },
     { day: '星期六', time: '09:00–12:00' },
     { day: '星期日 / 國定假日', time: '休診' },
   ],
@@ -46,7 +46,8 @@ export const site = {
     // 看診時間的機器可讀版本。days 用英文星期，時間用 24 小時制。
     openingHours: [
       { days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '09:00', closes: '12:00' },
-      { days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '16:00', closes: '20:30' },
+      { days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '16:00', closes: '18:00' },
+      { days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '18:30', closes: '20:30' },
       { days: ['Saturday'], opens: '09:00', closes: '12:00' },
     ],
   },
