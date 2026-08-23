@@ -21,7 +21,7 @@ export function articlesPage(articles) {
     ${tags.length ? `<p class="section-lead" style="margin-bottom:26px">主題：${tags.map((t) => esc(t)).join('、')}</p>` : ''}
     ${articles.length ? `<div class="post-grid">
       ${articles.map(postCard).join('\n      ')}
-    </div>` : '<p class="section-lead">文章準備中，很快就與您見面。</p>'}
+    </div>` : '<p class="section-lead">文章準備中，很快就與你見面。</p>'}
   </div>
 </section>
 `;

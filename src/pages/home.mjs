@@ -113,7 +113,7 @@ export function homePage(articles) {
     </div>
     <div class="btn-row">
       <a class="btn btn--ghost" href="${url('/articles/')}">看全部衛教文章</a>
-    </div>` : '<p class="section-lead">文章準備中，很快就與您見面。</p>'}
+    </div>` : '<p class="section-lead">文章準備中，很快就與你見面。</p>'}
   </div>
 </section>
 
