@@ -613,7 +613,7 @@ ul.chip-list, .card ul.chip-list {
 .article-body blockquote {
   border-left: 3px solid var(--gold-500);
   background: var(--gold-100);
-  padding: 4px clamp(16px, 4vw, 26px);
+  padding: 16px clamp(16px, 4vw, 26px);
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
 }
 .article-body blockquote p { color: var(--ink-700); }
