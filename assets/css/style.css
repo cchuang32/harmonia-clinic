@@ -457,6 +457,48 @@ ul.chip-list, .card ul.chip-list {
 .doctor-name { font-family: var(--serif); font-size: clamp(21px, 4.4vw, 25px); font-weight: 700; color: var(--green-900); line-height: 1.4; }
 .doctor-role { margin-top: 8px; color: var(--gold-600); font-weight: 500; font-size: 15px; line-height: 1.6; }
 
+/* 醫師介紹頁開場：左邊肖像與姓名，右邊「回湖口開業」的敘述 */
+.doctor-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 290px) minmax(0, 1fr);
+  gap: clamp(28px, 5vw, 64px);
+  align-items: start;
+}
+.doctor-intro-photo {
+  border-radius: var(--radius); overflow: hidden;
+  border: 1px solid var(--line); background: var(--green-050);
+}
+.doctor-intro-photo img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; }
+.doctor-intro-name {
+  margin-top: 18px; font-family: var(--serif);
+  font-size: clamp(21px, 4.4vw, 25px); font-weight: 700;
+  color: var(--green-900); line-height: 1.4;
+}
+.doctor-intro-role { margin-top: 6px; color: var(--gold-600); font-weight: 500; font-size: 15px; line-height: 1.6; }
+.doctor-intro-title {
+  margin-top: 10px; font-family: var(--serif);
+  font-size: clamp(25px, 5vw, 36px); font-weight: 700;
+  color: var(--green-900); line-height: 1.45;
+}
+.doctor-intro .prose { margin-top: clamp(16px, 3vw, 22px); }
+.doctor-intro .doctor-quote { margin-top: clamp(22px, 3.5vw, 30px); }
+
+@media (max-width: 860px) {
+  .doctor-intro { grid-template-columns: 1fr; gap: clamp(22px, 5vw, 30px); }
+  .doctor-intro-side { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+  .doctor-intro-photo { flex: 0 0 auto; width: 120px; }
+  .doctor-intro-name, .doctor-intro-role { margin-top: 0; }
+  .doctor-intro-side > p { flex-basis: 100%; }
+  .doctor-intro-name { flex-basis: auto; }
+  .doctor-intro-role { flex-basis: 100%; }
+}
+
+/* 學經歷四欄 */
+.cred-grid {
+  display: grid; gap: clamp(24px, 4vw, 40px);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+}
+
 /* 醫師自述（姓名下方的一段話） */
 .doctor-quote {
   margin: 0; min-width: 0;

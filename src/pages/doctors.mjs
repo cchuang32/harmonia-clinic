@@ -134,40 +134,42 @@ export function doctorsPage() {
 
 <section class="section">
   <div class="wrap">
-    ${team.map((t) => `<article class="doctor">
-      <div class="doctor-id">
+    ${team.map((t) => `<div class="doctor-intro">
+      <div class="doctor-intro-side">
         ${t.photo
-          ? `<div class="doctor-photo">
-          <img src="${url(t.photo)}" alt="${esc(t.photoAlt || t.name)}" width="900" height="900" loading="lazy">
+          ? `<div class="doctor-intro-photo">
+          <img src="${url(t.photo)}" alt="${esc(t.photoAlt || t.name)}" width="900" height="900" fetchpriority="high">
         </div>`
           : `<span class="doctor-avatar" aria-hidden="true">${esc(t.name.slice(0, 1))}</span>`}
-        <div class="doctor-idtext">
-          <h2 class="doctor-name">${esc(t.name)}</h2>
-          <p class="doctor-role">${esc(t.role)}</p>
-        </div>
+        <p class="doctor-intro-name">${esc(t.name)}</p>
+        <p class="doctor-intro-role">${esc(t.role)}</p>
       </div>
-      <div class="doctor-groups">
+      <div class="doctor-intro-body">
+        ${roots.paragraphs.length ? `<span class="eyebrow">Local Roots</span>
+        <h2 class="doctor-intro-title">${esc(roots.title)}</h2>
+        <div class="prose">
+          ${roots.paragraphs.map((x) => `<p>${esc(x)}</p>`).join('\n          ')}
+        </div>` : ''}
         ${t.quote ? `<blockquote class="doctor-quote">${esc(t.quote)}</blockquote>` : ''}
-        ${credList('學歷', t.education)}
-        ${credList('經歷', t.experience)}
-        ${credList('專科證照', t.certifications)}
-        ${credList('學會會員', t.societies)}
       </div>
-    </article>`).join('\n    ')}
+    </div>`).join('\n    ')}
   </div>
 </section>
 
-${roots.paragraphs.length ? `<section class="section section--tint">
-  <div class="wrap measure">
+<section class="section section--tint">
+  <div class="wrap">
     <div class="section-head">
-      <span class="eyebrow">Local Roots</span>
-      <h2 class="section-title">${esc(roots.title)}</h2>
+      <span class="eyebrow">Profile</span>
+      <h2 class="section-title">學經歷</h2>
     </div>
-    <div class="prose">
-      ${roots.paragraphs.map((t) => `<p>${esc(t)}</p>`).join('\n      ')}
-    </div>
+    ${team.map((t) => `<div class="cred-grid">
+      ${credList('學歷', t.education)}
+      ${credList('經歷', t.experience)}
+      ${credList('專科證照', t.certifications)}
+      ${credList('學會會員', t.societies)}
+    </div>`).join('\n    ')}
   </div>
-</section>` : ''}
+</section>
 
 <section class="section section--paper">
   <div class="wrap">
