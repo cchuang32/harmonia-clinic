@@ -103,6 +103,9 @@ const learning = {
   ],
   courses: [],
   photos: [
+    { src: '/assets/img/teaching-workshop.jpg',
+      alt: '黃佳君醫師在台灣區域麻醉暨止痛醫學會的真實病人工作坊中，手持超音波探頭示範檢查',
+      caption: '真實病人工作坊現場：以超音波探頭示範檢查與定位。' },
     { src: '/assets/img/teaching-cert.jpg',
       alt: '台灣區域麻醉暨止痛醫學會頒給黃佳君醫師的感謝狀，感謝其在疼痛擂台 7 真實病人工作坊中的專業指導',
       caption: '疼痛擂台 7：真實病人工作坊－決戰上肢（肩／肘／腕），台灣區域麻醉暨止痛醫學會頒發。' },
