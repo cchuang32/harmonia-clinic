@@ -748,7 +748,7 @@ ul.chip-list, .card ul.chip-list {
   border: 1px solid var(--line); border-radius: var(--radius);
   background: var(--paper);
 }
-.area-map img { width: 100%; max-width: 900px; height: auto; display: block; margin-inline: auto; }
+.area-map img { width: 100%; height: auto; display: block; }
 .only-narrow { display: none; }
 @media (max-width: 720px) {
   .area-map img { width: auto; min-width: 680px; }

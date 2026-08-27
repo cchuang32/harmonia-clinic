@@ -60,10 +60,10 @@ ${exterior.length ? `<section class="section">
 
     <figure class="area-map">
       <div class="area-map-scroll">
-      <img src="${url('/assets/img/area-map.svg')}" width="1240" height="980" loading="lazy"
-        alt="君禾診所周邊街道示意圖：診所位於中山路一段東側，正對面為蝦皮店到店，西北斜對面為星巴克與康是美，西南斜對面為石二鍋，再往西南為 7-ELEVEN。大樓後方為 24 小時的王爺壟停車場。周邊街道有達生路、達生二街、達生五路、達生一街、達生三街，以及中山一街、中山二街、中正七街、中正五街。沿中山路一段往北約一公里為台鐵湖口車站，途中可見全聯福利中心與麥當勞。">
+      <img src="${url('/assets/img/area-map.svg')}" width="1120" height="760" loading="lazy"
+        alt="君禾診所周邊示意圖：診所位於中山路一段東側的湖心花園大樓，正對面為蝦皮店到店湖口湖心店，西南斜對面為石二鍋，西北斜對面為星巴克湖口竹笪門市。大樓後方為王爺壟停車場，可沿湖心花園與新傳遠景之間的消防通道步行約一分鐘至診所正門。台鐵湖口車站位於北方約一公里。">
       </div>
-      <figcaption>周邊街道與地標。停車場在大樓後方，沿兩棟大樓中間的消防通道即可走到正門。<span class="only-narrow">（手機可左右滑動看細節）</span></figcaption>
+      <figcaption>到了附近怎麼走：停車場在大樓後方，沿兩棟大樓中間的消防通道即可走到正門。<span class="only-narrow">（手機可左右滑動看細節）</span></figcaption>
     </figure>
   </div>
 </section>
