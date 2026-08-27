@@ -19,7 +19,8 @@ export const site = {
     phone: '03-5900298',
     phoneHref: 'tel:+88635900298',
     lineId: '@855wbxpl',
-    // 加入好友的連結與 QR 碼（LINE 官方帳號後台可以重新產生）
+    // 加入好友的連結與 QR 碼。兩者都是 LINE 官方網址（lin.ee），
+    // QR 碼由 LINE 官方帳號後台產生，沒有經過第三方轉址。
     lineUrl: 'https://lin.ee/symEgb8',
     lineQr: '/assets/img/line-qr.png',
     // email 目前網站上沒有顯示（地理位置頁已移除該欄），保留備用
