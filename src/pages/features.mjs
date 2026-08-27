@@ -67,7 +67,7 @@ export function featuresPage() {
   <div class="wrap">
     <span class="eyebrow">Why Harmonia</span>
     <h1>本院特色</h1>
-    <p>${esc(site.nameZh)}是一間以家醫科與疼痛科為主的診所。「君禾」取自和諧與溫潤之意，英文 Harmonia 也是同一個念頭——我們希望這裡不只是生病才來的地方，而是你想到健康時，第一個信任的名字。</p>
+    <p>${esc(site.nameZh)}是一間以家醫科與疼痛科為主的診所。「君」是敬重，「禾」是生長，英文 Harmonia 取自「和諧」——我們希望這裡不只是生病才來的地方，而是你想到健康時，第一個信任的名字。</p>
   </div>
 </section>
 

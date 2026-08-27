@@ -48,9 +48,12 @@ export function homePage(articles) {
     <div class="creed-card">
       <p class="creed-lead">健康，像深呼吸一樣自然。</p>
       <p class="creed-body">
-        從手心的陪伴到溫馨的空間，用專業與溫度，陪你把健康過成最安心的日常。<br>
-        在君禾，我們不止步於治療，更陪伴您活出充滿能量的自己。
+        一個人不舒服、有點害怕，又不太確定自己是不是小題大作的時候，<br class="only-wide">
+        最需要的其實很簡單——被好好聽完。
       </p>
+      <div class="btn-row" style="justify-content:center;margin-top:clamp(20px,3vw,28px)">
+        <a class="btn btn--ghost" href="${url('/20260802-introduction/')}">為什麼我們這樣想</a>
+      </div>
     </div>
   </div>
 </section>
