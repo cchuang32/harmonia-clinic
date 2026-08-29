@@ -651,6 +651,12 @@ ul.chip-list, .card ul.chip-list {
 .article-body li { margin-top: .55em; line-height: 1.95; }
 .article-body li::marker { color: var(--green-500); }
 .article-body img { border-radius: var(--radius-sm); margin-inline: auto; }
+/* 圖片下方整段斜體的那一行，當作圖說處理 */
+.article-body p > em:only-child {
+  display: block; text-align: center; font-style: normal;
+  font-size: 14.5px; line-height: 1.9; color: var(--ink-500);
+  margin-top: -.4em;
+}
 .article-body a { font-weight: 500; }
 .article-body blockquote {
   border-left: 3px solid var(--gold-500);
