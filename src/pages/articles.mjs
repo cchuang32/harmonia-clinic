@@ -12,7 +12,7 @@ export function articlesPage(articles) {
   <div class="wrap">
     <span class="eyebrow">Journal</span>
     <h1>衛教文章</h1>
-    <p>診間裡最常被問到的問題、季節性的提醒、還有那些「醫師到底在說什麼」的名詞解釋，都寫在這裡。共 ${articles.length} 篇，最新的排在最前面。</p>
+    <p>門診說不完的，寫在這裡。不推銷任何治療，只把事情說清楚，包括它的限制。</p>
   </div>
 </section>
 
