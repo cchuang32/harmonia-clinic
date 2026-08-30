@@ -78,10 +78,10 @@ export function servicesPage() {
       <h2 class="section-title">看診前，可以先準備</h2>
     </div>
     <dl class="info-list">
-      <div class="info-row"><dt>健保卡</dt><dd>看診請攜帶健保卡與身分證明文件。</dd></div>
-      <div class="info-row"><dt>過去報告</dt><dd>近期抽血、X 光、超音波、核磁共振影像或他院病歷摘要，帶來能省下不少時間。</dd></div>
-      <div class="info-row"><dt>疼痛問題</dt><dd>建議穿寬鬆好活動的衣物，方便醫師檢查活動角度與施力狀況。</dd></div>
-      <div class="info-row"><dt>想問的問題</dt><dd>先寫在手機備忘錄裡。看診時很容易忘記，寫下來最實在。</dd></div>
+      <div class="info-row"><dt>健保卡與身分證明</dt><dd>請攜帶健保卡及身分證明文件。</dd></div>
+      <div class="info-row"><dt>過去檢查資料</dt><dd>若有近期抽血、X 光、超音波、核磁共振、或他院病歷摘要，可以一起帶來。</dd></div>
+      <div class="info-row"><dt>疼痛問題</dt><dd>建議穿著寬鬆、方便活動的衣物。可以事先記下疼痛位置、發生時間、加重動作、曾接受的治療及目前用藥。</dd></div>
+      <div class="info-row"><dt>想問的問題</dt><dd>把問題先記在手機裡。看診時逐一確認，通常比回家後才想起來更實用。</dd></div>
     </dl>
   </div>
 </section>

@@ -109,7 +109,7 @@ export function homePage(articles) {
     <div class="section-head">
       <span class="eyebrow">Journal</span>
       <h2 class="section-title">最新衛教文章</h2>
-      <p class="section-lead">把診間裡最常被問到的問題，寫成你在家也讀得懂的說明。</p>
+      <p class="section-lead">我們把常見疾病、檢查與治療整理成容易理解的文章，放在這裡。</p>
     </div>
     ${latest.length ? `<div class="post-grid">
       ${latest.map(postCard).join('\n      ')}
