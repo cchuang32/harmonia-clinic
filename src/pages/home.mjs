@@ -3,12 +3,12 @@ import { url, esc } from '../layout.mjs';
 import { icons, postCard } from '../components.mjs';
 
 const services = [
-  { icon: 'shield', title: '慢性病', desc: '糖尿病、高血壓、高血脂。' },
+  { icon: 'shield', title: '慢性病', desc: '糖尿病、高血壓、高血脂等慢性病追蹤，以及用藥、飲食、運動與生活型態的整體評估。' },
   { icon: 'stethoscope', title: '急性症狀', desc: '感冒、呼吸道、腸胃道、皮膚、過敏。' },
   { icon: 'bone', title: '肌肉骨骼神經疼痛', desc: '肩頸痠痛、腰痠背痛、坐骨神經痛、五十肩、網球肘、膝退化性關節炎等項目。' },
   // href：填了就整張卡片可以點，並在卡片下方出現「看完整說明 →」
   { icon: 'syringe', title: '再生注射治療', desc: '自體骨髓再生注射治療、PRP 再生注射治療。（自費項目，門診評估後說明）', href: '/regeneration/', more: '看完整說明' },
-  { icon: 'heart', title: '其他', desc: '預防保健、疫苗施打、抽血健康檢查、慢性疲勞調理。' },
+  { icon: 'heart', title: '其他', desc: '預防保健、疫苗施打、抽血健康檢查、慢性疲勞調理、營養點滴。（部分項目為自費，門診評估後說明）' },
 ];
 
 const features = [
@@ -63,7 +63,7 @@ export function homePage(articles) {
     <div class="section-head section-head--center">
       <span class="eyebrow">Services</span>
       <h2 class="section-title">我們看什麼</h2>
-      <p class="section-lead">${esc(site.nameZh)}以家醫科與疼痛科為主。從全家人的各種急性症狀與慢性病追蹤，到肩頸腰背與關節的疼痛問題，都在同一個診間處理。</p>
+      <p class="section-lead">${esc(site.nameZh)}以家醫照護與疼痛診療為主。從慢性病追蹤、急性不適，到肩頸腰背、關節及神經相關疼痛，都可以先來門診評估。</p>
     </div>
     <div class="grid grid--3">
       ${services.map((s) => s.href
