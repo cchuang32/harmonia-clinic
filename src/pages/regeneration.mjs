@@ -57,6 +57,14 @@ const tellUs = [
   '正在服用的其他藥物與保健食品',
 ];
 
+// 在決定之前會一起確認的事項（前兩點是臨床條件，後兩點是理解與心理準備）
+const beforeDecide = [
+  '症狀與診斷相符。',
+  '已接受一段時間的運動、復健、生活調整或其他標準治療，但改善有限。',
+  '你了解現有證據的限制與不確定性。',
+  '你了解治療可能無效，也可能仍需其他治療或手術。',
+];
+
 const notice = '以上為一般性衛教說明，僅供了解治療的原理與過程，無法取代醫師的診察與判斷。是否適用、療程次數與費用，須由醫師當面評估後決定。本項目為自費，會在進行前先向你說明。';
 
 export function regenerationPage() {
@@ -83,6 +91,17 @@ export function regenerationPage() {
         <p>${esc(t.desc)}</p>
       </div>`).join('\n      ')}
     </div>
+  </div>
+</section>
+
+<section class="section section--paper">
+  <div class="wrap measure">
+    <div class="section-head">
+      <span class="eyebrow">Before You Decide</span>
+      <h2 class="section-title">在決定之前，我們會一起確認這幾件事</h2>
+      <p class="section-lead">適合討論自費注射的情況，可能包括以下幾點。</p>
+    </div>
+    <ul class="doctor-list">${beforeDecide.map((i) => `<li>${esc(i)}</li>`).join('')}</ul>
   </div>
 </section>
 
