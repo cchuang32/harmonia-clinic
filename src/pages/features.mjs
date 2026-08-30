@@ -138,7 +138,7 @@ ${pillars.map((p) => `<section class="section section--paper">
 
   return {
     title: '本院特色',
-    description: `${site.nameZh}的診療設備與服務說明：數位 X 光機、肌肉骨骼神經超音波檢查、自體骨髓再生注射治療、超音波導引再生注射治療、體外震波治療與營養點滴，各項原理與過程一次說清楚。`,
+    description: `設備不在於做得多，而是用在真正需要的時候。${site.nameZh}位於新竹湖口，備有數位 X 光、肌肉骨骼神經超音波、超音波導引注射、體外震波與營養點滴，原理與過程都說清楚。`,
     active: '/features/',
     canonical: '/features/',
     slug: 'features',
