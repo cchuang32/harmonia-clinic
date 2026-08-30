@@ -13,10 +13,16 @@
   "name": "harmonia-clinic",
   "compatibility_date": "2026-08-01",
 
+  // 轉址程式：把 www 與 workers.dev 的網址 301 導到正式網域，
+  // 其餘請求原封不動交給下面的靜態檔案處理。
+  "main": "worker.js",
+
   "assets": {
     // 網站檔案在哪（由 npm run build 產生）
     "directory": "./dist",
     // 找不到頁面時，回傳我們自己的 404 頁
-    "not_found_handling": "404-page"
+    "not_found_handling": "404-page",
+    // 讓 worker.js 可以用 env.ASSETS 取用這些檔案
+    "binding": "ASSETS"
   }
 }
