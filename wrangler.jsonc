@@ -23,6 +23,10 @@
     // 找不到頁面時，回傳我們自己的 404 頁
     "not_found_handling": "404-page",
     // 讓 worker.js 可以用 env.ASSETS 取用這些檔案
-    "binding": "ASSETS"
+    "binding": "ASSETS",
+    // 預設會「先找靜態檔案，找到就直接回傳」，這樣 worker.js 永遠不會執行、
+    // 轉址也就不會生效。改成 true 表示每個請求都先交給 worker.js 判斷，
+    // 不需要轉址的再由它交還給靜態檔案。
+    "run_worker_first": true
   }
 }
