@@ -79,7 +79,7 @@ function clinicSchema() {
 export function page(o) {
   const title = o.title
     ? `${esc(o.title)}｜${esc(site.nameZh)} ${esc(site.nameEn)}`
-    : `${esc(site.nameZh)} ${esc(site.nameEn)}`;
+    : `${esc(site.nameZh)} ${esc(site.nameEn)}${site.seo.homeTitleSuffix ? `｜${esc(site.seo.homeTitleSuffix)}` : ''}`;
   const canonical = site.url + (o.canonical || '/');
   const ogImage = site.url + url(o.ogImage || site.hero.image);
 

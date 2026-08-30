@@ -100,7 +100,7 @@ export function servicesPage() {
 
   return {
     title: '治療項目',
-    description: `${site.nameZh}主治項目：慢性病（糖尿病、高血壓、高血脂）、感冒與呼吸道腸胃道等急性症狀、肌肉骨骼神經疼痛（肩頸痠痛、坐骨神經痛、五十肩、膝退化性關節炎等）、再生注射治療（自體骨髓、PRP）、預防保健、疫苗施打與營養點滴。`,
+    description: '家醫科與疼痛科門診：慢性病追蹤（糖尿病、高血壓、高血脂）、感冒與腸胃不適等急性症狀、肩頸腰背與關節疼痛、再生注射、預防保健與疫苗施打。新竹湖口，星期一至六看診。',
     active: '/services/',
     canonical: '/services/',
     slug: 'services',

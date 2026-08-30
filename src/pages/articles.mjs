@@ -28,7 +28,7 @@ export function articlesPage(articles) {
 
   return {
     title: '衛教文章',
-    description: `${site.nameZh}的衛教文章：常見症狀說明、慢性病照護、季節保養與就診須知，由診所醫師撰寫。`,
+    description: `${site.nameZh}的衛教文章：疼痛與再生注射、慢性病照護、常見症狀說明與就診須知，由黃佳君醫師撰寫，把診間裡最常被問到的問題寫成看得懂的說明。`,
     active: '/articles/',
     canonical: '/articles/',
     slug: 'articles',

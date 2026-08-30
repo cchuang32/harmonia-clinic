@@ -157,7 +157,7 @@ export function regenerationPage() {
 
   return {
     title: '自體骨髓及 PRP 再生注射',
-    description: `${site.nameZh}的自體骨髓再生注射與 PRP 再生注射衛教說明：生長因子取自本人、超音波導引定位，從門診評估、採集、注射到回診追蹤的完整流程，以及注射後注意事項與看診前要告知醫師的狀況。`,
+    description: '自體骨髓（BMA）與 PRP 再生注射衛教說明：生長因子取自本人、超音波導引定位，從確認診斷、採集、注射到回診的完整流程，以及效果與證據的限制。',
     active: '/regeneration/',
     canonical: '/regeneration/',
     slug: 'regeneration',

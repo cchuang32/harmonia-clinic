@@ -235,7 +235,7 @@ export function doctorsPage() {
 
   return {
     title: '黃佳君醫師',
-    description: `${site.nameZh}由黃佳君醫師看診。台灣麻醉醫學會、台灣疼痛醫學會專科醫師，曾任林口長庚與花蓮慈濟醫院麻醉部主治醫師、花蓮門諾醫院疼痛科醫師。看診先找出疼痛來源，注射全程以超音波導引進行。`,
+    description: `黃佳君醫師，台灣麻醉醫學會、台灣疼痛醫學會專科醫師，曾任林口長庚、花蓮慈濟麻醉部主治醫師與門諾醫院疼痛科醫師。在新竹湖口${site.nameZh}看診，注射全程以超音波導引。`,
     active: '/doctors/',
     canonical: '/doctors/',
     slug: 'doctors',

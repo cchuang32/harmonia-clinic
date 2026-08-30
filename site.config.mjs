@@ -40,6 +40,9 @@ export const site = {
   // 給 Google 看的診所資料（不會顯示在網頁上，寫在原始碼裡）。
   // 上面的 address 或 hours 有改，記得回來一起改這裡。
   seo: {
+    // 首頁 <title> 會接在「君禾診所 Harmonia Clinic」後面，讓搜尋看得到地區與科別。
+    // 留空字串則不加。其他頁面不受影響。
+    homeTitleSuffix: '新竹湖口家醫科・疼痛科',
     streetAddress: '中山路一段 596 號',
     addressLocality: '湖口鄉',
     addressRegion: '新竹縣',

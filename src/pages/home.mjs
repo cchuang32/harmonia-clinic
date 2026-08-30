@@ -137,7 +137,7 @@ export function homePage(articles) {
 
   return {
     title: '',
-    description: `${site.nameZh} ${site.nameEn}｜${site.slogan}。位於新竹縣湖口鄉，以家醫科與疼痛科為主的診所。健康，像深呼吸一樣自然——用專業與溫度，陪你把健康過成最安心的日常。`,
+    description: '新竹縣湖口鄉的家醫科與疼痛科診所。慢性病追蹤、急性症狀、肩頸腰背與關節疼痛，備有 X 光與超音波檢查、再生注射與體外震波。星期一至六看診，可 LINE 掛號。',
     active: '/',
     canonical: '/',
     slug: 'home',
