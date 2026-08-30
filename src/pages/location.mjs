@@ -12,8 +12,8 @@ const exterior = [];
 // 交通方式。要新增項目就往陣列裡再加一筆，圖示可用 train / bus / car。
 // 已確認沒有可直達診所的公車路線，因此不列公車項目，改在清單下方說明。
 const transport = [
-  { icon: 'train', title: '火車', desc: '最近的車站為台鐵湖口車站，距離診所約 1 公里，步行約 15 分鐘；行動不便或天氣不好時，建議轉乘計程車。' },
-  { icon: 'car', title: '開車／機車', desc: '診所大樓後方有湖口鄉王爺壟停車場可利用。' },
+  { icon: 'train', title: '火車', desc: '最近的車站為台鐵湖口車站，距離約 1 公里。實際步行時間會依路線、天候與個人行動狀況而異；行動不便或天候不佳時，可考慮轉乘計程車。' },
+  { icon: 'car', title: '開車／機車', desc: '可使用診所大樓後方的湖口鄉王爺壟停車場。停車規則、費率與開放狀況可能異動，出發前可先確認現場公告。' },
 ];
 
 export function locationPage() {
@@ -61,9 +61,9 @@ ${exterior.length ? `<section class="section">
     <figure class="area-map">
       <div class="area-map-scroll">
       <img src="${url('/assets/img/area-map.svg')}" width="1120" height="760" loading="lazy"
-        alt="君禾診所周邊示意圖：診所位於中山路一段東側的湖心花園大樓，正對面為蝦皮店到店湖口湖心店，西南斜對面為石二鍋，西北斜對面為星巴克湖口竹笪門市。大樓後方為王爺壟停車場，可沿湖心花園與新傳遠景之間的消防通道步行約一分鐘至診所正門。台鐵湖口車站位於北方約一公里。">
+        alt="君禾診所周邊示意圖：診所位於中山路一段東側的湖心花園大樓，正對面為蝦皮店到店湖口湖心店，西南斜對面為石二鍋，西北斜對面為星巴克湖口竹笪門市。大樓後方為王爺壟停車場，可沿湖心花園與新傳遠景之間的通道步行至診所正門。台鐵湖口車站位於北方約 1 公里。">
       </div>
-      <figcaption>到了附近怎麼走：停車場在大樓後方，沿兩棟大樓中間的消防通道即可走到正門。<span class="only-narrow">（手機可左右滑動看細節）</span></figcaption>
+      <figcaption>停車場位於大樓後方。停好車後，可沿兩棟大樓之間的通道步行至診所正門。示意地圖只呈現相對方位，不代表實際距離與比例。<span class="only-narrow">（手機可左右滑動看細節）</span></figcaption>
     </figure>
   </div>
 </section>
@@ -96,7 +96,7 @@ ${exterior.length ? `<section class="section">
             </div>
           </div>`).join('\n          ')}
         </div>
-        <p class="section-lead" style="font-size:14.5px">※ 診所附近沒有可直達的公車路線，建議開車、騎車，或由湖口車站轉乘計程車。</p>
+        <p class="section-lead" style="font-size:14.5px">※ 目前查無可直達診所的公車路線，建議開車、騎車，或由湖口車站轉乘計程車。公車路線可能調整，請以新竹縣即時交通資訊或地圖服務當日資料為準。</p>
       </div>
     </div>
   </div>
@@ -112,7 +112,7 @@ ${exterior.length ? `<section class="section">
       <div class="info-row"><dt>電話</dt><dd><a href="${esc(site.contact.phoneHref)}">${esc(site.contact.phone)}</a></dd></div>
       <div class="info-row"><dt>LINE</dt><dd>${esc(site.contact.lineId)}（可線上掛號）</dd></div>
       <div class="info-row"><dt>地址</dt><dd>${esc(site.contact.address)}</dd></div>
-      <div class="info-row"><dt>無障礙</dt><dd>輪椅可直接進入診間。</dd></div>
+      <div class="info-row"><dt>無障礙</dt><dd>輪椅可進入診所。若需要移位、上下診療床或其他協助，建議掛號時先告訴我們。</dd></div>
     </dl>
 
     ${site.contact.lineQr ? `<div class="line-card">
