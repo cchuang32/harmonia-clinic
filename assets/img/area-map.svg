@@ -42,7 +42,7 @@
   <circle cx="932" cy="378" r="18" fill="#5a6d42"/>
   <text x="932" y="385" font-size="21" font-weight="700" fill="#fff" text-anchor="middle">P</text>
   <text x="856" y="542" font-size="21" font-weight="700" fill="#2e3a22" text-anchor="middle">王爺壟停車場</text>
-  <text x="856" y="566" font-size="15" fill="#6b7268" text-anchor="middle">24 小時．診所大樓後方</text>
+  <text x="856" y="566" font-size="15" fill="#6b7268" text-anchor="middle">診所大樓後方</text>
 
   <!-- 君禾診所 -->
   <g filter="url(#soft)">
@@ -58,16 +58,16 @@
   <text x="621" y="322" font-size="25" font-weight="700" fill="#2e3a22" text-anchor="middle">君禾診所</text>
   <text x="621" y="348" font-size="15" fill="#3d443b" text-anchor="middle">中山路一段 596 號</text>
 
-  <!-- 隔壁大樓（消防通道夾在兩棟之間） -->
+  <!-- 隔壁大樓（通道夾在兩棟之間） -->
   <g filter="url(#soft)">
     <rect x="540" y="570" width="176" height="86" rx="14" fill="#ffffff" stroke="#d8d2c4" stroke-width="2.5"/>
   </g>
   <rect x="540" y="570" width="176" height="20" rx="10" fill="#efece4"/>
   <text x="628" y="624" font-size="17" font-weight="700" fill="#6b7268" text-anchor="middle">新傳遠景</text>
 
-  <!-- 消防通道：夾在兩棟大樓中間 -->
+  <!-- 通道：夾在兩棟大樓中間 -->
   <path d="M744 542 H 508" fill="none" stroke="#eceae2" stroke-width="30" stroke-linecap="round"/>
-  <text x="612" y="518" font-size="14" font-weight="700" fill="#8a6a2f" text-anchor="middle">消防通道（可步行）</text>
+  <text x="612" y="518" font-size="14" font-weight="700" fill="#8a6a2f" text-anchor="middle">通道（可步行）</text>
 
   <!-- 從停車場走到診所正門的路線 -->
   <path d="M762 470 C 762 508, 752 542, 730 542 L 522 542 C 510 542, 504 534, 504 522 L 504 486 C 504 476, 512 470, 524 470"
@@ -115,7 +115,7 @@
   </g>
   <path d="M681 76 L668 100 L694 99 Z" fill="#d18f40"/>
   <text x="706" y="104" font-size="17" font-weight="700" fill="#8a6a2f">往台鐵湖口車站</text>
-  <text x="706" y="126" font-size="14" fill="#8a6a2f">約 1 公里．步行 15 分鐘</text>
+  <text x="706" y="126" font-size="14" fill="#8a6a2f">約 1 公里</text>
 
   <!-- 指北針 -->
   <g transform="translate(1012 118)">
@@ -132,7 +132,7 @@
   <text x="56" y="106" font-size="16" fill="#6b7268">新竹縣湖口鄉中山路一段 596 號</text>
   <g transform="translate(56 676)">
     <path d="M0 0 H 46" stroke="#d18f40" stroke-width="4" stroke-dasharray="9 8" stroke-linecap="round"/>
-    <text x="58" y="5" font-size="14" fill="#3d443b">從停車場沿大樓旁的消防通道步行至診所正門，約 1 分鐘</text>
+    <text x="58" y="5" font-size="14" fill="#3d443b">從停車場沿兩棟大樓之間的通道步行至診所正門</text>
   </g>
   <text x="56" y="716" font-size="14" fill="#9aa196">※ 示意圖，僅標示相對方位，非按實際比例繪製。</text>
 </svg>
