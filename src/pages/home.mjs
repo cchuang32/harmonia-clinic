@@ -32,7 +32,7 @@ export function homePage(articles) {
     <div class="wrap">
       <div class="hero-inner">
         <h1 class="hero-slogan">${esc(site.slogan)}</h1>
-        <p class="hero-lead">位於新竹湖口，以家醫科與疼痛科為主的診所。<br class="only-wide">看診不只是解決眼前的不舒服，而是理解你的生活，一起找到走得長久的方式。</p>
+        <p class="hero-lead">位於新竹湖口。日常的大小病，以及各種疼痛問題，都可以先來門診看看。<br class="only-wide">看診不只是解決眼前的不舒服，而是理解你的生活，一起找到走得長久的方式。</p>
         <div class="btn-row">
           <a class="btn btn--primary" href="${site.contact.phoneHref}">${icons.phone} 預約掛號 ${esc(site.contact.phone)}</a>
           <a class="btn btn--ghost" href="${esc(site.contact.lineUrl)}" target="_blank" rel="noopener">${icons.chat} LINE 線上掛號</a>
@@ -63,7 +63,7 @@ export function homePage(articles) {
     <div class="section-head section-head--center">
       <span class="eyebrow">Services</span>
       <h2 class="section-title">我們看什麼</h2>
-      <p class="section-lead">${esc(site.nameZh)}以家醫照護與疼痛診療為主。從慢性病追蹤、急性不適，到肩頸腰背、關節及神經相關疼痛，都可以先來門診評估。</p>
+      <p class="section-lead">從慢性病追蹤、感冒過敏等急性不適，到肩頸腰背、關節及神經相關疼痛，都可以先來門診評估。</p>
     </div>
     <div class="grid grid--3">
       ${services.map((s) => s.href
@@ -137,7 +137,7 @@ export function homePage(articles) {
 
   return {
     title: '',
-    description: '新竹縣湖口鄉的家醫科與疼痛科診所。慢性病追蹤、急性症狀、肩頸腰背與關節疼痛，備有 X 光與超音波檢查、再生注射與體外震波。星期一至六看診，可 LINE 掛號。',
+    description: '新竹縣湖口鄉的診所。感冒、過敏、腸胃不適等急性症狀，慢性病追蹤，肩頸腰背與關節疼痛；備有 X 光與超音波檢查、再生注射與體外震波。星期一至六看診。',
     active: '/',
     canonical: '/',
     slug: 'home',

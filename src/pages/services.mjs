@@ -59,7 +59,7 @@ export function servicesPage() {
   <div class="wrap">
     <span class="eyebrow">Services</span>
     <h1>治療項目</h1>
-    <p>${esc(site.nameZh)}服務範圍以家醫科與疼痛科為主。從慢性病的長期追蹤、突發的急性症狀，到肩頸腰背與關節的疼痛問題，都是我們看診的範圍。不確定自己該看哪一項，直接打電話問我們也可以。</p>
+    <p>從慢性病的長期追蹤、突發的急性症狀，到肩頸腰背與關節的疼痛問題，都是我們看診的範圍。不確定自己該看哪一項，直接打電話問我們也可以。</p>
   </div>
 </section>
 
@@ -100,7 +100,7 @@ export function servicesPage() {
 
   return {
     title: '治療項目',
-    description: '家醫科與疼痛科門診：慢性病追蹤（糖尿病、高血壓、高血脂）、感冒與腸胃不適等急性症狀、肩頸腰背與關節疼痛、再生注射、預防保健與疫苗施打。新竹湖口，星期一至六看診。',
+    description: '門診範圍：慢性病追蹤（糖尿病、高血壓、高血脂）、感冒、過敏與腸胃不適等急性症狀、肩頸腰背與關節疼痛、再生注射、預防保健與疫苗施打。新竹湖口，星期一至六看診。',
     active: '/services/',
     canonical: '/services/',
     slug: 'services',

@@ -29,7 +29,7 @@ function navHtml(active) {
  *
  * 這段不會顯示在網頁上，是寫在原始碼裡給 Google 看的：診所名稱、地址、
  * 電話、看診時間與科別。Google 靠它判斷「這是新竹縣湖口鄉的一間診所」，
- * 是地區搜尋（例如「湖口 家醫科」）最重要的一塊。
+ * 是地區搜尋（例如「湖口 診所」）最重要的一塊。
  *
  * 資料全部來自 site.config.mjs，改那邊這裡就會跟著變，不用動這個函式。
  */
@@ -52,7 +52,7 @@ function clinicSchema() {
       postalCode: s.postalCode,
       addressCountry: 'TW',
     },
-    // schema.org 規定的科別代號：家醫科、麻醉科、肌肉骨骼
+    // schema.org 規定的代號：基層照護（指照護層級，非家醫專科）、麻醉、肌肉骨骼
     medicalSpecialty: ['PrimaryCare', 'Anesthesia', 'Musculoskeletal'],
     openingHoursSpecification: (s.openingHours || []).map((h) => ({
       '@type': 'OpeningHoursSpecification',
