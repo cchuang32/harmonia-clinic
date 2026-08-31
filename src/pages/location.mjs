@@ -16,6 +16,28 @@ const transport = [
   { icon: 'car', title: '開車／機車', desc: '可使用診所大樓後方的湖口鄉王爺壟停車場。停車規則、費率與開放狀況可能異動，出發前可先確認現場公告。' },
 ];
 
+// ---------------------------------------------------------------------------
+// 從停車場走到診所的實景照片，由遠而近。三張都已裁成 3:2，並清除 GPS 等中繼資料。
+// ★ 王爺壟停車場為民間業者經營，與診所無關，說明文字務必保留這一點。
+// ---------------------------------------------------------------------------
+const parkingWalk = [
+  {
+    src: '/assets/img/walk-1-parking-lot.jpg',
+    alt: '王爺壟停車場實景：診所大樓後方的平面停車場，可見出入口柵欄、自動繳費機與費率看板，後方為住宅大樓。',
+    caption: '王爺壟停車場，位於診所大樓後方。',
+  },
+  {
+    src: '/assets/img/walk-2-pay-station.jpg',
+    alt: '停車場的自動繳費機與出口柵欄，繳費機上方掛有 CBM Parking 自動繳費機布條。',
+    caption: '出場前先在自動繳費機繳費。',
+  },
+  {
+    src: '/assets/img/walk-3-passage.jpg',
+    alt: '兩棟大樓之間的通道入口，左側設有附扶手的斜坡道，通道盡頭通往中山路。',
+    caption: '沿兩棟大樓之間的通道往前走，即可通往中山路上的診所正門。通道口設有無障礙坡道。',
+  },
+];
+
 export function locationPage() {
   const mapQ = encodeURIComponent(site.contact.mapQuery);
   const body = `
@@ -65,6 +87,17 @@ ${exterior.length ? `<section class="section">
       </div>
       <figcaption>停車場位於大樓後方。停好車後，可沿兩棟大樓之間的通道步行至診所正門。示意地圖只呈現相對方位，不代表實際距離與比例。<span class="only-narrow">（手機可左右滑動看細節）</span></figcaption>
     </figure>
+
+    <div class="learn-block">
+      <h3 class="doctor-group-title">從停車場走到診所</h3>
+      <p class="section-lead" style="font-size:15px">停好車之後的路線，照片由遠而近。<strong>王爺壟停車場為民間業者經營，與君禾診所無關</strong>；診所無法提供停車優惠，也無法代為處理停車相關事宜。</p>
+      <div class="photo-grid photo-grid--3">
+        ${parkingWalk.map((ph) => `<figure class="photo">
+          <img src="${url(ph.src)}" alt="${esc(ph.alt)}" width="1200" height="800" loading="lazy">
+          <figcaption>${esc(ph.caption)}</figcaption>
+        </figure>`).join('\n        ')}
+      </div>
+    </div>
   </div>
 </section>
 
@@ -112,7 +145,7 @@ ${exterior.length ? `<section class="section">
       <div class="info-row"><dt>電話</dt><dd><a href="${esc(site.contact.phoneHref)}">${esc(site.contact.phone)}</a></dd></div>
       <div class="info-row"><dt>LINE</dt><dd>${esc(site.contact.lineId)}（可線上掛號）</dd></div>
       <div class="info-row"><dt>地址</dt><dd>${esc(site.contact.address)}</dd></div>
-      <div class="info-row"><dt>無障礙</dt><dd>輪椅可進入診所。若需要移位、上下診療床或其他協助，建議掛號時先告訴我們。</dd></div>
+      <div class="info-row"><dt>無障礙</dt><dd>從後方停車場過來，兩棟大樓之間的通道設有無障礙坡道。輪椅可進入診所；若需要移位、上下診療床或其他協助，建議掛號時先告訴我們。</dd></div>
     </dl>
 
     ${site.contact.lineQr ? `<div class="line-card">
