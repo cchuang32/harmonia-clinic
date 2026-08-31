@@ -45,7 +45,7 @@ export function locationPage() {
   <div class="wrap">
     <span class="eyebrow">Location</span>
     <h1>地理位置</h1>
-    <p>${esc(site.contact.address)}<br>找不到路的時候，直接打電話給我們，我們會在電話裡帶你走。</p>
+    <p>${esc(site.contact.address)}<br>診所在住宅大樓的一樓，可能不是一眼就看得到的店面。找不到就打給我們，我們照你眼前的招牌告訴你往哪走。</p>
   </div>
 </section>
 
