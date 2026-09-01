@@ -32,6 +32,7 @@ export function articlesPage(articles) {
     active: '/articles/',
     canonical: '/articles/',
     slug: 'articles',
+    breadcrumb: [{ name: '首頁', path: '/' }, { name: '衛教文章' }],
     body,
   };
 }

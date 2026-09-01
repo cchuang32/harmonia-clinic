@@ -142,6 +142,7 @@ ${pillars.map((p) => `<section class="section section--paper">
     active: '/features/',
     canonical: '/features/',
     slug: 'features',
+    breadcrumb: [{ name: '首頁', path: '/' }, { name: '本院特色' }],
     body,
   };
 }

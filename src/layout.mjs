@@ -33,16 +33,47 @@ function navHtml(active) {
  *
  * 資料全部來自 site.config.mjs，改那邊這裡就會跟著變，不用動這個函式。
  */
+// 實體的固定身分編號。所有頁面都指向同一組編號，Google 才知道各頁講的是
+// 同一間診所、同一位醫師，而不是名字剛好一樣的別人。
+export const CLINIC_ID = `${site.url}/#clinic`;
+export const PHYSICIAN_ID = `${site.url}/doctors/#physician`;
+
+/** 把任意 JSON-LD 物件包成 <script> 標籤 */
+export const jsonLd = (data) =>
+  `<script type="application/ld+json">${JSON.stringify(data)}</script>`;
+
+/**
+ * 麵包屑的結構化資料。
+ * @param {Array<{name:string, path?:string}>} items 由外而內，最後一項是本頁
+ */
+export function breadcrumbSchema(items) {
+  return jsonLd({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((it, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: it.name,
+      ...(it.path ? { item: site.url + url(it.path) } : {}),
+    })),
+  });
+}
+
 function clinicSchema() {
   const s = site.seo || {};
   const data = {
     '@context': 'https://schema.org',
     '@type': 'MedicalClinic',
+    '@id': CLINIC_ID,
     name: site.nameZh,
     alternateName: site.nameEn,
-    description: site.tagline,
+    description: s.clinicDescription || site.tagline,
     url: site.url + '/',
     image: site.url + url(site.hero.image),
+    logo: {
+      '@type': 'ImageObject',
+      url: site.url + url('/assets/img/logo-horizontal.jpg'),
+    },
     telephone: site.contact.phoneHref.replace('tel:', ''),
     address: {
       '@type': 'PostalAddress',
@@ -52,8 +83,11 @@ function clinicSchema() {
       postalCode: s.postalCode,
       addressCountry: 'TW',
     },
+    hasMap: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(site.contact.mapQuery)}`,
     // schema.org 規定的代號：基層照護（指照護層級，非家醫專科）、麻醉、肌肉骨骼
     medicalSpecialty: ['PrimaryCare', 'Anesthesia', 'Musculoskeletal'],
+    // 診所與醫師互相指認，這是「實體化」最關鍵的一行
+    employee: { '@id': PHYSICIAN_ID },
     openingHoursSpecification: (s.openingHours || []).map((h) => ({
       '@type': 'OpeningHoursSpecification',
       dayOfWeek: h.days,
@@ -61,7 +95,13 @@ function clinicSchema() {
       closes: h.closes,
     })),
   };
-  return `<script type="application/ld+json">${JSON.stringify(data)}</script>`;
+  if (s.areaServed && s.areaServed.length) {
+    data.areaServed = s.areaServed.map((n) => ({ '@type': 'AdministrativeArea', name: n }));
+  }
+  // sameAs：診所在其他平台的正式頁面（Google 商家、FB、IG⋯）。
+  // 填在 site.config.mjs 的 seo.sameAs，留空就不輸出。
+  if (s.sameAs && s.sameAs.length) data.sameAs = s.sameAs;
+  return jsonLd(data);
 }
 
 /**
@@ -73,6 +113,7 @@ function clinicSchema() {
  * @param {string} o.body       頁面主體 HTML
  * @param {string} [o.canonical] 本頁路徑，例如 /articles/
  * @param {string} [o.ogImage]  分享縮圖路徑
+ * @param {Array}  [o.breadcrumb] 麵包屑，例如 [{name:'首頁',path:'/'},{name:'衛教文章'}]
  * @param {string} [o.headExtra] 額外塞進 <head> 的內容
  * @param {string} [o.bodyClass]
  */
@@ -105,6 +146,7 @@ export function page(o) {
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700&display=swap">
 <link rel="stylesheet" href="${url('/assets/css/style.css')}">
 ${clinicSchema()}
+${o.breadcrumb ? breadcrumbSchema(o.breadcrumb) : ''}
 ${o.headExtra || ''}
 </head>
 <body${o.bodyClass ? ` class="${o.bodyClass}"` : ''} data-page-slug="${esc(o.slug || 'home')}">

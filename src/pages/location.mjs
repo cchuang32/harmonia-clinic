@@ -167,6 +167,7 @@ ${exterior.length ? `<section class="section">
     active: '/location/',
     canonical: '/location/',
     slug: 'location',
+    breadcrumb: [{ name: '首頁', path: '/' }, { name: '地理位置' }],
     body,
   };
 }

@@ -1,5 +1,5 @@
 import { site } from '../../site.config.mjs';
-import { url, esc } from '../layout.mjs';
+import { url, esc, jsonLd as ld, CLINIC_ID, PHYSICIAN_ID } from '../layout.mjs';
 import { articleMeta } from '../components.mjs';
 
 /**
@@ -16,22 +16,22 @@ export function articlePage(a, nav = {}) {
     : '';
 
   // 結構化資料，讓 Google／AI 讀得懂這是誰寫的、什麼時候更新的
-  const jsonLd = {
+  // 作者若是本院醫師，就直接指向醫師介紹頁的那個實體編號，不要另外描述一次。
+  // Google 才知道寫這篇的人，就是那位有麻醉科專科的黃佳君醫師。
+  const byClinicDoctor = a.author.includes('黃佳君');
+  const articleLd = {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: a.title,
     description: a.excerpt,
+    inLanguage: 'zh-Hant-TW',
     datePublished: a.date,
     dateModified: a.updated || a.date,
-    author: { '@type': 'Person', name: a.author },
-    publisher: {
-      '@type': 'MedicalClinic',
-      name: `${site.nameZh} ${site.nameEn}`,
-      address: site.contact.address,
-      telephone: site.contact.phone,
-    },
+    author: byClinicDoctor ? { '@id': PHYSICIAN_ID } : { '@type': 'Person', name: a.author },
+    ...(byClinicDoctor ? { reviewedBy: { '@id': PHYSICIAN_ID } } : {}),
+    publisher: { '@id': CLINIC_ID },
     mainEntityOfPage: `${site.url}/${a.slug}/`,
-    ...(a.hero ? { image: site.url + url(a.hero) } : {}),
+    ...(a.cover ? { image: site.url + url(a.cover) } : {}),
   };
 
   const body = `
@@ -79,8 +79,9 @@ ${a.html}
     active: '/articles/',
     canonical: `/${a.slug}/`,
     slug: a.slug,
-    ogImage: a.hero,
-    headExtra: `<script type="application/ld+json">${JSON.stringify(jsonLd)}</script>`,
+    ogImage: a.cover,
+    breadcrumb: [{ name: '首頁', path: '/' }, { name: '衛教文章', path: '/articles/' }, { name: a.title }],
+    headExtra: ld(articleLd),
     body,
   };
 }

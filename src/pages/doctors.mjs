@@ -1,5 +1,5 @@
 import { site } from '../../site.config.mjs';
-import { url, esc } from '../layout.mjs';
+import { url, esc, jsonLd, CLINIC_ID, PHYSICIAN_ID } from '../layout.mjs';
 import { icons } from '../components.mjs';
 
 // ---------------------------------------------------------------------------
@@ -233,12 +233,46 @@ export function doctorsPage() {
 </section>
 `;
 
+  // ---------------------------------------------------------------------------
+  // 醫師的結構化資料。資料全部來自上方 team[0]，改那邊這裡就會跟著變。
+  //
+  // medicalSpecialty 只寫 Anesthesia（部定專科，屬實）與 Musculoskeletal
+  // （描述診療部位）。schema.org 沒有「疼痛科」這個代號，也不要自己造一個。
+  // ---------------------------------------------------------------------------
+  const doc = team[0];
+  const physicianLd = jsonLd({
+    '@context': 'https://schema.org',
+    '@type': 'Physician',
+    '@id': PHYSICIAN_ID,
+    name: doc.name.replace(/\s*醫師$/, ''),
+    honorificSuffix: '醫師',
+    url: site.url + url('/doctors/'),
+    ...(doc.photo ? { image: site.url + url(doc.photo) } : {}),
+    medicalSpecialty: ['Anesthesia', 'Musculoskeletal'],
+    ...(doc.education && doc.education.length
+      ? { alumniOf: doc.education.map((n) => ({ '@type': 'CollegeOrUniversity', name: n })) }
+      : {}),
+    ...(doc.societies || doc.certifications
+      ? {
+          memberOf: [...new Set(
+            [...(doc.certifications || []), ...(doc.societies || [])]
+              .map((t) => t.replace(/(專科醫師|會員|工作坊講師)$/, '').trim())
+              .filter(Boolean),
+          )].map((n) => ({ '@type': 'MedicalOrganization', name: n })),
+        }
+      : {}),
+    worksFor: { '@id': CLINIC_ID },
+    workLocation: { '@id': CLINIC_ID },
+  });
+
   return {
     title: '黃佳君醫師',
     description: `黃佳君醫師，台灣麻醉醫學會、台灣疼痛醫學會專科醫師，曾任林口長庚、花蓮慈濟麻醉部主治醫師與門諾醫院疼痛科醫師。在新竹湖口${site.nameZh}看診，注射全程以超音波導引。`,
     active: '/doctors/',
     canonical: '/doctors/',
     slug: 'doctors',
+    breadcrumb: [{ name: '首頁', path: '/' }, { name: '醫師介紹' }],
+    headExtra: physicianLd,
     body,
   };
 }

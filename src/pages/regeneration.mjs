@@ -161,6 +161,7 @@ export function regenerationPage() {
     active: '/regeneration/',
     canonical: '/regeneration/',
     slug: 'regeneration',
+    breadcrumb: [{ name: '首頁', path: '/' }, { name: '自體骨髓及 PRP 再生注射' }],
     body,
   };
 }

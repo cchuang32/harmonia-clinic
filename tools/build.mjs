@@ -133,6 +133,17 @@ async function loadArticles() {
       hero = PLACEHOLDER_HERO;
     }
 
+    // 分享縮圖與結構化資料用的圖，跟版面上的 HERO 分開處理：
+    // Google 的文章結構化資料、LINE 與 Facebook 的預覽縮圖都不吃 SVG，
+    // 所以佔位圖（.svg）不能拿來當 cover。
+    // 順序：hero → 內文第一張圖 → 品牌橫幅。
+    let cover = hero && !hero.endsWith('.svg') ? hero : '';
+    if (!cover) {
+      const m = body.match(/!\[[^\]]*\]\((\/assets\/[^)\s]+\.(?:jpg|jpeg|png|webp))\)/i);
+      if (m) cover = m[1];
+    }
+    if (!cover) cover = site.hero.image;
+
     const text = markdownToText(body);
     articles.push({
       slug,
@@ -143,6 +154,7 @@ async function loadArticles() {
       date: data.date,
       updated,
       hero,
+      cover,
       heroAlt: data.heroAlt || data.title,
       heroCaption: data.heroCaption || '',
       excerpt: data.excerpt || (text.length > 96 ? text.slice(0, 96) + '…' : text),
@@ -249,8 +261,28 @@ async function build() {
     urls.map((u) => `  <url><loc>${site.url}${u.loc}</loc>${u.lastmod ? `<lastmod>${u.lastmod}</lastmod>` : ''}<priority>${u.pri}</priority></url>`).join('\n') +
     `\n</urlset>\n`);
   await writeFile(path.join(DIST, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${site.url}/sitemap.xml\n`);
+
+  // --- llms.txt ---
+  // 給 AI 搜尋引擎（ChatGPT、Perplexity 等）讀的純文字摘要。網頁有選單、樣式、
+  // 程式碼，AI 要自己拆解容易讀漏；這個檔案等於主動遞過去的一張小抄。
+  // 還不是正式標準，但成本極低。內容全部來自 site.config.mjs 與文章清單。
+  const hoursLine = site.hours.map((h) => `${h.day} ${h.time}`).join('；');
+  const navPages = site.nav.filter((n) => n.href !== '/' && n.href !== '/articles/');
+  await writeFile(path.join(DIST, 'llms.txt'),
+    `# ${site.nameZh} ${site.nameEn}\n\n` +
+    `> ${site.seo.clinicDescription}\n` +
+    `> 地址：${site.contact.address}｜電話：${site.contact.phone}\n` +
+    `> 看診時間：${hoursLine}\n` +
+    `> 線上掛號：LINE ${site.contact.lineId}（${site.contact.lineUrl}）\n\n` +
+    `## 主要頁面\n` +
+    navPages.map((n) => `- [${n.label}](${site.url}${n.href})`).join('\n') + '\n\n' +
+    `## 衛教文章\n` +
+    articles.map((a) => `- [${a.title}](${site.url}/${a.slug}/)：${a.excerpt}`).join('\n') + '\n\n' +
+    `## 說明\n` +
+    `本站內容為一般健康資訊，無法取代醫師的診察、診斷與治療建議。\n` +
+    `是否適用某項檢查或治療，須由醫師當面評估後決定。\n`);
   await writeFile(path.join(DIST, '.nojekyll'), '');
-  ok('sitemap.xml / robots.txt / 404.html');
+  ok('sitemap.xml / robots.txt / llms.txt / 404.html');
 
   console.log(`\n\x1b[32m完成\x1b[0m → dist/${warnings.length ? `\x1b[33m（${warnings.length} 個提醒，見上方 !）\x1b[0m` : ''}\n`);
 }

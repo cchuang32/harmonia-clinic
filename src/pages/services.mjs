@@ -104,6 +104,7 @@ export function servicesPage() {
     active: '/services/',
     canonical: '/services/',
     slug: 'services',
+    breadcrumb: [{ name: '首頁', path: '/' }, { name: '治療項目' }],
     body,
   };
 }
