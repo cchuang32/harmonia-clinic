@@ -112,7 +112,7 @@ export function servicesPage() {
 
   return {
     title: '治療項目',
-    description: '門診範圍：慢性病追蹤（糖尿病、高血壓、高血脂）、感冒、過敏與腸胃不適等急性症狀、肩頸腰背與關節疼痛、再生注射、預防保健與疫苗施打。新竹湖口，星期一至六看診。',
+    description: '門診範圍：慢性病追蹤（糖尿病、高血壓、高血脂、痛風）、感冒過敏與腸胃不適等急性症狀、肩頸腰背與關節疼痛、再生注射、預防保健與疫苗施打。新竹湖口，星期一至六看診。',
     active: '/services/',
     canonical: '/services/',
     slug: 'services',
