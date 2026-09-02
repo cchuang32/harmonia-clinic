@@ -9,22 +9,26 @@ const groups = [
   {
     icon: 'shield',
     title: '慢性病',
-    items: ['糖尿病', '高血壓', '高血脂'],
+    sub: '長期追蹤',
+    items: ['糖尿病', '高血壓', '高血脂', '痛風'],
   },
   {
     icon: 'stethoscope',
     title: '急性症狀',
+    sub: '當天不舒服，當天就可以來',
     items: ['感冒', '呼吸道', '腸胃道', '皮膚', '過敏'],
   },
   {
     icon: 'bone',
     title: '肌肉骨骼神經疼痛',
     wide: true,
-    items: [
-      '肩頸痠痛', '腰痠背痛', '坐骨神經痛', '椎間盤突出', '脊椎滑脫', '脊椎狹窄',
-      '骨刺', '五十肩', '肩夾擠', '肩旋轉肌腱撕裂傷', '網球肘', '媽媽手',
-      '腕隧道症候群', '板機指', '膝退化性關節炎', '十字韌帶撕裂傷',
-      '膝半月板撕裂傷', '足底筋膜炎', '扭拉挫傷', '痛風', '手術後疼痛', '運動傷害',
+    // 依身體部位分組。病人通常知道自己「哪裡痛」，不見得知道病名，
+    // 先讓他找到部位，再往下找名稱。
+    subgroups: [
+      { label: '脊椎腰背', items: ['肩頸痠痛', '腰痠背痛', '坐骨神經痛', '椎間盤突出', '脊椎滑脫', '脊椎狹窄', '骨刺'] },
+      { label: '肩肘手', items: ['五十肩', '肩夾擠', '肩旋轉肌腱撕裂傷', '網球肘', '媽媽手', '腕隧道症候群', '扳機指'] },
+      { label: '膝與足', items: ['膝退化性關節炎', '十字韌帶撕裂傷', '膝半月板撕裂傷', '足底筋膜炎'] },
+      { label: '其他疼痛', items: ['扭拉挫傷', '手術後疼痛', '運動傷害'] },
     ],
   },
   {
@@ -43,12 +47,20 @@ const groups = [
   },
 ];
 
+const chips = (items) => `<ul class="chip-list">${items.map((i) => `<li class="chip">${esc(i)}</li>`).join('')}</ul>`;
+
 const block = (g) => `<div class="card service-block${g.wide ? ' service-block--wide' : ''}">
         <div class="service-block-head">
           <div class="card-icon">${icons[g.icon]}</div>
           <h3>${esc(g.title)}</h3>
+          ${g.sub ? `<span class="service-block-sub">${esc(g.sub)}</span>` : ''}
         </div>
-        <ul class="chip-list">${g.items.map((i) => `<li class="chip">${esc(i)}</li>`).join('')}</ul>
+        ${g.subgroups
+          ? `<div class="service-sub">${g.subgroups.map((sg) => `<div class="service-sub-row">
+          <span class="service-sub-label">${esc(sg.label)}</span>
+          ${chips(sg.items)}
+        </div>`).join('\n          ')}</div>`
+          : chips(g.items)}
         ${g.note ? `<p class="service-block-note">${esc(g.note)}</p>` : ''}
         ${g.link ? `<a class="service-block-link" href="${url(g.link.href)}">${esc(g.link.label)}<span aria-hidden="true">→</span></a>` : ''}
       </div>`;

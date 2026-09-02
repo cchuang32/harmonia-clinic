@@ -363,6 +363,35 @@ a.card--link:hover .card-more span,
   font-size: 14px; line-height: 1.8; color: var(--ink-500);
 }
 
+/* 標題右側的一行小字，例如「當天不舒服，當天就可以來」 */
+.service-block-sub {
+  margin-left: auto; padding-left: 12px;
+  font-size: 13.5px; color: var(--ink-500); text-align: right;
+}
+
+/* 疼痛區塊：依身體部位分列，每列一個標籤加一排項目 */
+.service-sub { margin-top: 18px; display: grid; }
+.service-sub-row {
+  display: grid; grid-template-columns: auto 1fr; align-items: start;
+  gap: 8px 16px; padding: 14px 0;
+}
+.service-sub-row + .service-sub-row { border-top: 1px dashed var(--line); }
+.service-sub-label {
+  display: inline-block; white-space: nowrap;
+  padding: 7px 12px; border-radius: var(--radius-sm);
+  background: var(--green-100); color: var(--green-900);
+  font-size: 14px; font-weight: 700; line-height: 1.5;
+}
+.card .service-sub-row ul.chip-list { margin-top: 0; }
+
+/* 窄螢幕：部位標籤改成獨立一行，項目才有足夠寬度 */
+@media (max-width: 620px) {
+  .service-sub-row { grid-template-columns: 1fr; gap: 12px; }
+  .service-sub-label { justify-self: start; }
+  .service-block-sub { flex-basis: 100%; margin-left: 0; padding-left: 0; text-align: left; }
+  .service-block-head { flex-wrap: wrap; }
+}
+
 ul.chip-list, .card ul.chip-list {
   display: flex; flex-wrap: wrap; gap: 8px;
   margin-top: 18px; padding: 0; list-style: none;
