@@ -375,6 +375,15 @@ ul.chip-list, .card ul.chip-list {
 }
 
 /* ---------- 實拍照片：空間、外觀 ---------- */
+/* 常見問題：問句當標題，答案接在下面，中間用細線分隔 */
+.faq { display: grid; gap: clamp(18px, 3vw, 26px); }
+.faq-item + .faq-item { border-top: 1px solid var(--line); padding-top: clamp(18px, 3vw, 26px); }
+.faq-q {
+  margin: 0 0 8px; font-size: clamp(17px, 2.2vw, 19px);
+  font-weight: 700; color: var(--green-900); line-height: 1.55;
+}
+.faq-a { margin: 0; color: var(--ink-700); line-height: 1.9; }
+
 .photo-grid {
   display: grid; gap: clamp(14px, 2.5vw, 22px);
   margin-top: clamp(24px, 4vw, 36px);

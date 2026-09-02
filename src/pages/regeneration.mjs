@@ -1,5 +1,5 @@
 import { site } from '../../site.config.mjs';
-import { url, esc } from '../layout.mjs';
+import { url, esc, jsonLd } from '../layout.mjs';
 import { icons } from '../components.mjs';
 
 // ---------------------------------------------------------------------------
@@ -69,6 +69,34 @@ const beforeDecide = [
 ];
 
 const notice = '以上為一般性衛教說明，僅供了解治療的原理與過程，無法取代醫師的診察與判斷。是否適用、療程次數與費用，須由醫師當面評估後決定。本項目為自費，會在進行前先向你說明。';
+
+// ---------------------------------------------------------------------------
+// 常見問題（文字由診所提供，內容為「關於抽骨髓的擔心」一節）。
+// 寫法固定：問句當標題，第一句先給答案，再展開細節——這是 AI 搜尋最容易
+// 抓成引用片段的格式。往陣列裡加就會自動顯示，並同步進結構化資料。
+// ---------------------------------------------------------------------------
+const faq = [
+  {
+    q: '抽骨髓是不是很痛？',
+    a: '抽取前會先做局部麻醉，所以多數人在抽取時只知道醫師在那邊處理，但是不會疼痛。少部分人則是會有輕微的痠脹感，而不是想像中的劇痛，整個抽取過程只要 3～5 分鐘。',
+  },
+  {
+    q: '抽骨髓會傷到脊髓或神經嗎？',
+    a: '不會。抽取位置在骨盆後方的後上髂棘，那裡是一塊厚實的骨頭，和脊髓、大血管都有距離。很多人會把它和俗稱的「抽龍骨水」（抽脊髓液）混在一起，這是兩件完全不同的事。',
+  },
+  {
+    q: '抽骨髓會讓身體「缺骨髓」嗎？',
+    a: '不會。骨髓分布在全身的骨頭裡，總量很大，一次取用的只是其中很小一部分，而且骨髓本身會持續再生。這個量不會影響造血功能，也不會讓免疫力下降。',
+  },
+  {
+    q: '一次需要抽多少？',
+    a: '依治療部位與病灶範圍而定，一般是抽取 2～4 c.c.，比一次捐血的量少很多。醫師會在術前評估時，把這次預計抽取的量以及注射的部位都跟你說明清楚。',
+  },
+  {
+    q: '有什麼副作用或風險？',
+    a: '最常見的是抽取處與注射處的痠痛、瘀青、輕微腫脹，多在數天內緩解。感染、神經或血管受傷屬於少見情況，但不能說是零風險。在無菌操作與超音波導引下執行，可以把風險控制在較低的範圍。',
+  },
+];
 
 export function regenerationPage() {
   const body = `
@@ -143,6 +171,22 @@ export function regenerationPage() {
   </div>
 </section>
 
+<section class="section section--tint">
+  <div class="wrap measure">
+    <div class="section-head">
+      <span class="eyebrow">FAQ</span>
+      <h2 class="section-title">關於「抽骨髓」的擔心</h2>
+      <p class="section-lead">聽到要從骨盆抽骨髓，很多人第一個反應是往後退一步。這幾題是門診裡最常被問到的。</p>
+    </div>
+    <div class="faq">
+      ${faq.map((f) => `<div class="faq-item">
+        <h3 class="faq-q">${esc(f.q)}</h3>
+        <p class="faq-a">${esc(f.a)}</p>
+      </div>`).join('\n      ')}
+    </div>
+  </div>
+</section>
+
 <section class="section cta">
   <div class="wrap">
     <h2>想知道自己適不適合？</h2>
@@ -161,6 +205,15 @@ export function regenerationPage() {
     active: '/regeneration/',
     canonical: '/regeneration/',
     slug: 'regeneration',
+    headExtra: jsonLd({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: faq.map((f) => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a },
+      })),
+    }),
     breadcrumb: [{ name: '首頁', path: '/' }, { name: '自體骨髓及 PRP 再生注射' }],
     body,
   };
