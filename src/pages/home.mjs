@@ -126,6 +126,7 @@ export function homePage(articles) {
     <p>來一趟君禾，讓醫師陪你把問題看清楚。</p>
     <div class="btn-row">
       <a class="btn btn--primary" href="${site.contact.phoneHref}">${icons.phone} ${esc(site.contact.phone)}</a>
+      <a class="btn btn--ghost" href="${esc(site.contact.lineUrl)}" target="_blank" rel="noopener">${icons.chat} LINE 線上掛號</a>
       <a class="btn btn--ghost" href="${url('/location/')}">${icons.pin} 診所位置與交通</a>
     </div>
     <div class="stat-bar">
