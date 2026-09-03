@@ -404,6 +404,14 @@ ul.chip-list, .card ul.chip-list {
 }
 
 /* ---------- 實拍照片：空間、外觀 ---------- */
+/* 常見問題可分成多組，每組一個小標題 */
+.faq-group + .faq-group { margin-top: clamp(34px, 5vw, 48px); }
+.faq-group-title {
+  margin: 0 0 6px; font-size: clamp(18px, 2.4vw, 21px);
+  font-weight: 700; color: var(--green-900);
+}
+.faq-group-lead { margin: 0 0 clamp(18px, 3vw, 24px); color: var(--ink-500); line-height: 1.85; }
+
 /* 常見問題：問句當標題，答案接在下面，中間用細線分隔 */
 .faq { display: grid; gap: clamp(18px, 3vw, 26px); }
 .faq-item + .faq-item { border-top: 1px solid var(--line); padding-top: clamp(18px, 3vw, 26px); }
