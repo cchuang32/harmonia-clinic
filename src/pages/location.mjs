@@ -145,7 +145,7 @@ ${exterior.length ? `<section class="section">
       <div class="info-row"><dt>電話</dt><dd><a href="${esc(site.contact.phoneHref)}">${esc(site.contact.phone)}</a></dd></div>
       <div class="info-row"><dt>LINE</dt><dd>${esc(site.contact.lineId)}（可線上掛號）</dd></div>
       <div class="info-row"><dt>地址</dt><dd>${esc(site.contact.address)}</dd></div>
-      <div class="info-row"><dt>無障礙</dt><dd>從後方停車場過來，兩棟大樓之間的通道設有無障礙坡道。輪椅可進入診所；若需要移位、上下診療床或其他協助，建議掛號時先告訴我們。</dd></div>
+      <div class="info-row"><dt>無障礙</dt><dd>從後方停車場過來，兩棟大樓之間的通道設有附扶手的坡道。若使用輪椅、行動不便，或需要移位、上下診療床，建議掛號時先告訴我們，同仁會到門口協助。</dd></div>
     </dl>
 
     ${site.contact.lineQr ? `<div class="line-card">

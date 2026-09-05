@@ -54,7 +54,7 @@ const facilityNotice = '以上為一般性說明，僅供了解各項檢查與�
 const pillars = [
   {
     title: '空間像家一樣安心',
-    desc: '木質調候診區、柔和照明與充足採光，並保留寬敞動線，讓推車與行動不便的長輩都能自在進出。',
+    desc: '木質調候診區、柔和照明與充足採光，並保留寬敞動線。',
     // 空間照片。留空 → 不顯示，版面照常。建議 3:2 橫幅，第一張為主圖
     // 格式：{ src: '/assets/img/space-waiting.jpg', alt: '候診區⋯', caption: '（可留空）' }
     photos: [],
