@@ -122,15 +122,13 @@ async function loadArticles() {
     nextState[slug] = { hash, date: data.date, updated };
 
     // HERO 圖片：檔案不在就退回預設圖，不讓版面破掉
+    // 文章頁最上方的大圖。沒指定 hero 就留空，article.mjs 那邊整塊不輸出——
+    // 以前是塞一張綠色佔位圖，但那塊圖不帶任何資訊，只是把正文往下推半個螢幕。
+    // 列表卡片另外有 cardImage 撐著（見下方），不會因此變空白。
     let hero = data.hero || '';
-    if (hero) {
-      const rel = hero.replace(/^\//, '');
-      if (!(await exists(path.join(ROOT, rel)))) {
-        warn(`找不到圖片 ${hero}（${file}），先用預設圖代替`);
-        hero = PLACEHOLDER_HERO;
-      }
-    } else {
-      hero = PLACEHOLDER_HERO;
+    if (hero && !(await exists(path.join(ROOT, hero.replace(/^\//, ''))))) {
+      warn(`找不到圖片 ${hero}（${file}），這篇的文章頁就不放大圖了`);
+      hero = '';
     }
 
     // 內文的第一張點陣圖，下面的 cover 與 cardImage 都會用到。
