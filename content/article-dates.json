@@ -5,8 +5,13 @@
     "updated": "2026-08-02"
   },
   "20260823-bma-guide": {
-    "hash": "a4b5e0eb9579b721",
+    "hash": "02774dc83babdefc",
     "date": "2026-08-23",
-    "updated": "2026-08-30"
+    "updated": "2026-09-06"
+  },
+  "20260906-bma-vs-bmac": {
+    "hash": "fb958b87a797b451",
+    "date": "2026-09-06",
+    "updated": "2026-09-06"
   }
 }
