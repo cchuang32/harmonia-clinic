@@ -18,7 +18,7 @@ const transport = [
 
 // ---------------------------------------------------------------------------
 // 從停車場走到診所的實景照片，由遠而近。三張都已裁成 3:2，並清除 GPS 等中繼資料。
-// ★ 王爺壟停車場為民間業者經營，與診所無關，說明文字務必保留這一點。
+// ★ 王爺壟停車場由民間業者經營，不是診所的附設停車場，說明文字務必保留這一點。
 // ---------------------------------------------------------------------------
 const parkingWalk = [
   {
@@ -90,7 +90,7 @@ ${exterior.length ? `<section class="section">
 
     <div class="learn-block">
       <h3 class="doctor-group-title">從停車場走到診所</h3>
-      <p class="section-lead" style="font-size:15px">停好車之後的路線，照片由遠而近。<strong>王爺壟停車場為民間業者經營，與君禾診所無關</strong>；診所無法提供停車優惠，也無法代為處理停車相關事宜。</p>
+      <p class="section-lead" style="font-size:15px">停好車之後的路線，照片由遠而近。<strong>王爺壟停車場由民間業者經營管理，並非君禾診所的附設停車場</strong>；診所無法提供停車優惠，也無法代為處理停車相關事宜。</p>
       <div class="photo-grid photo-grid--3">
         ${parkingWalk.map((ph) => `<figure class="photo">
           <img src="${url(ph.src)}" alt="${esc(ph.alt)}" width="1200" height="800" loading="lazy">
