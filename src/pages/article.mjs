@@ -1,6 +1,6 @@
 import { site } from '../../site.config.mjs';
 import { url, esc, jsonLd as ld, CLINIC_ID, PHYSICIAN_ID } from '../layout.mjs';
-import { articleMeta } from '../components.mjs';
+import { articleMeta, eventNotice } from '../components.mjs';
 
 /**
  * 單篇文章頁
@@ -50,6 +50,7 @@ export function articlePage(a, nav = {}) {
 
   <div class="wrap">
     <div class="article-body">
+${eventNotice(a.event)}
 ${a.html}
     </div>
 

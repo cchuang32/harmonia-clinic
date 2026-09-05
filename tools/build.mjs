@@ -133,16 +133,55 @@ async function loadArticles() {
       hero = PLACEHOLDER_HERO;
     }
 
+    // 內文的第一張點陣圖，下面的 cover 與 cardImage 都會用到。
+    const inlineImg = body.match(/!\[[^\]]*\]\((\/assets\/[^)\s]+\.(?:jpg|jpeg|png|webp))\)/i);
+
     // 分享縮圖與結構化資料用的圖，跟版面上的 HERO 分開處理：
     // Google 的文章結構化資料、LINE 與 Facebook 的預覽縮圖都不吃 SVG，
     // 所以佔位圖（.svg）不能拿來當 cover。
-    // 順序：hero → 內文第一張圖 → 品牌橫幅。
+    // 順序：hero → front matter 的 card → 內文第一張圖 → 品牌橫幅。
+    // card 排在內文圖之前：那是作者特地挑來代表這篇的圖，拿去當分享縮圖最合適。
     let cover = hero && !hero.endsWith('.svg') ? hero : '';
-    if (!cover) {
-      const m = body.match(/!\[[^\]]*\]\((\/assets\/[^)\s]+\.(?:jpg|jpeg|png|webp))\)/i);
-      if (m) cover = m[1];
-    }
+    if (!cover && data.card) cover = data.card;
+    if (!cover && inlineImg) cover = inlineImg[1];
     if (!cover) cover = site.hero.image;
+
+    // 文章列表卡片上的縮圖。沒有指定 hero 的文章，卡片本來一律是綠色佔位圖，
+    // 三張排在一起就都長一樣、認不出誰是誰。
+    // 順序：front matter 的 card → hero → 內文第一張圖。
+    // card 是專門給卡片用的，跟版面上的 HERO 分開，這樣可以只換卡片而不動文章頁頂端。
+    // 三者都沒有就留空，由 postCard() 換成卡片專用的佔位圖。
+    // 這裡刻意不退到品牌橫幅（logo-horizontal.jpg）：那是 1200x481 的長條 logo，
+    // 塞進 16:9 的卡片會被裁掉兩邊，比佔位圖還難看。
+    let cardImage = data.card || '';
+    if (cardImage && !(await exists(path.join(ROOT, cardImage.replace(/^\//, ''))))) {
+      warn(`找不到卡片圖 ${cardImage}（${file}），改用其他圖代替`);
+      cardImage = '';
+    }
+    if (!cardImage) {
+      cardImage = hero && !hero.endsWith('.svg') ? hero
+        : (inlineImg ? inlineImg[1] : '');
+    }
+
+    // 限時活動公告（例如開幕茶會）。放在 front matter，不是寫在內文裡，
+    // 這樣要撤掉只要刪掉這幾行，不必在文章中間找一段程式碼。
+    // eventDate 過了就自動不再輸出——但這個站是靜態的，只有 push 時才重建，
+    // 所以活動過後如果一直沒有更新網站，公告會留著，還是要記得回來刪。
+    let event = null;
+    if (data.eventTitle && data.eventDate) {
+      if (data.eventDate >= now) {
+        event = {
+          title: data.eventTitle,
+          date: data.eventDate,
+          time: data.eventTime || '',
+          place: data.eventPlace || '',
+          note: data.eventNote || '',
+          href: data.eventHref || '',
+        };
+      } else {
+        warn(`「${data.eventTitle}」已過期（${data.eventDate}），公告不再顯示，可以把 front matter 的 event 欄位刪掉了`);
+      }
+    }
 
     const text = markdownToText(body);
     articles.push({
@@ -155,6 +194,8 @@ async function loadArticles() {
       updated,
       hero,
       cover,
+      cardImage,
+      event,
       heroAlt: data.heroAlt || data.title,
       heroCaption: data.heroCaption || '',
       excerpt: data.excerpt || (text.length > 96 ? text.slice(0, 96) + '…' : text),
@@ -214,6 +255,21 @@ async function build() {
   // --- 靜態資源 ---
   await cp(path.join(ROOT, 'assets'), path.join(DIST, 'assets'), { recursive: true });
   ok('複製 assets/');
+
+  // 獨立頁面：content/standalone/*.html 原封不動輸出成 /<檔名>/。
+  // 用在自帶完整版型的一次性頁面（例如活動邀請函）——那種頁面有自己的
+  // <head>、字型與 class 名稱，套進站上的版型會跟既有樣式打架。
+  // 不進 sitemap：這類頁面多半是暫時的，收錄之後再刪掉會變成死連結。
+  // 要下架就直接刪掉 content/standalone/ 裡的檔案，重新建置即可。
+  const standaloneDir = path.join(ROOT, 'content', 'standalone');
+  if (await exists(standaloneDir)) {
+    const files = (await readdir(standaloneDir)).filter((f) => f.endsWith('.html'));
+    for (const f of files) {
+      const slug = f.replace(/\.html$/, '');
+      await emit(slug, await readFile(path.join(standaloneDir, f), 'utf8'));
+    }
+    if (files.length) ok(`獨立頁面 ${files.length} 個（/${files[0].replace(/\.html$/, '')}/ …）`);
+  }
 
   // --- 前端設定檔（Supabase 計數器） ---
   await writeFile(

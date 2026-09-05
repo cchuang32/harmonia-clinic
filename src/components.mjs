@@ -1,4 +1,5 @@
 import { url, esc, formatDate } from './layout.mjs';
+import { site } from '../site.config.mjs';
 
 /* ---------- 圖示（inline SVG，不依賴外部圖檔） ---------- */
 const ic = (d, extra = '') =>
@@ -47,8 +48,10 @@ export const viewCounter = (slug) =>
  */
 export function postCard(a) {
   const link = url('/' + a.slug + '/');
-  const media = a.hero
-    ? `<img src="${url(a.hero)}" alt="${esc(a.heroAlt || a.title)}" loading="lazy" width="1200" height="675">`
+  // 縮圖用 cardImage：有指定 hero 就用 hero，否則退到內文第一張圖（見 build.mjs）。
+  // 兩者都沒有才用佔位圖。整塊 media 是 aria-hidden 的裝飾，alt 不會被報讀出來。
+  const media = a.cardImage
+    ? `<img src="${url(a.cardImage)}" alt="${esc(a.heroAlt || a.title)}" loading="lazy" width="1200" height="675">`
     : `<img src="${url('/assets/img/placeholder-card.svg')}" alt="" loading="lazy" width="1200" height="675">`;
 
   const isUpdated = a.updated && a.updated !== a.date;
@@ -87,4 +90,31 @@ export function articleMeta(a) {
       ${isUpdated ? metaItem('refresh', '最後更新 ' + formatDate(a.updated), 'meta-updated') : ''}
       <span class="meta-item" data-view-wrap data-empty="1">${icons.eye}<span>瀏覽 <span class="view-count" data-count-slug="${esc(a.slug)}">—</span> 次</span></span>
     </div>`;
+}
+
+/** 限時活動公告。資料來自 front matter 的 event 欄位，過期後 build.mjs 就不會傳進來。 */
+export function eventNotice(e) {
+  if (!e) return '';
+  const WEEK = ['日', '一', '二', '三', '四', '五', '六'];
+  const [y, m, d] = e.date.split('-').map(Number);
+  const week = WEEK[new Date(Date.UTC(y, m - 1, d)).getUTCDay()];
+
+  const row = (label, value) => value
+    ? `<div class="event-notice-row"><dt>${esc(label)}</dt><dd>${esc(value)}</dd></div>`
+    : '';
+
+  return `<aside class="event-notice" aria-label="活動公告">
+      <p class="eyebrow">診所公告</p>
+      <h2 class="event-notice-title">${esc(e.title)}</h2>
+      <dl class="event-notice-list">
+        ${row('日期', `${formatDate(e.date)}（${week}）`)}
+        ${row('時間', e.time)}
+        ${row('地點', e.place)}
+      </dl>
+      ${e.note ? `<p class="event-notice-note">${esc(e.note)}</p>` : ''}
+      <div class="event-notice-actions">
+        ${e.href ? `<a class="btn btn--primary" href="${url(e.href)}">看邀請函</a>` : ''}
+        <a class="btn btn--ghost" href="${site.contact.lineUrl}" target="_blank" rel="noopener">用 LINE 跟我們說一聲</a>
+      </div>
+    </aside>`;
 }
