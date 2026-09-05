@@ -86,10 +86,20 @@ export const site = {
   //   1. width / height 填新圖的實際像素尺寸，畫面才不會在載入時跳動。
   //   2. 若新圖底色不是橄欖綠 #9cab80，記得同時改 assets/css/style.css 的 --brand。
   hero: {
+    // image：分享縮圖（og:image）與結構化資料的後備圖，要有一定的留白才好看。
     image: '/assets/img/logo-horizontal.jpg',
     alt: '君禾診所 Harmonia Clinic',
     width: 1200,
     height: 481,
+    // banner：首頁最上方綠色帶裡的那張圖，是從設計師的 AI 原始檔抽出來的
+    // 「向量」白色 logo（SVG），背景透明，綠帶的底色直接透出來。
+    // 向量的意思是它存的是線條的數學描述而不是像素，放到多大都不會糊，
+    // 而且沒有方形邊界，不會像 JPG 那樣浮出一塊底色略差的方框。
+    // 綠帶高度改由 CSS 的 padding 控制，logo 才能放大而不把版面一起撐高。
+    // 原始 AI 檔與抽取腳本放在 ~/Pictures/君禾診所-原圖/logo與識別/。
+    banner: '/assets/img/logo-banner.svg',
+    bannerWidth: 596,
+    bannerHeight: 164,
   },
 };
 

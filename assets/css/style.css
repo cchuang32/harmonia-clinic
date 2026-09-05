@@ -118,13 +118,14 @@ button { font: inherit; color: inherit; }
 }
 
 .brand { display: flex; align-items: center; gap: 11px; text-decoration: none; color: inherit; min-width: 0; }
-/* 頁首標誌：logo-mark.png 是正方形，圖案只佔中間（上下各留白 28%），
-   所以用一個比較扁的視窗框住、圖片放大置中，等於把多餘留白裁掉，
-   圖案本身仍是等比例縮放，不會變形。 */
+/* 頁首標誌：改用從設計師 AI 原始檔抽出來的向量字標（SVG）。
+   舊的 logo-mark.png 是 1500x1500 的正方形、圖案只佔中間，得靠一個扁視窗
+   把留白裁掉；新的 SVG 已經裁到剛好，所以直接用 contain 就好。
+   向量的好處是在任何螢幕密度下都銳利，檔案也只有 2 KB（舊圖是 29 KB）。 */
 .brand-mark {
   flex: 0 0 auto;
-  width: 58px; height: 38px;
-  background: url("../img/logo-mark.png") no-repeat center / 80px 80px;
+  width: 54px; height: 38px;
+  background: url("../img/logo-mark.svg") no-repeat center / contain;
 }
 .brand-text { display: flex; flex-direction: column; min-width: 0; }
 .brand-zh { font-family: var(--serif); font-size: 19px; font-weight: 700; line-height: 1.25; color: var(--green-900); white-space: nowrap; }
@@ -252,11 +253,17 @@ button { font: inherit; color: inherit; }
 /* Banner：logo 圖片原尺寸等比顯示（正方形，絕不裁切、絕不拉伸），
    兩側留白用 --brand 補滿，跟圖片自身的底色相同，看起來就是一整條橫幅。
    要換圖時，新圖的底色若不是 #9cab80，記得一起改 --brand。 */
-.hero-banner { background: var(--brand); }
+/* 綠色帶的高度由 padding 決定，圖片寬度只負責 logo 大小，兩者互不干擾。
+   用的是 logo-banner.jpg（已裁掉留白的版本）——原本的 logo-horizontal.jpg
+   上下各有 37%、左右各有 22% 是空的綠色，圖片放大時那些空白會一起放大，
+   結果就是綠帶愈拉愈高、logo 卻還是小小一顆。 */
+.hero-banner {
+  background: var(--brand);
+  padding: clamp(26px, 4.2vw, 46px) 20px;
+}
 .hero-banner img {
   display: block;
-  /* 橫式 logo：比正方形的舊圖需要更寬才看得清楚 */
-  width: min(100%, clamp(300px, 50vw, 640px));
+  width: min(100%, clamp(280px, 44vw, 560px));
   height: auto;                 /* 高度跟著寬度走 → 比例永遠不變 */
   margin-inline: auto;
 }
