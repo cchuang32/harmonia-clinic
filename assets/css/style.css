@@ -612,8 +612,12 @@ ul.chip-list, .card ul.chip-list {
 }
 .post-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lift); border-color: var(--green-100); }
 
-.post-card-media { position: relative; aspect-ratio: 16 / 9; background: var(--green-100); }
-.post-card-media img { width: 100%; height: 100%; object-fit: cover; }
+/* 縮圖框固定 16:9。圖片要「絕對定位」才行——流內的 img 在沒有明確高度的
+   容器裡，height:100% 會解成 auto，於是按原始比例把框一起撐高。
+   之前四張圖剛好都接近 16:9 所以看不出來，換上直式圖就會露餡（卡片變高、
+   同一排高度不齊）。改成 absolute + object-fit:cover，任何比例都會被裁到滿框。 */
+.post-card-media { position: relative; aspect-ratio: 16 / 9; background: var(--green-100); overflow: hidden; }
+.post-card-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .post-card-tag {
   position: absolute; left: 12px; top: 12px;
   background: rgba(255, 255, 255, .94); color: var(--green-700);
@@ -716,6 +720,11 @@ ul.chip-list, .card ul.chip-list {
   .event-notice-row { grid-template-columns: 1fr; gap: 2px; }
   .event-notice-actions .btn { flex: 1 1 100%; justify-content: center; }
 }
+
+/* 文章開頭那種「沒有表頭」的摘要表格：markdown 的表格語法一定要有表頭列，
+   所以會產生一列空白的 <th>，版面上就多一條沒有意義的色帶。
+   整列都是空的才隱藏；只要有一格有字就照常顯示。 */
+.article-body thead:not(:has(th:not(:empty))) { display: none; }
 
 .article-body { max-width: var(--measure); margin: clamp(30px, 5vw, 44px) auto 0; font-size: 17px; }
 .article-body > * + * { margin-top: 1.2em; }

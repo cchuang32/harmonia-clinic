@@ -119,7 +119,11 @@ async function loadArticles() {
       updated = prev.updated || data.date;          // 沒改：沿用
     }
 
-    nextState[slug] = { hash, date: data.date, updated };
+    // added＝這篇「第一次出現在網站上」的時間戳記，只在初次建置時寫入，之後不再變動。
+    // 用途是同一天發佈的文章要決定先後：後放上來的排前面。
+    // 舊資料沒有這欄，就用它的發佈日補上（當天零時），排在當天新加入的前面。
+    const added = prev?.added || (prev ? `${prev.date}T00:00:00.000Z` : new Date().toISOString());
+    nextState[slug] = { hash, date: data.date, updated, added };
 
     // HERO 圖片：檔案不在就退回預設圖，不讓版面破掉
     // 文章頁最上方的大圖。沒指定 hero 就留空，article.mjs 那邊整塊不輸出——
@@ -194,6 +198,7 @@ async function loadArticles() {
       cover,
       cardImage,
       event,
+      added,
       heroAlt: data.heroAlt || data.title,
       heroCaption: data.heroCaption || '',
       excerpt: data.excerpt || (text.length > 96 ? text.slice(0, 96) + '…' : text),
@@ -205,7 +210,10 @@ async function loadArticles() {
   // 最後更新日（updated）只負責顯示那行「更新 YYYY.MM.DD」，不參與排序——
   // 舊文章補個錯字就跳回第一位，讀者會以為有新文章，回頭看又是看過的舊文。
   // 同一天發佈的文章以 slug 排，結果才穩定、不會每次建置就換位置。
-  articles.sort((a, b) => b.date.localeCompare(a.date) || a.slug.localeCompare(b.slug));
+  articles.sort((a, b) =>
+    b.date.localeCompare(a.date)                 // 發佈日新的在前
+    || (b.added || '').localeCompare(a.added || '')  // 同一天：後放上網站的在前
+    || a.slug.localeCompare(b.slug));            // 再同就用 slug，確保結果穩定
 
   await writeFile(DATE_STATE, JSON.stringify(nextState, null, 2) + '\n');
   return articles;
