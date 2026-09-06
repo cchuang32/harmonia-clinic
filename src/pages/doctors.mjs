@@ -101,8 +101,13 @@ const learning = {
     { date: '2026.04', org: '台灣區域麻醉暨止痛醫學會', topic: '疼痛擂台 5：真實病人工作坊－勁足強膝（助教）' },
     { date: '2026.01', org: '台灣區域麻醉暨止痛醫學會', topic: '疼痛擂台 4：真實病人工作坊－橫掃頸肩（講師）' },
   ],
-  courses: [],
-  photos: [
+  courses: [
+    { date: '2025.09', title: '台北｜MSKUS 與 The Institute for Medical Studies：Ultrasound Diagnostic Course（超音波診斷課程），取得 16 學分 AMA PRA Category 1 Credits' },
+    { date: '2025.02', title: '泰國 Thammasat 醫學技能教育中心｜IMRI 與 IAMM：神經肌肉骨骼疼痛的超音波診斷與導引治療（中階至進階），主題聚焦筋膜與生物張力整合' },
+  ],
+  // 照片跟著各自的清單走：教學的放「擔任講師」下面，進修的放「研討會與進修課程」下面。
+  // 混在一起的話讀者分不出哪張是去上課、哪張是去授課。
+  lecturingPhotos: [
     { src: '/assets/img/teaching-workshop.jpg',
       alt: '黃佳君醫師在台灣區域麻醉暨止痛醫學會的真實病人工作坊中，手持超音波探頭示範檢查',
       caption: '真實病人工作坊現場：以超音波探頭示範檢查與定位。' },
@@ -110,7 +115,30 @@ const learning = {
       alt: '台灣區域麻醉暨止痛醫學會頒給黃佳君醫師的感謝狀，感謝其在疼痛擂台 7 真實病人工作坊中的專業指導',
       caption: '疼痛擂台 7：真實病人工作坊－決戰上肢（肩／肘／腕），台灣區域麻醉暨止痛醫學會頒發。' },
   ],
+  // 橫式的課程照單獨一列放大；兩張證書都是直式，統一 2:3 並排，高度才會齊。
+  // 混在同一列會很凌亂：橫的矮、直的高，中間留下一大塊空白。
+  coursePhotos: [
+    { src: '/assets/img/learning-2025-thailand-banner.jpg',
+      alt: '黃佳君醫師站在課程看板前，看板上寫著 Ultrasound Diagnosis and Guided Intervention of Neuromusculoskeletal Pain，2025 年 2 月 21 至 22 日於泰國 Thammasat 醫學技能教育中心舉行',
+      caption: '2025 年 2 月，泰國 Thammasat 醫學技能教育中心：神經肌肉骨骼疼痛的超音波診斷與導引治療課程。' },
+  ],
+  courseCerts: [
+    { src: '/assets/img/learning-2025-thailand-cert-portrait.jpg', ratio: '2 / 3',
+      alt: '黃佳君醫師手持該課程的結業證書，證書上載明課程名稱、參加身分與 2025 年 2 月 21 至 22 日的舉行日期',
+      caption: '同一場課程的結業證書。兩天課程聚焦在筋膜與生物張力整合。' },
+    { src: '/assets/img/learning-2025-cme-certificate.jpg', ratio: '2 / 3',
+      alt: '2025 年 9 月台北 Ultrasound Diagnostic Course 的 CME 學分證書，載明黃佳君醫師完成課程並取得 16 學分 AMA PRA Category 1 Credits，由 The Institute for Medical Studies 與 MSKUS 共同提供',
+      caption: '2025 年 9 月台北課程的 CME 學分證書，16 學分 AMA PRA Category 1 Credits。主辦單位的聯絡資訊已移除。' },
+  ],
 };
+
+// 照片格：張數決定版型（1 張放大置中、2～3 張並排、4 張以上排 2×2）
+const photoGrid = (photos) => photos && photos.length ? `<div class="photo-grid photo-grid--${Math.min(photos.length, 4)}">
+      ${photos.map((ph) => `<figure class="photo">
+        <img src="${url(ph.src)}" alt="${esc(ph.alt)}" loading="lazy"${ph.ratio ? ` style="--photo-ratio:${esc(ph.ratio)}"` : ''}>
+        ${ph.caption ? `<figcaption>${esc(ph.caption)}</figcaption>` : ''}
+      </figure>`).join('\n      ')}
+    </div>` : '';
 
 const credList = (label, items) => items && items.length ? `<div class="doctor-group">
             <h3 class="doctor-group-title">${esc(label)}</h3>
@@ -208,16 +236,12 @@ export function doctorsPage() {
     </div>
     <p class="section-lead">${esc(learning.intro)}</p>
     ${timelineList('擔任講師', lecturingRows)}
+    ${photoGrid(learning.lecturingPhotos)}
+
     ${timelineList('研討會與進修課程', courseRows)}
+    ${photoGrid(learning.coursePhotos)}
+    ${photoGrid(learning.courseCerts)}
   </div>
-  ${learning.photos.length ? `<div class="wrap">
-    <div class="photo-grid photo-grid--${Math.min(learning.photos.length, 3)}">
-      ${learning.photos.map((ph) => `<figure class="photo">
-        <img src="${url(ph.src)}" alt="${esc(ph.alt)}" loading="lazy">
-        ${ph.caption ? `<figcaption>${esc(ph.caption)}</figcaption>` : ''}
-      </figure>`).join('\n      ')}
-    </div>
-  </div>` : ''}
 </section>
 
 <section class="section cta">

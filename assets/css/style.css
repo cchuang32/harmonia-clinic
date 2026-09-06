@@ -436,10 +436,19 @@ ul.chip-list, .card ul.chip-list {
 .photo-grid--1 { grid-template-columns: 1fr; max-width: 860px; margin-inline: auto; }
 .photo-grid--2 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
 .photo-grid--3 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); }
+/* 四張時固定排成 2×2。用 auto-fit 的話寬螢幕會變成 3+1，最後一張孤零零一列；
+   而且每張只剩兩百多像素，證書上的字就看不清楚了。 */
+.photo-grid--4 { grid-template-columns: repeat(2, 1fr); max-width: 900px; margin-inline: auto; }
+@media (max-width: 560px) { .photo-grid--4 { grid-template-columns: 1fr; } }
 
+/* 同一列裡如果混了不同比例，讓各張照片靠上對齊，短的那張下方留白就好，
+   不要被拉長變形。 */
+.photo-grid { align-items: start; }
 .photo { margin: 0; min-width: 0; }
+/* 預設橫幅 3:2；某張要直式或方形時，在 front matter／資料裡指定 ratio，
+   會變成 --photo-ratio 這個變數覆蓋掉預設值。 */
 .photo img {
-  width: 100%; aspect-ratio: 3 / 2; object-fit: cover;
+  width: 100%; aspect-ratio: var(--photo-ratio, 3 / 2); object-fit: cover;
   border-radius: var(--radius);
   border: 1px solid var(--line);
   background: var(--green-050);
