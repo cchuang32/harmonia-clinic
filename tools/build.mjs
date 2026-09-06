@@ -201,9 +201,11 @@ async function loadArticles() {
     });
   }
 
-  // 最新在前：以「發佈日 / 最後更新日」較新的那個為準
-  const rank = (a) => (a.updated > a.date ? a.updated : a.date);
-  articles.sort((a, b) => (rank(b).localeCompare(rank(a))) || b.date.localeCompare(a.date) || a.slug.localeCompare(b.slug));
+  // 排序一律看「發佈日」（front matter 的 date），新的在前。
+  // 最後更新日（updated）只負責顯示那行「更新 YYYY.MM.DD」，不參與排序——
+  // 舊文章補個錯字就跳回第一位，讀者會以為有新文章，回頭看又是看過的舊文。
+  // 同一天發佈的文章以 slug 排，結果才穩定、不會每次建置就換位置。
+  articles.sort((a, b) => b.date.localeCompare(a.date) || a.slug.localeCompare(b.slug));
 
   await writeFile(DATE_STATE, JSON.stringify(nextState, null, 2) + '\n');
   return articles;
