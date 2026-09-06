@@ -25,21 +25,21 @@ excerpt: 考慮用再生治療處理膝蓋退化時，常會聽到 BMA、BMAC �
 
 ## 二、差別在「抽出來之後怎麼處理」
 
-兩者原料相同，都是從自己的腸骨抽出骨髓液。[1]
+兩者原料相同，都是從自己的腸骨抽出骨髓液 [1]。
 
 **BMAC（骨髓濃縮液）**：加抗凝血劑後離心濃縮，讓部分細胞與血小板在較小體積中相對富集再注射。但 BMAC **不是成分固定的產品**——實際細胞數會受抽取位置、抽取量、血液稀釋、離心設備與最終體積影響，不同研究或院所所稱的 BMAC 可能差很多。代價是流程較複雜、費用通常較高。
 
-**BMA（骨髓抽吸液）**：抽出後不離心，直接使用。其中 **BMA clot（骨髓凝塊）**不加抗凝血劑也不離心，讓骨髓自然凝固成含纖維蛋白（fibrin）的凝塊。[1]
+**BMA（骨髓抽吸液）**：抽出後不離心，直接使用。其中 **BMA clot（骨髓凝塊）**不加抗凝血劑也不離心，讓骨髓自然凝固成含纖維蛋白（fibrin）的凝塊 [1]。
 
 ![BMA clot 在膝關節腔內的作用示意圖：畫面左側為交織成網的纖維蛋白（fibrin）網絡，網絡上附著多顆細胞，細胞向右側的關節液釋出訊號分子，右側標示關節液與膝關節腔](/assets/img/bma-clot-fibrin-zh.jpg)
 
 *BMA clot 的纖維蛋白（fibrin）網絡像一張天然的網，理論上可能讓部分細胞留在注射的位置，並在當地釋出訊號分子。AI 生成之概念示意圖，非實際影像；網絡密度、細胞大小與比例非按實際情況呈現。這個機轉目前仍屬合理的推測，尚未在人體研究中獲得證實。*
 
-這層 fibrin 像天然支架，理論上可能幫助細胞或活性物質局部滯留 [7]；但目前缺乏人體研究證實能停留多久、又帶來多少額外療效，現階段只適合當成**有生物學合理性的假說**。
+這層 fibrin 像天然支架，理論上可能幫助細胞或活性物質局部滯留 [2]；但目前缺乏人體研究證實能停留多久、又帶來多少額外療效，現階段只適合當成**有生物學合理性的假說**。
 
 ## 三、濃縮的比較有效嗎？
 
-2026 年 4 月發表於《Stem Cell Research & Therapy》的巴西試驗，是前瞻性、隨機、雙盲設計，直接比較兩者。對象為 50～80 歲、Kellgren-Lawrence 第 3～4 級膝退化患者，共 63 人、113 個膝關節，每月一次超音波導引關節內注射共三次，追蹤 12 個月。[1]
+2026 年 4 月發表於《Stem Cell Research & Therapy》的巴西試驗，是前瞻性、隨機、雙盲設計，直接比較兩者。對象為 50～80 歲、Kellgren-Lawrence 第 3～4 級膝退化患者，共 63 人、113 個膝關節，每月一次超音波導引關節內注射共三次，追蹤 12 個月 [1]。
 
 | 指標 | BMA clot 組 | BMAC 組 |
 | --- | --- | --- |
@@ -47,7 +47,7 @@ excerpt: 考慮用再生治療處理膝蓋退化時，常會聽到 BMA、BMAC �
 | WOMAC（0–100） | 65.2 → 12.7 | 62.6 → 14.3 |
 | 不良反應發生率 | 37.5% | 35.5% |
 
-兩組都有顯著改善，而主要臨床結果在兩組之間沒有明確差異——**這篇研究沒有顯示 BMAC 優於 BMA clot**；BMA clot 製備較簡單、成本可能較低，因此值得繼續研究。[1]
+兩組都有顯著改善，而主要臨床結果在兩組之間沒有明確差異——**這篇研究沒有顯示 BMAC 優於 BMA clot**；BMA clot 製備較簡單、成本可能較低，因此值得繼續研究 [1]。
 
 > **兩個一定要看懂的但書**
 >
@@ -57,25 +57,25 @@ excerpt: 考慮用再生治療處理膝蓋退化時，常會聽到 BMA、BMAC �
 
 ### 那 BMAC 跟安慰劑比呢？
 
-Shapiro 等人讓同一位雙側膝退化患者一邊打 BMAC、另一邊打生理食鹽水，如此個體差異可互相控制。結果兩邊**都有疼痛改善，但兩者之間沒有顯著差異**。[8] 這不能證明 BMAC 沒效，但提醒我們：「病人有沒有變好」和「是否真的比安慰劑好」，是兩個不同的問題。
+Shapiro 等人讓同一位雙側膝退化患者一邊打 BMAC、另一邊打生理食鹽水，如此個體差異可互相控制。結果兩邊**都有疼痛改善，但兩者之間沒有顯著差異** [3]。這不能證明 BMAC 沒效，但提醒我們：「病人有沒有變好」和「是否真的比安慰劑好」，是兩個不同的問題。
 
 ## 四、細胞打越多越好嗎？
 
-**目前還沒有建立可靠、可重複驗證的「細胞劑量－療效關係」。** 2024 年一篇劑量遞增研究中，各劑量組的臨床改善沒有顯著差異 [2]；另一篇 424 個膝關節的登錄研究雖然高劑量組疼痛較低，但功能量表沒有組間差異、劑量－反應關聯不穩定，且治療同時含 PRP，不能把效果全歸給細胞數 [3]。細胞數可能是影響因素之一，但沒有證據證明「越多一定越好」。
+**目前還沒有建立可靠、可重複驗證的「細胞劑量－療效關係」。** 2024 年一篇劑量遞增研究中，各劑量組的臨床改善沒有顯著差異 [4]；另一篇 424 個膝關節的登錄研究雖然高劑量組疼痛較低，但功能量表沒有組間差異、劑量－反應關聯不穩定，且治療同時含 PRP，不能把效果全歸給細胞數 [5]。細胞數可能是影響因素之一，但沒有證據證明「越多一定越好」。
 
 ## 五、跟其他注射治療比呢？
 
-一篇網絡統合分析指出，PRP、BMAC 與玻尿酸在至少 6 個月追蹤時，平均疼痛與功能結果可能優於類固醇 [4]；也有研究顯示 BMAC 在部分結果或時間點可能優於 PRP 或玻尿酸 [6]。但各研究的製備與病人條件差異很大，**還不能簡化成「BMAC 一定比 PRP 或玻尿酸好」**。
+一篇網絡統合分析指出，PRP、BMAC 與玻尿酸在至少 6 個月追蹤時，平均疼痛與功能結果可能優於類固醇 [6]；也有研究顯示 BMAC 在部分結果或時間點可能優於 PRP 或玻尿酸 [7]。但各研究的製備與病人條件差異很大，**還不能簡化成「BMAC 一定比 PRP 或玻尿酸好」**。
 
 ## 六、身體負擔與常見不適
 
-骨髓一般要從腸骨穿刺抽取。抽得多不一定比較痛——穿刺點數、針尖是否多次重新定位、針的大小、麻醉方式、操作者技術與個人痛感都會影響。各研究抽取量也差很多：2026 巴西研究 BMAC 組抽 36 mL 注射 4 mL、BMA clot 組抽 16 mL 注射 16 mL，Shapiro 研究抽到 52 mL，Centeno 登錄研究只抽 10～15 mL [1][3][8]。可見抽多少不是單純由「濃縮或不濃縮」決定。
+骨髓一般要從腸骨穿刺抽取。抽得多不一定比較痛——穿刺點數、針尖是否多次重新定位、針的大小、麻醉方式、操作者技術與個人痛感都會影響。各研究抽取量也差很多：2026 巴西研究 BMAC 組抽 36 mL 注射 4 mL、BMA clot 組抽 16 mL 注射 16 mL，Shapiro 研究抽到 52 mL，Centeno 登錄研究只抽 10～15 mL [1][5][3]。可見抽多少不是單純由「濃縮或不濃縮」決定。
 
 常見不適是腸骨穿刺處疼痛、局部瘀青、注射後短暫關節腫脹。2026 年研究 12 個月內沒有嚴重治療相關不良事件，也沒有關節感染或血栓 [1]；但這仍屬侵入性處置，理論上仍有感染、出血與神經血管損傷的風險。
 
 ## 七、除了濃度，「打在哪裡」可能也很重要
 
-一項比較「軟骨下骨注射」與「關節腔內注射」BMAC 的隨機研究追蹤約 15 年：軟骨下骨組約 20% 最終需要人工關節置換，關節腔內組約 70%。[5] 軟骨下骨的骨髓病灶（bone marrow lesion, BML）與膝退化的疼痛及疾病進展有關，但不能把所有 BML 都簡化為「較早期、還可逆」的病灶。不過軟骨下骨注射侵入性高、可能需要手術環境，門診可行性低，且僅來自單一研究。它真正的提醒是：膝退化治療不能只考慮「打什麼」，**病灶位置與疼痛來源也可能影響結果**。
+一項比較「軟骨下骨注射」與「關節腔內注射」BMAC 的隨機研究追蹤約 15 年：軟骨下骨組約 20% 最終需要人工關節置換，關節腔內組約 70% [8]。軟骨下骨的骨髓病灶（bone marrow lesion, BML）與膝退化的疼痛及疾病進展有關，但不能把所有 BML 都簡化為「較早期、還可逆」的病灶。不過軟骨下骨注射侵入性高、可能需要手術環境，門診可行性低，且僅來自單一研究。它真正的提醒是：膝退化治療不能只考慮「打什麼」，**病灶位置與疼痛來源也可能影響結果**。
 
 ## 八、我該選哪一種？
 
@@ -129,16 +129,16 @@ Shapiro 等人讓同一位雙側膝退化患者一邊打 BMAC、另一邊打生�
 
 [1] Lana JF, Pires L, Macedo A, et al. Randomized clinical trial comparing intra-articular injection of bone marrow aspirate clot and bone marrow aspirate concentrate in grade 3 and 4 knee osteoarthritis. Stem Cell Res Ther. 2026;17:168.
 
-[2] Muthu S, Ramanathan K, Alagar Yadav S, et al. Increased Cellular Dosage of Bone Marrow Aspiration Concentrate Does Not Translate to Increased Clinical Effectiveness in Knee Osteoarthritis: A Phase I Dose Escalation Study. Indian J Orthop. 2024;58(8):1001-1008.
+[2] Salamanna F, Contartese D, Nicoli Aldini N, et al. Bone marrow aspirate clot: A technical complication or a smart approach for musculoskeletal tissue regeneration? J Cell Physiol. 2018;233:2723-2732.
 
-[3] Centeno CJ, Al-Sayegh H, Bashir J, Goodyear S, Freeman MD. A dose response analysis of a specific bone marrow concentrate treatment protocol for knee osteoarthritis. BMC Musculoskelet Disord. 2015;16:258.
+[3] Shapiro SA, Kazmerchak SE, Heckman MG, Zubair AC, O'Connor MI. A Prospective, Single-Blind, Placebo-Controlled Trial of Bone Marrow Aspirate Concentrate for Knee Osteoarthritis. Am J Sports Med. 2017;45(1):82-90.
 
-[4] Jawanda H, Khan ZA, Warrier AA, et al. Platelet-Rich Plasma, Bone Marrow Aspirate Concentrate, and Hyaluronic Acid Injections Outperform Corticosteroids in Pain and Function Scores at a Minimum of 6 Months as Intra-Articular Injections for Knee Osteoarthritis: A Systematic Review and Network Meta-analysis. Arthroscopy. 2024;40(5):1623-1636.e1.
+[4] Muthu S, Ramanathan K, Alagar Yadav S, et al. Increased Cellular Dosage of Bone Marrow Aspiration Concentrate Does Not Translate to Increased Clinical Effectiveness in Knee Osteoarthritis: A Phase I Dose Escalation Study. Indian J Orthop. 2024;58(8):1001-1008.
 
-[5] Hernigou P, Bouthors C, Bastard C, et al. Subchondral bone or intra-articular injection of bone marrow concentrate mesenchymal stem cells in bilateral knee osteoarthritis: what better postpone knee arthroplasty at fifteen years? A randomized study. Int Orthop. 2021;45:391-399.
+[5] Centeno CJ, Al-Sayegh H, Bashir J, Goodyear S, Freeman MD. A dose response analysis of a specific bone marrow concentrate treatment protocol for knee osteoarthritis. BMC Musculoskelet Disord. 2015;16:258.
 
-[6] Dulic O, Rasovic P, Lalic I, et al. Bone Marrow Aspirate Concentrate versus Platelet Rich Plasma or Hyaluronic Acid for the Treatment of Knee Osteoarthritis. Medicina. 2021;57:1193.
+[6] Jawanda H, Khan ZA, Warrier AA, et al. Platelet-Rich Plasma, Bone Marrow Aspirate Concentrate, and Hyaluronic Acid Injections Outperform Corticosteroids in Pain and Function Scores at a Minimum of 6 Months as Intra-Articular Injections for Knee Osteoarthritis: A Systematic Review and Network Meta-analysis. Arthroscopy. 2024;40(5):1623-1636.e1.
 
-[7] Salamanna F, Contartese D, Nicoli Aldini N, et al. Bone marrow aspirate clot: A technical complication or a smart approach for musculoskeletal tissue regeneration? J Cell Physiol. 2018;233:2723-2732.
+[7] Dulic O, Rasovic P, Lalic I, et al. Bone Marrow Aspirate Concentrate versus Platelet Rich Plasma or Hyaluronic Acid for the Treatment of Knee Osteoarthritis. Medicina. 2021;57:1193.
 
-[8] Shapiro SA, Kazmerchak SE, Heckman MG, Zubair AC, O'Connor MI. A Prospective, Single-Blind, Placebo-Controlled Trial of Bone Marrow Aspirate Concentrate for Knee Osteoarthritis. Am J Sports Med. 2017;45(1):82-90.
+[8] Hernigou P, Bouthors C, Bastard C, et al. Subchondral bone or intra-articular injection of bone marrow concentrate mesenchymal stem cells in bilateral knee osteoarthritis: what better postpone knee arthroplasty at fifteen years? A randomized study. Int Orthop. 2021;45:391-399.
