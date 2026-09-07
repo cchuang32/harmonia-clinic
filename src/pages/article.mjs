@@ -82,7 +82,18 @@ ${a.html}
     slug: a.slug,
     ogImage: a.cover,
     breadcrumb: [{ name: '首頁', path: '/' }, { name: '衛教文章', path: '/articles/' }, { name: a.title }],
-    headExtra: ld(articleLd),
+    // 文章有常見問題就一併輸出 FAQPage。答案文字直接取自內文（build.mjs 抽的），
+    // 沒有改寫——Google 要求標記裡的答案必須與頁面上顯示的一致。
+    headExtra: ld(articleLd) + (a.faq && a.faq.length ? ld({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      '@id': `${site.url}/${a.slug}/#faq`,
+      mainEntity: a.faq.map((f) => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a },
+      })),
+    }) : ''),
     body,
   };
 }

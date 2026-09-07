@@ -693,6 +693,10 @@ ul.chip-list, .card ul.chip-list {
   font-family: var(--serif); font-size: 15px; font-weight: 700; line-height: 1;
 }
 .article-author-name { color: var(--ink-900); font-weight: 500; }
+/* 署名連到醫師介紹頁。維持原本的墨色，只留底線當作「可以點」的提示——
+   染成連結綠會讓署名看起來像一般內文連結，不像署名。 */
+.article-author-name a { color: inherit; text-decoration-color: rgba(35, 38, 31, .3); }
+.article-author-name a:hover { color: var(--green-700); text-decoration-color: currentColor; }
 .article-author-role { display: block; font-size: 12.5px; color: var(--ink-500); line-height: 1.4; }
 
 /* HERO 圖片：等比例縮放，寬度不超過內容文字區 */
@@ -812,6 +816,19 @@ ul.chip-list, .card ul.chip-list {
 .page-head .eyebrow { color: var(--gold-100); }
 .page-head h1 { font-family: var(--serif); font-size: clamp(27px, 6vw, 42px); line-height: 1.35; font-weight: 700; }
 .page-head p { margin-top: 16px; max-width: var(--measure); color: rgba(255, 255, 255, .88); font-size: clamp(15px, 3.6vw, 17px); line-height: 1.95; }
+
+/* 固定頁的署名列。放在 .page-head 裡（深綠底），所以用白字。
+   比內文小一號，是輔助資訊不是主角。 */
+.page-byline {
+  margin-top: clamp(18px, 3vw, 24px);
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, .22);
+  max-width: var(--measure);
+}
+.page-byline p { margin: 0; font-size: 14px; line-height: 1.8; color: rgba(255, 255, 255, .8); }
+.page-byline a { color: #fff; text-decoration-color: rgba(255, 255, 255, .45); }
+.page-byline a:hover { text-decoration-color: #fff; }
+.page-byline-date { margin-top: 2px !important; color: rgba(255, 255, 255, .62) !important; font-size: 13px !important; }
 
 /* 地理位置頁：LINE 加入好友（QR 碼 + 按鈕） */
 .line-card {

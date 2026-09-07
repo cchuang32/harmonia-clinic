@@ -17,8 +17,8 @@ import { icons } from '../components.mjs';
 // ---------------------------------------------------------------------------
 const team = [
   {
-    name: '黃佳君 醫師',
-    role: '麻醉科．疼痛科專科醫師',
+    name: site.physician.name,
+    role: site.physician.role,
     // 肖像（方形照片）。留空則改用姓氏文字頭像
     photo: '/assets/img/doctor-huang-photo.jpg',
     photoAlt: '黃佳君醫師，身穿君禾診所醫師袍',

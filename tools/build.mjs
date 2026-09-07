@@ -33,6 +33,7 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DIST = path.join(ROOT, 'dist');
 const ARTICLE_DIR = path.join(ROOT, 'content', 'articles');
 const DATE_STATE = path.join(ROOT, 'content', 'article-dates.json');
+const PAGE_STATE = path.join(ROOT, 'content', 'page-dates.json');
 
 const PLACEHOLDER_HERO = '/assets/img/placeholder-hero.svg';
 
@@ -185,6 +186,19 @@ async function loadArticles() {
       }
     }
 
+    // 文章若有「## 常見問題」區塊，把底下每個 ### 問題與其答案抽出來，
+    // 交給 article.mjs 產生 FAQPage 結構化資料。
+    // 文字直接取自內文，不另外改寫——Google 規定標記裡的答案必須與頁面上
+    // 看到的一致，而且醫療內容的但書一個字都不能少。
+    const faq = [];
+    const faqBlock = body.match(/\n## 常見問題\s*\n([\s\S]*?)(?=\n## |$)/);
+    if (faqBlock) {
+      for (const m of faqBlock[1].matchAll(/###\s+(.+?)\s*\n+([\s\S]*?)(?=\n###\s|$)/g)) {
+        const answer = m[2].trim().replace(/\s*\n\s*/g, ' ');
+        if (m[1].trim() && answer) faq.push({ q: m[1].trim(), a: markdownToText(answer) });
+      }
+    }
+
     const text = markdownToText(body);
     articles.push({
       slug,
@@ -199,6 +213,7 @@ async function loadArticles() {
       cardImage,
       event,
       added,
+      faq,
       heroAlt: data.heroAlt || data.title,
       heroCaption: data.heroCaption || '',
       excerpt: data.excerpt || (text.length > 96 ? text.slice(0, 96) + '…' : text),
@@ -244,13 +259,41 @@ async function build() {
   }
 
   // --- 固定頁 ---
-  await emit('.', page(homePage(articles)));
-  await emit('services', page(servicesPage()));
-  await emit('regeneration', page(regenerationPage()));
-  await emit('features', page(featuresPage()));
-  await emit('doctors', page(doctorsPage()));
-  await emit('articles', page(articlesPage(articles)));
-  await emit('location', page(locationPage()));
+  // 每頁記一個「最後更新日」，機制跟文章一樣：拿內容算雜湊，跟上次比對，
+  // 有變才把日期換成今天。sitemap 的 <lastmod> 就用這個日期。
+  //
+  // 為什麼不直接用建置當天的日期：那樣每次 build 全站都會宣稱「今天更新」，
+  // Google 看到一個每天全站都在變的 sitemap，反而會不信任 lastmod 而整個忽略。
+  //
+  // 為什麼渲染兩次：/regeneration/ 的署名列上要印出這個日期，
+  // 但日期又來自內容的雜湊。所以先用空日期渲染一次純粹拿去算雜湊
+  // （日期本身不列入比對，否則會自己追自己的尾巴），得到日期後再渲染正式版。
+  let pageState = {};
+  if (await exists(PAGE_STATE)) {
+    try { pageState = JSON.parse(await readFile(PAGE_STATE, 'utf8')); }
+    catch { warn('content/page-dates.json 讀不動，這次重新建立'); }
+  }
+  const nextPageState = {};
+  const pageUpdated = {};
+
+  const emitPage = async (slug, render) => {
+    const probe = render('');
+    const hash = createHash('sha1').update(probe).digest('hex').slice(0, 16);
+    const prev = pageState[slug];
+    const updated = prev && prev.hash === hash ? prev.updated : today();
+    nextPageState[slug] = { hash, updated };
+    pageUpdated[slug] = updated;
+    await emit(slug === '/' ? '.' : slug, render(updated));
+  };
+
+  await emitPage('/', () => page(homePage(articles)));
+  await emitPage('services', () => page(servicesPage()));
+  await emitPage('regeneration', (u) => page(regenerationPage(u)));
+  await emitPage('features', () => page(featuresPage()));
+  await emitPage('doctors', () => page(doctorsPage()));
+  await emitPage('articles', () => page(articlesPage(articles)));
+  await emitPage('location', () => page(locationPage()));
+  await writeFile(PAGE_STATE, JSON.stringify(nextPageState, null, 2) + '\n');
   ok('首頁、治療項目、自體骨髓及 PRP 再生注射、本院特色、醫師介紹、衛教文章、地理位置');
 
   // --- 文章頁：每篇一個獨立網址 /<slug>/ ---
@@ -311,13 +354,13 @@ async function build() {
 
   // --- sitemap / robots / .nojekyll ---
   const urls = [
-    { loc: '/', pri: '1.0' },
-    { loc: '/services/', pri: '0.8' },
-    { loc: '/regeneration/', pri: '0.8' },
-    { loc: '/features/', pri: '0.8' },
-    { loc: '/doctors/', pri: '0.8' },
-    { loc: '/articles/', pri: '0.8' },
-    { loc: '/location/', pri: '0.7' },
+    { loc: '/', pri: '1.0', lastmod: pageUpdated['/'] },
+    { loc: '/services/', pri: '0.8', lastmod: pageUpdated['services'] },
+    { loc: '/regeneration/', pri: '0.8', lastmod: pageUpdated['regeneration'] },
+    { loc: '/features/', pri: '0.8', lastmod: pageUpdated['features'] },
+    { loc: '/doctors/', pri: '0.8', lastmod: pageUpdated['doctors'] },
+    { loc: '/articles/', pri: '0.8', lastmod: pageUpdated['articles'] },
+    { loc: '/location/', pri: '0.7', lastmod: pageUpdated['location'] },
     ...articles.map((a) => ({ loc: `/${a.slug}/`, pri: '0.6', lastmod: a.updated })),
   ];
   await writeFile(path.join(DIST, 'sitemap.xml'),

@@ -1,0 +1,30 @@
+{
+  "/": {
+    "hash": "acf2823fb62bfcb1",
+    "updated": "2026-09-07"
+  },
+  "services": {
+    "hash": "e968c90e122f00b3",
+    "updated": "2026-09-07"
+  },
+  "regeneration": {
+    "hash": "ec6ce8c1919e64ff",
+    "updated": "2026-09-07"
+  },
+  "features": {
+    "hash": "597f786cb0be7938",
+    "updated": "2026-09-07"
+  },
+  "doctors": {
+    "hash": "852a57b4ae58f5c1",
+    "updated": "2026-09-07"
+  },
+  "articles": {
+    "hash": "a53f52fec988435f",
+    "updated": "2026-09-07"
+  },
+  "location": {
+    "hash": "ff0907c9608f09e1",
+    "updated": "2026-09-07"
+  }
+}

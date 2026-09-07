@@ -1,6 +1,6 @@
 import { site } from '../../site.config.mjs';
 import { url, esc, jsonLd } from '../layout.mjs';
-import { icons } from '../components.mjs';
+import { icons, pageByline } from '../components.mjs';
 
 // ---------------------------------------------------------------------------
 // 自體骨髓及 PRP 再生注射。
@@ -114,13 +114,14 @@ const faqGroups = [
   },
 ];
 
-export function regenerationPage() {
+export function regenerationPage(updated) {
   const body = `
 <section class="page-head">
   <div class="wrap">
     <span class="eyebrow">Regenerative Injection</span>
     <h1>自體骨髓及 PRP 再生注射</h1>
     <p>兩種再生注射，生長因子都來自你自己的身體。這一頁把「東西從哪裡取、怎麼打、當天會發生什麼事」寫清楚，讓你在決定之前就先知道全部流程。</p>
+    ${pageByline(updated)}
   </div>
 </section>
 

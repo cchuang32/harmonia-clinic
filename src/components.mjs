@@ -82,7 +82,7 @@ export function articleMeta(a) {
       <span class="article-author">
         <span class="article-author-avatar" aria-hidden="true">${esc(initial)}</span>
         <span>
-          <span class="article-author-name">${esc(a.author)}</span>
+          <span class="article-author-name"><a href="${url(site.physician.page)}" rel="author">${esc(a.author)}</a></span>
           ${a.authorRole ? `<span class="article-author-role">${esc(a.authorRole)}</span>` : ''}
         </span>
       </span>
@@ -117,4 +117,15 @@ export function eventNotice(e) {
         <a class="btn btn--ghost" href="${site.contact.lineUrl}" target="_blank" rel="noopener">用 LINE 跟我們說一聲</a>
       </div>
     </aside>`;
+}
+
+/** 固定頁（療程說明等）的署名列。文章有 articleMeta，這是給沒有 front matter
+ *  的頁面用的簡版：誰寫的、連到醫師介紹頁、最後更新是什麼時候。
+ *  updated 由 build.mjs 依內容雜湊算出，內容沒變就不會跳日期。 */
+export function pageByline(updated) {
+  return `<div class="page-byline">
+      <p>內容由 <a href="${url(site.physician.page)}" rel="author">${esc(site.physician.name)}</a>
+        ｜${esc(site.physician.role)}　撰寫與審閱</p>
+      ${updated ? `<p class="page-byline-date">最後更新：<time datetime="${esc(updated)}">${formatDate(updated)}</time></p>` : ''}
+    </div>`;
 }
