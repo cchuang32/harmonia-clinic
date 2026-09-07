@@ -71,6 +71,27 @@ function parseFrontMatter(raw) {
   return { data, body: m[2] };
 }
 
+/**
+ * 把「一分鐘重點」那一節整個包進 <div class="article-summary">，讓它在版面上
+ * 跟其他章節區分開來（左側細線 + 字級略大，見 style.css）。
+ *
+ * 為什麼要包：那一節的 h2 跟「一、二、三」各章長得一模一樣，讀者掃過去時
+ * 看起來就像第 0 章，看不出它是全篇的摘要。
+ *
+ * 寫「## 一分鐘重點」就自動生效，不必在文章裡加任何標記。
+ * 「總結摘要」是舊的寫法，一併相容，不用回頭改舊文章。
+ *
+ * 只包住緊接在標題後面的「連續段落」，遇到引言框、清單、表格就停——
+ * 不能一路包到下一個 h2，否則摘要後面那些補充說明（例如延伸閱讀的引言框）
+ * 會被一起放大，看起來也變成摘要的一部分。
+ */
+function wrapSummary(html) {
+  return html.replace(
+    /(<h2>(?:一分鐘重點|總結摘要)<\/h2>\n)((?:<p>(?:(?!<\/p>)[\s\S])*<\/p>\n)*)/,
+    '<div class="article-summary">$1$2</div>\n',
+  );
+}
+
 /* ---------------------------------------------------------------------------
    讀文章 + 判斷更新日期
 --------------------------------------------------------------------------- */
@@ -217,7 +238,7 @@ async function loadArticles() {
       heroAlt: data.heroAlt || data.title,
       heroCaption: data.heroCaption || '',
       excerpt: data.excerpt || (text.length > 96 ? text.slice(0, 96) + '…' : text),
-      html: markdownToHtml(body),
+      html: wrapSummary(markdownToHtml(body)),
     });
   }
 

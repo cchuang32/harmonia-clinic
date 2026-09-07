@@ -741,6 +741,19 @@ ul.chip-list, .card ul.chip-list {
 
 .article-body { max-width: var(--measure); margin: clamp(30px, 5vw, 44px) auto 0; font-size: 17px; }
 .article-body > * + * { margin-top: 1.2em; }
+/* 「一分鐘重點」：由 build.mjs 自動包起來（見 wrapSummary）。
+   用左側細線加略大的字級，不用填色框——這一節上方常常就是一張有框線的
+   表格，再疊一個框會變成兩個容器相黏，版面太重。
+   目的只是讓讀者看得出「這一段跟其他章節不一樣」。 */
+.article-summary {
+  border-left: 3px solid var(--brand);
+  padding-left: clamp(16px, 3vw, 22px);
+  margin-top: clamp(28px, 4.5vw, 40px);
+}
+.article-summary h2 { margin-top: 0 !important; padding-top: 0; }
+.article-summary p { font-size: 18.5px; line-height: 1.95; color: var(--ink-900); }
+@media (max-width: 480px) { .article-summary p { font-size: 17.5px; } }
+
 .article-body h2 {
   font-family: var(--serif); font-size: clamp(20px, 4.4vw, 26px); line-height: 1.5;
   font-weight: 700; color: var(--green-900);
