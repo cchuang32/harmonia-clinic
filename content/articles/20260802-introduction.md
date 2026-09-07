@@ -5,7 +5,6 @@ author: 黃佳君 醫師
 authorRole: 麻醉科．疼痛科專科醫師
 tag: 診所公告
 date: 2026-08-02
-updated: 2026-08-02
 card: /assets/img/opening-tea-2026.jpg
 # --- 開幕茶會公告：活動結束後把 event 開頭的六行刪掉，並刪除 content/standalone/opening-tea.html ---
 eventTitle: 開幕茶會
