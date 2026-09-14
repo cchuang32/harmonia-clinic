@@ -4,10 +4,31 @@ import { icons } from '../components.mjs';
 
 // ---------------------------------------------------------------------------
 // 診所外觀照片：幫病人在現場認出門面，比地圖更實用。
-// 留空 → 整區不顯示，版面不變。建議 3:2 橫幅，第一張放正面招牌。
-//   { src: '/assets/img/place-front.jpg', alt: '君禾診所正面招牌', caption: '（可留空）' }
+// 留空 → 整區不顯示，版面不變。建議 3:2 橫幅。
+// 由遠而近排：先從中山路上認出大樓，再走到門口。四張都已裁成 3:2，並清除 GPS 等中繼資料。
 // ---------------------------------------------------------------------------
-const exterior = [];
+const exterior = [
+  {
+    src: '/assets/img/place-1-street.jpg',
+    alt: '從中山路一段望向診所所在的大樓：幾棟高樓並排，其中一棟一樓是深色外牆、掛著淺綠色招牌的店面，右側大樓一樓為巨人補習班。',
+    caption: '在中山路上遠遠看，診所在高樓一樓、深色外牆掛淺綠色招牌的那一間。',
+  },
+  {
+    src: '/assets/img/place-2-across.jpg',
+    alt: '從對街看君禾診所門面：二樓有木色直條格柵，一樓上方是淺綠色的君禾診所招牌，騎樓旁有一座小女孩銅像。',
+    caption: '走近一點：木色格柵下方的淺綠色招牌，騎樓旁有一座小女孩銅像。',
+  },
+  {
+    src: '/assets/img/place-3-storefront.jpg',
+    alt: '站在騎樓前的人行道上看君禾診所：招牌寫著「君禾診所 HARMONIA CLINIC」與「君之健康 禾你同行」，前方有植栽與小女孩銅像。',
+    caption: '看到小女孩銅像，旁邊就是診所。',
+  },
+  {
+    src: '/assets/img/place-4-entrance.jpg',
+    alt: '君禾診所正門近照：落地玻璃門窗，可看見室內的木質候診座椅，右側為玻璃大門。',
+    caption: '正門在招牌下方最右側的玻璃門。',
+  },
+];
 
 // 交通方式。要新增項目就往陣列裡再加一筆，圖示可用 train / bus / car。
 // 已確認沒有可直達診所的公車路線，因此不列公車項目，改在清單下方說明。
@@ -56,9 +77,9 @@ ${exterior.length ? `<section class="section">
       <h2 class="section-title">認得出這個門面</h2>
       <p class="section-lead">到了中山路一段，看到這裡就是了。</p>
     </div>
-    <div class="photo-grid photo-grid--${Math.min(exterior.length, 3)}">
+    <div class="photo-grid photo-grid--${Math.min(exterior.length, 4)}">
       ${exterior.map((ph) => `<figure class="photo">
-        <img src="${url(ph.src)}" alt="${esc(ph.alt)}" loading="lazy">
+        <img src="${url(ph.src)}" alt="${esc(ph.alt)}" width="1200" height="800" loading="lazy">
         ${ph.caption ? `<figcaption>${esc(ph.caption)}</figcaption>` : ''}
       </figure>`).join('\n      ')}
     </div>
