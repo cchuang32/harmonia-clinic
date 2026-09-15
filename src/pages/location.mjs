@@ -134,6 +134,7 @@ ${exterior.length ? `<section class="section">
           ${site.hours.map((h) => `<div class="info-row"><dt>${esc(h.day)}</dt><dd>${esc(h.time)}</dd></div>`).join('\n          ')}
         </dl>
         <p class="section-lead" style="font-size:14.5px">※ 國定假日與颱風天看診時間可能異動，出發前建議先來電 <a href="${esc(site.contact.phoneHref)}">${esc(site.contact.phone)}</a> 確認。</p>
+        <p class="section-lead" style="font-size:14.5px">掛號方式、看診原則與收費說明，請見<a href="${url('/notice/')}">就醫須知</a>。</p>
       </div>
 
       <div>
@@ -164,7 +165,7 @@ ${exterior.length ? `<section class="section">
     </div>
     <dl class="info-list">
       <div class="info-row"><dt>電話</dt><dd><a href="${esc(site.contact.phoneHref)}">${esc(site.contact.phone)}</a></dd></div>
-      <div class="info-row"><dt>LINE</dt><dd>${esc(site.contact.lineId)}（可線上掛號）</dd></div>
+      <div class="info-row"><dt>LINE</dt><dd>${esc(site.contact.lineId)}（LINE 線上掛號即將開放，目前請現場或電話掛號）</dd></div>
       <div class="info-row"><dt>地址</dt><dd>${esc(site.contact.address)}</dd></div>
       <div class="info-row"><dt>無障礙</dt><dd>從後方停車場過來，兩棟大樓之間的通道設有附扶手的坡道。若使用輪椅、行動不便，或需要移位、上下診療床，建議掛號時先告訴我們，同仁會到門口協助。</dd></div>
     </dl>
@@ -173,7 +174,7 @@ ${exterior.length ? `<section class="section">
       <img class="line-qr" src="${url(site.contact.lineQr)}" alt="${esc(site.nameZh)} LINE 官方帳號加入好友 QR 碼" width="600" height="600" loading="lazy">
       <div class="line-card-body">
         <h3>加入 LINE 好友</h3>
-        <p>加入好友之後，就可以直接在 LINE 上線上掛號。用電腦看這一頁的話，請拿手機掃描左邊的 QR 碼；用手機看的話，直接按下面的按鈕就可以。</p>
+        <p>LINE 線上掛號即將開放，目前請現場或電話掛號。用電腦看這一頁的話，請拿手機掃描左邊的 QR 碼；用手機看的話，直接按下面的按鈕就可以。</p>
         <a class="btn btn--primary" href="${esc(site.contact.lineUrl)}" target="_blank" rel="noopener">加入好友</a>
         <p class="line-id">LINE ID：${esc(site.contact.lineId)}</p>
       </div>

@@ -27,6 +27,7 @@ import { featuresPage } from '../src/pages/features.mjs';
 import { doctorsPage } from '../src/pages/doctors.mjs';
 import { articlesPage } from '../src/pages/articles.mjs';
 import { locationPage } from '../src/pages/location.mjs';
+import { noticePage } from '../src/pages/notice.mjs';
 import { articlePage } from '../src/pages/article.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -314,8 +315,9 @@ async function build() {
   await emitPage('doctors', () => page(doctorsPage()));
   await emitPage('articles', () => page(articlesPage(articles)));
   await emitPage('location', () => page(locationPage()));
+  await emitPage('notice', () => page(noticePage()));
   await writeFile(PAGE_STATE, JSON.stringify(nextPageState, null, 2) + '\n');
-  ok('首頁、治療項目、自體骨髓及 PRP 再生注射、本院特色、醫師介紹、衛教文章、地理位置');
+  ok('首頁、治療項目、自體骨髓及 PRP 再生注射、本院特色、醫師介紹、衛教文章、地理位置、就醫須知');
 
   // --- 文章頁：每篇一個獨立網址 /<slug>/ ---
   for (let i = 0; i < articles.length; i++) {
@@ -382,6 +384,7 @@ async function build() {
     { loc: '/doctors/', pri: '0.8', lastmod: pageUpdated['doctors'] },
     { loc: '/articles/', pri: '0.8', lastmod: pageUpdated['articles'] },
     { loc: '/location/', pri: '0.7', lastmod: pageUpdated['location'] },
+    { loc: '/notice/', pri: '0.6', lastmod: pageUpdated['notice'] },
     ...articles.map((a) => ({ loc: `/${a.slug}/`, pri: '0.6', lastmod: a.updated })),
   ];
   await writeFile(path.join(DIST, 'sitemap.xml'),
@@ -401,9 +404,9 @@ async function build() {
     `> ${site.seo.clinicDescription}\n` +
     `> 地址：${site.contact.address}｜電話：${site.contact.phone}\n` +
     `> 看診時間：${hoursLine}\n` +
-    `> 線上掛號：LINE ${site.contact.lineId}（${site.contact.lineUrl}）\n\n` +
+    `> 掛號：現場或電話掛號（LINE 線上掛號尚未開放）\n\n` +
     `## 主要頁面\n` +
-    navPages.map((n) => `- [${n.label}](${site.url}${n.href})`).join('\n') + '\n\n' +
+    navPages.map((n) => `- [${n.label}](${site.url}${n.href})`).join('\n') + `\n- [就醫須知](${site.url}/notice/)` + '\n\n' +
     `## 衛教文章\n` +
     articles.map((a) => `- [${a.title}](${site.url}/${a.slug}/)：${a.excerpt}`).join('\n') + '\n\n' +
     `## 說明\n` +

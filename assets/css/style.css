@@ -428,6 +428,20 @@ ul.chip-list, .card ul.chip-list {
 }
 .faq-a { margin: 0; color: var(--ink-700); line-height: 1.9; }
 
+/* ---------- 就醫須知 ---------- */
+.faq-a + .faq-a { margin-top: .7em; }
+.notice-subtitle { margin: clamp(30px, 5vw, 40px) 0 4px; }
+/* 「即將開放」小標籤：暖色字一律用 --gold-600，--accent 不能寫字 */
+.notice-soon {
+  display: inline-block; margin-right: 6px; padding: 0 9px;
+  border: 1px solid currentColor; border-radius: 999px;
+  color: var(--gold-600); font-size: 13px; line-height: 1.7; white-space: nowrap;
+}
+.notice-callout { margin-top: clamp(26px, 4vw, 34px); }
+.notice-callout p { margin: 0; }
+.notice-callout p + p { margin-top: 6px; }
+.notice-notes { margin-top: clamp(22px, 4vw, 30px); }
+
 .photo-grid {
   display: grid; gap: clamp(14px, 2.5vw, 22px);
   margin-top: clamp(24px, 4vw, 36px);
@@ -952,6 +966,9 @@ ul.chip-list, .card ul.chip-list {
 .footer-col p { font-size: 15px; line-height: 1.85; }
 .footer-col a { color: #fff; text-decoration: none; }
 .footer-col a:hover { text-decoration: underline; }
+/* 頁尾「就醫須知」連結：跟上面的看診時間隔開，並常駐底線，看得出可以點 */
+.footer-col .footer-link { margin-top: 14px; }
+.footer-col .footer-link a { text-decoration: underline; text-underline-offset: 3px; }
 .footer-addr { margin-top: 4px; }
 .footer-hours span { display: block; color: rgba(255, 255, 255, .58); font-size: 13px; }
 .footer-hours + .footer-hours { margin-top: 10px; }

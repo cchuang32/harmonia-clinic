@@ -35,7 +35,7 @@ export function homePage(articles) {
         <p class="hero-lead">位於新竹湖口。日常的大小病，以及各種疼痛問題，都可以先來門診看看。<br class="only-wide">看診不只是解決眼前的不舒服，而是理解你的生活，一起找到走得長久的方式。</p>
         <div class="btn-row">
           <a class="btn btn--primary" href="${site.contact.phoneHref}">${icons.phone} 預約掛號 ${esc(site.contact.phone)}</a>
-          <a class="btn btn--ghost" href="${esc(site.contact.lineUrl)}" target="_blank" rel="noopener">${icons.chat} LINE 線上掛號</a>
+          <a class="btn btn--ghost" href="${esc(site.contact.lineUrl)}" target="_blank" rel="noopener">${icons.chat} 加入 LINE 好友</a>
           <a class="btn btn--ghost" href="${url('/services/')}">看看治療項目</a>
         </div>
       </div>
@@ -126,7 +126,7 @@ export function homePage(articles) {
     <p>來一趟君禾，讓醫師陪你把問題看清楚。</p>
     <div class="btn-row">
       <a class="btn btn--primary" href="${site.contact.phoneHref}">${icons.phone} ${esc(site.contact.phone)}</a>
-      <a class="btn btn--ghost" href="${esc(site.contact.lineUrl)}" target="_blank" rel="noopener">${icons.chat} LINE 線上掛號</a>
+      <a class="btn btn--ghost" href="${esc(site.contact.lineUrl)}" target="_blank" rel="noopener">${icons.chat} 加入 LINE 好友</a>
       <a class="btn btn--ghost" href="${url('/location/')}">${icons.pin} 診所位置與交通</a>
     </div>
     <div class="stat-bar">

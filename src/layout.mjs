@@ -193,6 +193,7 @@ ${o.body}
     <div class="footer-col">
       <h2 class="footer-title">看診時間</h2>
       ${site.hours.map((h) => `<p class="footer-hours"><span>${esc(h.day)}</span>${esc(h.time)}</p>`).join('\n      ')}
+      <p class="footer-link"><a href="${url('/notice/')}">就醫須知：掛號與收費說明</a></p>
     </div>
   </div>
   <div class="wrap footer-bottom">

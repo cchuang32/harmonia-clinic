@@ -95,6 +95,7 @@ export function servicesPage() {
       <div class="info-row"><dt>疼痛問題</dt><dd>建議穿著寬鬆、方便活動的衣物。可以事先記下疼痛位置、發生時間、加重動作、曾接受的治療及目前用藥。</dd></div>
       <div class="info-row"><dt>想問的問題</dt><dd>把問題先記在手機裡。看診時逐一確認，通常比回家後才想起來更實用。</dd></div>
     </dl>
+    <p class="section-lead" style="font-size:15px">掛號方式、看診原則與收費說明，請見<a href="${url('/notice/')}">就醫須知</a>。</p>
   </div>
 </section>
 
