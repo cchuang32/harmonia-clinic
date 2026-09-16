@@ -38,6 +38,8 @@ const facilities = [
   },
   {
     icon: 'shockwave', title: '體外震波治療',
+    photo: '/assets/img/facility-shockwave.jpg',
+    photoAlt: '君禾診所的體外震波治療儀：推車上放著震波主機與治療探頭，檯面上備有多顆不同尺寸的傳導頭，左側為診療床',
     desc: '將聲波能量從體表傳入深層組織，不需開刀、不用麻醉，治療結束即可自行離開。單次約十幾分鐘，通常安排數次為一個療程。過程中會有痠脹感，強度會依你的耐受度調整。',
   },
   {
