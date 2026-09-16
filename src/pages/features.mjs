@@ -55,9 +55,30 @@ const pillars = [
   {
     title: '空間像家一樣安心',
     desc: '木質調候診區、柔和照明與充足採光，並保留寬敞動線。',
-    // 空間照片。留空 → 不顯示，版面照常。建議 3:2 橫幅，第一張為主圖
-    // 格式：{ src: '/assets/img/space-waiting.jpg', alt: '候診區⋯', caption: '（可留空）' }
-    photos: [],
+    // 空間照片。留空 → 不顯示，版面照常。四張都已裁成 3:2，並清除 GPS 等中繼資料。
+    // 順序照病人進門後的動線：大門 → 櫃檯 → 候診區 → 通往診間的走道。
+    photos: [
+      {
+        src: '/assets/img/space-1-entrance.jpg',
+        alt: '從候診區看向診所大門：左側木質牆面貼有「健康從來就不是願望，而是我們一起經營的日常。」與 HARMONIA CLINIC 字樣，正前方是自動玻璃門，右側為櫃檯。',
+        caption: '進門後就會看到櫃檯，掛號在這裡辦理。',
+      },
+      {
+        src: '/assets/img/space-2-reception.jpg',
+        alt: '君禾診所櫃檯：白色大理石檯面上有診所標誌，後方木質牆面掛著 HARMONIA CLINIC 君禾診所字樣，右側走道通往衛教室。',
+        caption: '櫃檯後方就是診間。',
+      },
+      {
+        src: '/assets/img/space-3-waiting.jpg',
+        alt: '候診區：落地窗旁沿牆擺放兩張木質長椅，陽光灑在木紋地板上，走道盡頭可見標示著診間、病歷室的門。',
+        caption: '候診區在落地窗旁，白天採光充足。',
+      },
+      {
+        src: '/assets/img/space-4-corridor.jpg',
+        alt: '從櫃檯望向診所內部走道：左側為木質牆面與衛教室，右側是落地窗與木質長椅，天花板為嵌燈照明。',
+        caption: '從櫃檯通往候診區與診間的動線。',
+      },
+    ],
   },
 ];
 
@@ -100,9 +121,9 @@ ${pillars.map((p) => `<section class="section section--paper">
     <p class="section-lead">${esc(p.desc)}</p>
   </div>
   ${p.photos && p.photos.length ? `<div class="wrap">
-    <div class="photo-grid photo-grid--${Math.min(p.photos.length, 3)}">
+    <div class="photo-grid photo-grid--${Math.min(p.photos.length, 4)}">
       ${p.photos.map((ph) => `<figure class="photo">
-        <img src="${url(ph.src)}" alt="${esc(ph.alt)}" loading="lazy">
+        <img src="${url(ph.src)}" alt="${esc(ph.alt)}" width="1200" height="800" loading="lazy">
         ${ph.caption ? `<figcaption>${esc(ph.caption)}</figcaption>` : ''}
       </figure>`).join('\n      ')}
     </div>
