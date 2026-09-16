@@ -60,13 +60,13 @@ const pillars = [
     photos: [
       {
         src: '/assets/img/space-1-entrance.jpg',
-        alt: '從候診區看向診所大門：左側木質牆面貼有「健康從來就不是願望，而是我們一起經營的日常。」與 HARMONIA CLINIC 字樣，正前方是自動玻璃門，右側為櫃檯。',
-        caption: '進門後就會看到櫃檯，掛號在這裡辦理。',
+        alt: '從衛教室看向診所大門：左側木質牆面貼有「健康從來就不是願望，而是我們一起經營的日常。」與 HARMONIA CLINIC 字樣，正前方是整面玻璃門，陽光照進室內，右側為櫃檯。',
+        caption: '整面玻璃採光，白天光線會照進走道；門旁有手壓開關，按一下門就會開。',
       },
       {
         src: '/assets/img/space-2-reception.jpg',
         alt: '君禾診所櫃檯：白色大理石檯面上有診所標誌，後方木質牆面掛著 HARMONIA CLINIC 君禾診所字樣，右側走道通往衛教室。',
-        caption: '櫃檯後方就是診間。',
+        caption: '櫃檯的檯面上有診所標誌，掛號與批價在這裡。',
       },
       {
         src: '/assets/img/space-3-waiting.jpg',
