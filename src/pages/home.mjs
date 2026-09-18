@@ -63,7 +63,7 @@ export function homePage(articles) {
     <div class="section-head section-head--center">
       <span class="eyebrow">Services</span>
       <h2 class="section-title">我們看什麼</h2>
-      <p class="section-lead">從慢性病追蹤、感冒過敏等急性不適，到肩頸腰背、關節及神經相關疼痛，都可以先來門診評估。</p>
+      <p class="section-lead section-lead--wide">從慢性病追蹤、感冒過敏等急性不適，到肩頸腰背、關節及神經相關疼痛，都可以先來門診評估。</p>
     </div>
     <div class="grid grid--3">
       ${services.map((s) => s.href
