@@ -5,14 +5,7 @@ author: 黃佳君 醫師
 authorRole: 麻醉科．疼痛科專科醫師
 tag: 診所公告
 date: 2026-08-02
-card: /assets/img/opening-tea-2026.jpg
-# --- 開幕茶會公告：活動結束後把 event 開頭的六行刪掉，並刪除 content/standalone/opening-tea.html ---
-eventTitle: 開幕茶會
-eventDate: 2026-09-19
-eventTime: 上午 10:00 – 12:00
-eventPlace: 新竹縣湖口鄉中山路一段 596 號
-eventNote: 敬備茶點，恭候光臨。不用預約，路過想進來看看也歡迎。
-eventHref: /opening-tea/
+card: /assets/img/space-3-waiting.jpg
 excerpt: 一間診所要用什麼方式對待走進來的人？這是君禾診所的第一篇文章，想先把我們的想法說清楚。
 ---
 
