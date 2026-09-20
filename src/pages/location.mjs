@@ -20,13 +20,13 @@ const exterior = [
     caption: '走近一點：木色格柵下方的淺綠色招牌，騎樓旁有一座小女孩銅像。',
   },
   {
-    src: '/assets/img/exterior-3-storefront.jpg',
-    alt: '站在人行道上看君禾診所：招牌寫著「君禾診所 HARMONIA CLINIC」與「君之健康 禾你同行」，前方有植栽，右側是小女孩銅像。',
+    src: '/assets/img/exterior-3-sidewalk.jpg',
+    alt: '站在人行道上看君禾診所：招牌寫著「君禾診所 HARMONIA CLINIC」與「君之健康 禾你同行」，騎樓下是整排落地玻璃窗，前方有植栽，右側是坐在石台上的小女孩銅像。',
     caption: '看到小女孩銅像，旁邊就是診所。',
   },
   {
-    src: '/assets/img/exterior-4-entrance.jpg',
-    alt: '君禾診所騎樓下的門面近照：落地玻璃上貼著診所標誌、「君之健康 禾你同行」字樣與治療項目，右側柱子上掛著「中山路一段 596 號」門牌。',
+    src: '/assets/img/exterior-4-arcade.jpg',
+    alt: '君禾診所的騎樓走道：右側柱子上掛著「中山路一段 596 號」門牌，落地玻璃上是「君之健康 禾你同行」字樣與治療項目說明，走道往左延伸。',
     caption: '走進騎樓，認得門牌：中山路一段 596 號。',
   },
 ];
