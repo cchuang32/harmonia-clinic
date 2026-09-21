@@ -70,7 +70,7 @@ const pillars = [
       {
         src: '/assets/img/space-1-entrance.jpg',
         alt: '從衛教室看向診所大門：左側木質牆面貼有「健康從來就不是願望，而是我們一起經營的日常。」與 HARMONIA CLINIC 字樣，正前方是整面玻璃門，陽光照進室內，右側為櫃檯。',
-        caption: '整面玻璃採光，白天光線會照進走道；門旁有手壓開關，按一下門就會開。',
+        caption: '整面玻璃採光，白天光線會照進走道。',
       },
       {
         src: '/assets/img/space-2-reception.jpg',
