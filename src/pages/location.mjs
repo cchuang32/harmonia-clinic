@@ -169,7 +169,7 @@ ${exterior.length ? `<section class="section">
       <div class="info-row"><dt>電話</dt><dd><a href="${esc(site.contact.phoneHref)}">${esc(site.contact.phone)}</a></dd></div>
       <div class="info-row"><dt>LINE</dt><dd>${esc(site.contact.lineId)}（LINE 線上掛號即將開放，目前請現場或電話掛號）</dd></div>
       <div class="info-row"><dt>地址</dt><dd>${esc(site.contact.address)}</dd></div>
-      <div class="info-row"><dt>無障礙</dt><dd>從後方停車場過來，兩棟大樓之間的通道設有附扶手的坡道。若使用輪椅、行動不便，或需要移位、上下診療床，建議掛號時先告訴我們，同仁會到門口協助。</dd></div>
+      <div class="info-row"><dt>無障礙</dt><dd>診所大門是寬 120 公分的電動門，門口設有斜坡板，方便輪椅進出。從後方停車場過來，兩棟大樓之間的通道也設有附扶手的坡道。若使用輪椅、行動不便，或需要移位、上下診療床，建議掛號時先告訴我們，同仁會到門口協助。</dd></div>
     </dl>
 
     ${site.contact.lineQr ? `<div class="line-card">
