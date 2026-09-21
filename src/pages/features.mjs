@@ -90,7 +90,7 @@ const pillars = [
       {
         src: '/assets/img/space-air-purifier.jpg',
         alt: '擺在櫃檯旁木門前的直立式空氣清淨機，深灰色布面外殼，正面有 Honeywell 標誌。',
-        caption: '櫃檯旁設有一台空氣清淨機。',
+        caption: '櫃檯旁設有一台空氣清淨機，我們希望大家候診時，都能待在舒服一點的空氣裡。',
       },
     ],
   },
