@@ -63,8 +63,8 @@ const pillars = [
     // ★ 門口照片只寫「有斜坡板、門寬 120 公分」，不要寫門口與人行道的高低差（網站主人的決定）。
     photos: [
       {
-        src: '/assets/img/space-entrance-ramp.jpg',
-        alt: '從騎樓看君禾診所大門：自動玻璃門敞開，門口地上鋪著一塊黑色斜坡板，門內可見櫃檯、蝴蝶蘭盆花與空氣清淨機，右側玻璃上印著黃佳君院長的經歷。',
+        src: '/assets/img/space-entrance-ramp-front.jpg',
+        alt: '正對君禾診所大門：自動玻璃門敞開，門口地上橫鋪著一塊黑色斜坡板，門內是平整的木紋地板，左側為櫃檯，右側玻璃上印著黃佳君院長的經歷，旁邊放著滅火器。',
         caption: '大門是電動門，寬 120 公分，門口設有斜坡板，方便輪椅進出。',
       },
       {
@@ -88,8 +88,8 @@ const pillars = [
         caption: '從櫃檯通往候診區與診間的動線。',
       },
       {
-        src: '/assets/img/space-air-purifier.jpg',
-        alt: '擺在櫃檯旁木門前的直立式空氣清淨機，深灰色布面外殼，正面有 Honeywell 標誌。',
+        src: '/assets/img/space-air-purifier-full.jpg',
+        alt: '擺在木門前的直立式空氣清淨機，深灰色外殼，正面有 Honeywell 標誌；右側是櫃檯的大理石紋側面，上面有綠色圓形的診所標誌，底部亮著燈條。',
         caption: '櫃檯旁設有一台空氣清淨機，我們希望大家候診時，都能待在舒服一點的空氣裡。',
       },
     ],
