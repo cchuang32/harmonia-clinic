@@ -990,3 +990,23 @@ ul.chip-list, .card ul.chip-list {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
 }
+
+/* ---------- 頁尾的社群圓鈕 ---------- */
+/* 只有圖示、沒有文字，所以每顆都要有 aria-label 給螢幕報讀使用。
+   底色維持淡綠、圖示用深綠：--brand 橄欖綠上不能放白字，
+   所以 hover 才換成 --green-700 深底配白圖。 */
+.social-row { display: flex; gap: 12px; margin-top: 16px; }
+.social-btn {
+  width: 44px; height: 44px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: rgba(255, 255, 255, .08);
+  border: 1px solid rgba(255, 255, 255, .35);
+  color: #fff; text-decoration: none;
+  transition: background .18s ease, border-color .18s ease, transform .18s ease;
+}
+.social-btn svg { width: 21px; height: 21px; }
+.social-btn:hover {
+  background: var(--green-500); border-color: var(--green-500);
+  color: var(--green-900); transform: translateY(-2px);
+}
+.social-btn:focus-visible { outline: 2px solid var(--green-100); outline-offset: 3px; }

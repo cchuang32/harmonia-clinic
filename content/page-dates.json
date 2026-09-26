@@ -1,34 +1,34 @@
 {
   "/": {
-    "hash": "547762fde88cb5aa",
+    "hash": "ae70f08b304f3a76",
     "updated": "2026-09-26"
   },
   "services": {
-    "hash": "b70264e01c3dedc9",
-    "updated": "2026-09-15"
+    "hash": "469a361d843774cd",
+    "updated": "2026-09-26"
   },
   "regeneration": {
-    "hash": "c8e56ac79e9f0019",
-    "updated": "2026-09-15"
+    "hash": "f86e3592945c8372",
+    "updated": "2026-09-26"
   },
   "features": {
-    "hash": "8d801a6e1a99b0d0",
+    "hash": "50ce635a46bc5006",
     "updated": "2026-09-26"
   },
   "doctors": {
-    "hash": "1b443f362da74480",
-    "updated": "2026-09-15"
+    "hash": "236c59e3bac08c14",
+    "updated": "2026-09-26"
   },
   "articles": {
-    "hash": "074403e42e8e7e69",
-    "updated": "2026-09-20"
+    "hash": "d336f1af50b220b0",
+    "updated": "2026-09-26"
   },
   "location": {
-    "hash": "a8b4f0634d7648ed",
-    "updated": "2026-09-21"
+    "hash": "a7dbb54cce333484",
+    "updated": "2026-09-26"
   },
   "notice": {
-    "hash": "0c0f349f5598a5d1",
-    "updated": "2026-09-17"
+    "hash": "d838ca3f0a1e5e13",
+    "updated": "2026-09-26"
   }
 }

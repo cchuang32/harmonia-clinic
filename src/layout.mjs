@@ -1,5 +1,14 @@
 import { site } from '../site.config.mjs';
 
+/* 頁尾社群圖示。刻意寫在這裡而不是從 components.mjs 匯入：
+   components.mjs 已經 import 本檔的 url/esc，反向再匯入會變成互相依賴。 */
+const footerIcons = {
+  phone: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h3.5l1.8 4.5-2.2 1.4a12 12 0 0 0 5.5 5.5l1.4-2.2L19.5 14V17a2 2 0 0 1-2.2 2A15.8 15.8 0 0 1 3 5.2 2 2 0 0 1 5 3Z"/></svg>',
+  pin: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>',
+  facebook: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5 3.66 9.15 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.52 1.5-3.91 3.77-3.91 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.89h2.78l-.44 2.91h-2.34V22c4.78-.79 8.44-4.94 8.44-9.94Z"/></svg>',
+  line: '<svg viewBox="0 0 24 24" aria-hidden="true"><defs><mask id="line-mark"><rect width="24" height="24" fill="#000"/><path d="M12 3.4c-5 0-9 3.1-9 7 0 3.5 3.2 6.4 7.5 7 .3.1.7.2.8.5.1.2.1.5 0 .8l-.2 1.4c0 .4.3.8.9.5 3.1-1.6 5.5-3.4 7.2-5.2 1.3-1.4 1.8-2.8 1.8-4.5 0-3.9-4-7-9-7Z" fill="#fff"/><text x="12" y="12.5" text-anchor="middle" font-size="5.6" font-weight="700" fill="#000" font-family="system-ui, -apple-system, Helvetica, Arial, sans-serif">LINE</text></mask></defs><rect width="24" height="24" fill="currentColor" mask="url(#line-mark)"/></svg>',
+};
+
 // 部署到子目錄時（例如 GitHub Pages 專案站台 /repo-name/）用 BASE_PATH 前綴。
 // Cloudflare Pages 是根目錄，留空即可。
 export const BASE = (process.env.BASE_PATH || '').replace(/\/$/, '');
@@ -189,6 +198,12 @@ ${o.body}
       <p><a href="${esc(site.contact.phoneHref)}">${esc(site.contact.phone)}</a></p>
       <p>LINE：${esc(site.contact.lineId)}</p>
       <p class="footer-addr">${esc(site.contact.address)}</p>
+      <div class="social-row">
+        <a class="social-btn" href="${esc(site.contact.phoneHref)}" aria-label="打電話給${esc(site.nameZh)} ${esc(site.contact.phone)}" title="電話 ${esc(site.contact.phone)}">${footerIcons.phone}</a>
+        <a class="social-btn" href="${url('/location/')}" aria-label="診所位置與交通" title="診所位置與交通">${footerIcons.pin}</a>
+        <a class="social-btn" href="${esc(site.contact.facebookUrl)}" target="_blank" rel="noopener" aria-label="${esc(site.nameZh)}臉書粉絲專頁（另開新視窗）" title="臉書粉絲專頁">${footerIcons.facebook}</a>
+        <a class="social-btn" href="${esc(site.contact.lineUrl)}" target="_blank" rel="noopener" aria-label="加入${esc(site.nameZh)} LINE 好友（另開新視窗）" title="LINE 官方帳號">${footerIcons.line}</a>
+      </div>
     </div>
     <div class="footer-col">
       <h2 class="footer-title">看診時間</h2>
