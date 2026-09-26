@@ -127,6 +127,7 @@ export function homePage(articles) {
     <div class="btn-row">
       <a class="btn btn--primary" href="${site.contact.phoneHref}">${icons.phone} ${esc(site.contact.phone)}</a>
       <a class="btn btn--ghost" href="${esc(site.contact.lineUrl)}" target="_blank" rel="noopener">${icons.chat} 加入 LINE 好友</a>
+      <a class="btn btn--ghost" href="${esc(site.contact.facebookUrl)}" target="_blank" rel="noopener">${icons.facebook} 臉書粉絲專頁</a>
       <a class="btn btn--ghost" href="${url('/location/')}">${icons.pin} 診所位置與交通</a>
     </div>
     <div class="stat-bar">

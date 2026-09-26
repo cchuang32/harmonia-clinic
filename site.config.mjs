@@ -23,6 +23,8 @@ export const site = {
     // QR 碼由 LINE 官方帳號後台產生，沒有經過第三方轉址。
     lineUrl: 'https://lin.ee/symEgb8',
     lineQr: '/assets/img/line-qr.png',
+    // 臉書粉絲專頁「君禾診所 - 黃佳君醫師」。首頁的臉書按鈕與 seo.sameAs 都指向這一個。
+    facebookUrl: 'https://www.facebook.com/cc.huang32/',
     // email 目前網站上沒有顯示（地理位置頁已移除該欄），保留備用
     email: 'service@harmonia-clinic.tw',
     address: '新竹縣湖口鄉中山路一段 596 號',
