@@ -198,9 +198,10 @@ npm run build
 
 1. 到 [supabase.com](https://supabase.com) 建立一個免費專案
 2. 左側 **SQL Editor → New query**，把 `supabase/schema.sql` 整份貼上，按 **Run**
-3. 左側 **Project Settings → Data API**，複製兩個值：
-   - `Project URL`
-   - `anon` `public` key
+3. 最上方的 **Connect** 按鈕 → **App Frameworks**，複製兩個值：
+   - `SUPABASE_URL`（Project URL）
+   - `SUPABASE_PUBLISHABLE_KEY`（新版介面的名稱；舊版叫 `anon` `public` key，用途相同）
+   - **不要用 `service_role` / `secret` 那一把**，那是後台專用、不能公開的
 4. 貼進 `site.config.mjs`：
 
 ```js
@@ -216,11 +217,26 @@ export const supabase = {
 
 ### 關於安全性
 
-`anon key` 是 Supabase 設計來公開放在前端的金鑰，放進 git 是正常做法。
+`anon key`（新版叫 publishable key）是 Supabase 設計來公開放在前端的金鑰，放進 git 是正常做法。
 真正的防線是 `schema.sql` 裡的 RLS 政策：外部只能「讀次數」和「呼叫函式 +1」，
 無法竄改或刪除資料。
 
 同一個瀏覽階段（sessionStorage）只會計算一次，重新整理不會灌水。
+
+### 免費方案的注意事項
+
+專案若連續一週完全沒有請求，Supabase 會自動暫停，要到後台按一下才會恢復。
+暫停期間數字不會增加，但網站其他部分完全正常。
+
+### 想看目前數字或歸零
+
+到 Supabase 左側 **SQL Editor** 執行：
+
+```sql
+select slug, views, updated_at from public.page_views order by views desc;
+delete from public.page_views where slug = 'connection-test';  -- 刪掉測試列
+update public.page_views set views = 0;                        -- 全部歸零
+```
 
 ---
 

@@ -120,6 +120,7 @@ export const site = {
 // 沒填也不會壞：計數器會安靜地不顯示，網站其他部分照常運作。
 // ---------------------------------------------------------------------------
 export const supabase = {
-  url: '',      // 例：https://abcdefghijkl.supabase.co
-  anonKey: '',  // 例：eyJhbGciOi...
+  url: 'https://wqcxsjvhmbqigvjoglji.supabase.co',
+  // 新版 Supabase 的 publishable key（相當於舊版的 anon key），設計上就是公開放在前端。
+  anonKey: 'sb_publishable_yj-FrOsfcGqSOlsQciEHiw_NHS-YNDc',
 };
