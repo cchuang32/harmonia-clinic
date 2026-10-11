@@ -298,8 +298,20 @@ async function build() {
   const nextPageState = {};
   const pageUpdated = {};
 
+  // 雜湊只看「這一頁自己的內容」：<main> 裡的正文，加上標題與摘要。
+  // 頁首、頁尾、<head> 裡全站共用的部分不算——否則改一次選單或頁尾，
+  // 八個固定頁會同時被記成「今天更新」，再生注射頁上印的最後更新日也會跟著跳，
+  // 但那頁的醫療內容其實沒有動（2026-10-11 加文字大小按鈕時就發生過）。
+  const ownContent = (html) => {
+    const main = html.match(/<main[\s\S]*<\/main>/);
+    if (!main) return html;                          // 找不到 <main> 就退回整頁，寧可多報不要漏報
+    const title = html.match(/<title>[\s\S]*?<\/title>/);
+    const desc = html.match(/<meta name="description"[^>]*>/);
+    return [title && title[0], desc && desc[0], main[0]].join('\n');
+  };
+
   const emitPage = async (slug, render) => {
-    const probe = render('');
+    const probe = ownContent(render(''));
     const hash = createHash('sha1').update(probe).digest('hex').slice(0, 16);
     const prev = pageState[slug];
     const updated = prev && prev.hash === hash ? prev.updated : today();
