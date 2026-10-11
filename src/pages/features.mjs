@@ -13,6 +13,10 @@ import { icons } from '../components.mjs';
 //   photoAlt: '診間內的數位 X 光機',
 // 不填則沿用圖示，版面不變。
 //
+// 每一項也可加一個文件連結，會顯示在說明文字下方（例如營養點滴的說明海報）：
+//   doc: { href: '/assets/docs/nutrition-iv-poster.pdf', label: '看營養點滴說明海報（PDF）' },
+// 不填則不顯示。
+//
 // 衛教文字的寫法原則：只描述「這是什麼、過程如何」，不寫療效保證，
 // 是否適用一律導回醫師評估。這是醫療廣告規範下最安全的寫法，
 // 若要加入療效相關敘述，請先由醫師確認過再放。
@@ -44,7 +48,13 @@ const facilities = [
   },
   {
     icon: 'iv', title: '營養點滴',
+    // 從診所的營養點滴說明海報截取上半部（logo、標題與副標）製成 3:2 卡片圖。
+    // 原檔備份在 ~/Pictures/君禾診所-原圖/logo與識別/營養點滴海報_65x80cm_原檔.pdf
+    photo: '/assets/img/facility-nutrition-iv.jpg',
+    photoAlt: '君禾診所營養點滴說明海報的上半部：上方是診所 logo 與 HARMONIA CLINIC 君禾診所字樣，中央大字「營養點滴」，下方寫著「為身體補給，為日常充電。本院提供個人化點滴評估與照護。」，背景是淺色底與橄欖葉',
     desc: '依個人狀況調配的靜脈輸液，讓水分、電解質與維生素等營養素直接進入血液循環。配方與是否需要施打須由醫師評估，並非人人適用；有慢性疾病或正在服藥者，請務必先告知醫師。',
+    // 診所印製的 65×80 cm 說明海報，原檔未修改。檔案約 3.4 MB。
+    doc: { href: '/assets/docs/nutrition-iv-poster.pdf', label: '看營養點滴說明海報（PDF）' },
   },
 ];
 
@@ -120,6 +130,7 @@ export function featuresPage() {
           : `<div class="card-icon">${icons[f.icon]}</div>`}
         <h3>${esc(f.title)}</h3>
         <p>${esc(f.desc)}</p>
+        ${f.doc ? `<a class="service-block-link" href="${url(f.doc.href)}" target="_blank" rel="noopener">${esc(f.doc.label)}<span aria-hidden="true">→</span></a>` : ''}
       </div>`).join('\n      ')}
     </div>
     <p class="article-notice" style="margin-top:clamp(20px,3vw,28px)">※ ${esc(facilityNotice)}</p>
