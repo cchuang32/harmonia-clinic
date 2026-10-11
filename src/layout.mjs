@@ -154,6 +154,7 @@ export function page(o) {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700&display=swap">
 <link rel="stylesheet" href="${url('/assets/css/style.css')}">
+<script>try{var f=localStorage.getItem('harmonia-fs');if(f==='1'||f==='2')document.documentElement.setAttribute('data-fs',f)}catch(e){}</script>
 ${clinicSchema()}
 ${o.breadcrumb ? breadcrumbSchema(o.breadcrumb) : ''}
 ${o.headExtra || ''}
@@ -170,6 +171,11 @@ ${o.headExtra || ''}
         <span class="brand-en">${esc(site.nameEn)}</span>
       </span>
     </a>
+
+    <div class="fs-control" role="group" aria-label="文字大小">
+      <button class="fs-btn" type="button" data-fs-step="-1" aria-label="縮小文字">A<span aria-hidden="true">−</span></button>
+      <button class="fs-btn fs-btn--up" type="button" data-fs-step="1" aria-label="放大文字">A<span aria-hidden="true">+</span></button>
+    </div>
 
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="開啟選單">
       <span class="nav-toggle-bar" aria-hidden="true"></span>

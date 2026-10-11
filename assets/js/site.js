@@ -1,7 +1,8 @@
 /* ==========================================================================
    君禾診所 Harmonia Clinic — 前端行為
    1) 手機選單開闔
-   2) Supabase 瀏覽計數器（每頁獨立、首頁卡片同步顯示）
+   2) 文字大小按鈕（A− / A+）
+   3) Supabase 瀏覽計數器（每頁獨立、首頁卡片同步顯示）
    計數器沒設定或連線失敗時，網站其他功能完全不受影響。
    ========================================================================== */
 (function () {
@@ -42,7 +43,32 @@
     });
   }
 
-  /* ---------- 2. 瀏覽計數器 ---------- */
+  /* ---------- 2. 文字大小 ---------- */
+  // 三段：0 標準、1 大、2 特大。實際放大寫在 style.css 的 html[data-fs]。
+  // 選擇存在 localStorage；<head> 裡有一小段程式會在畫面出現前先套用。
+  var fsBtns = document.querySelectorAll('.fs-btn');
+  if (fsBtns.length) {
+    var root = document.documentElement;
+    var fsLevel = Number(root.getAttribute('data-fs')) || 0;
+    var fsApply = function () {
+      if (fsLevel) root.setAttribute('data-fs', String(fsLevel));
+      else root.removeAttribute('data-fs');
+      fsBtns.forEach(function (b) {
+        var next = fsLevel + Number(b.getAttribute('data-fs-step'));
+        b.disabled = next < 0 || next > 2;
+      });
+    };
+    fsBtns.forEach(function (b) {
+      b.addEventListener('click', function () {
+        fsLevel = Math.max(0, Math.min(2, fsLevel + Number(b.getAttribute('data-fs-step'))));
+        fsApply();
+        try { localStorage.setItem('harmonia-fs', String(fsLevel)); } catch (e) { /* 無痕模式等情況：這次有效，換頁不記得 */ }
+      });
+    });
+    fsApply();
+  }
+
+  /* ---------- 3. 瀏覽計數器 ---------- */
   var CFG = window.HARMONIA_CONFIG || {};
   if (!CFG.supabaseUrl || !CFG.supabaseAnonKey) return;
 

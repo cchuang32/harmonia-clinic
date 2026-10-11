@@ -131,6 +131,25 @@ button { font: inherit; color: inherit; }
 .brand-zh { font-family: var(--serif); font-size: 19px; font-weight: 700; line-height: 1.25; color: var(--green-900); white-space: nowrap; }
 .brand-en { font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-500); line-height: 1.4; white-space: nowrap; }
 
+/* 文字大小按鈕（A− / A+）。三段：標準、大、特大，選擇記在訪客自己的瀏覽器裡。
+   放大的是內文與頁尾，頁首維持原樣——頁籤一放大就會擠到換行。
+   用 zoom 而不是逐條改 font-size：全站字級都是 px，zoom 可以一次等比放大，
+   而且區塊寬度會自動重算，不會像瀏覽器縮放那樣在手機上跑出橫向捲軸。 */
+html[data-fs="1"] main, html[data-fs="1"] .site-footer { zoom: 1.125; }
+html[data-fs="2"] main, html[data-fs="2"] .site-footer { zoom: 1.25; }
+
+.fs-control { display: flex; align-items: center; gap: 4px; margin-left: auto; order: 3; }
+.fs-btn {
+  min-width: 40px; height: 40px; padding: 0 8px;
+  background: none; border: 1px solid var(--line); border-radius: 999px;
+  font-family: var(--sans); font-size: 14px; font-weight: 700; line-height: 1;
+  color: var(--green-900); cursor: pointer; transition: background .2s, border-color .2s;
+}
+.fs-btn--up { font-size: 17px; }
+.fs-btn:hover:not(:disabled) { background: var(--green-050); border-color: var(--green-700); }
+.fs-btn:disabled { color: var(--ink-500); opacity: .45; cursor: default; }
+.site-nav { order: 2; }
+
 .nav-toggle {
   display: none;
   width: 44px; height: 44px; margin-right: -8px;
@@ -159,7 +178,8 @@ button { font: inherit; color: inherit; }
 
 /* 頁籤總長度超過一列時就改用漢堡選單（頁籤變多或變長時要一起調整） */
 @media (max-width: 1000px) {
-  .nav-toggle { display: flex; }
+  .nav-toggle { display: flex; order: 4; }
+  .fs-control { order: 3; }
   .site-nav {
     position: absolute; left: 0; right: 0; top: 100%;
     background: var(--paper);
