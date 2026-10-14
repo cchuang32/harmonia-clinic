@@ -92,7 +92,8 @@ function clinicSchema() {
       postalCode: s.postalCode,
       addressCountry: 'TW',
     },
-    hasMap: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(site.contact.mapQuery)}`,
+    hasMap: site.contact.googleMapsUrl,
+    geo: { '@type': 'GeoCoordinates', latitude: site.contact.geo.lat, longitude: site.contact.geo.lng },
     // schema.org 規定的代號：基層照護（指照護層級，非家醫專科）、麻醉、肌肉骨骼
     medicalSpecialty: ['PrimaryCare', 'Anesthesia', 'Musculoskeletal'],
     // 診所與醫師互相指認，這是「實體化」最關鍵的一行

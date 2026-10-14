@@ -62,7 +62,6 @@ const parkingWalk = [
 ];
 
 export function locationPage() {
-  const mapQ = encodeURIComponent(site.contact.mapQuery);
   const body = `
 <section class="page-head">
   <div class="wrap">
@@ -93,13 +92,13 @@ ${exterior.length ? `<section class="section">
     <div class="map-frame">
       <iframe
         title="${esc(site.nameZh)}地圖位置"
-        src="https://maps.google.com/maps?q=${mapQ}&hl=zh-TW&z=17&output=embed"
+        src="https://maps.google.com/maps?cid=${site.contact.googleCid}&hl=zh-TW&z=17&output=embed"
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"
         allowfullscreen></iframe>
     </div>
     <div class="btn-row">
-      <a class="btn btn--primary" href="https://www.google.com/maps/search/?api=1&query=${mapQ}" target="_blank" rel="noopener">${icons.pin} 用 Google 地圖導航</a>
+      <a class="btn btn--primary" href="${esc(site.contact.googleMapsUrl)}" target="_blank" rel="noopener">${icons.pin} 用 Google 地圖導航</a>
       <a class="btn btn--ghost" href="${esc(site.contact.phoneHref)}">${icons.phone} 撥打電話 ${esc(site.contact.phone)}</a>
     </div>
 

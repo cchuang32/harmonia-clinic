@@ -28,8 +28,14 @@ export const site = {
     // email 目前網站上沒有顯示（地理位置頁已移除該欄），保留備用
     email: 'service@harmonia-clinic.tw',
     address: '新竹縣湖口鄉中山路一段 596 號',
-    // Google 地圖用的查詢字串（地址或店名）
-    mapQuery: '新竹縣湖口鄉中山路一段596號',
+    // Google 商家檔案（2026-10 建立）。cid 是 Google 給這間店的固定編號，
+    // 地圖嵌入、導航按鈕、結構化資料都用它，才會精準指到「君禾診所」這個商家，
+    // 地圖上標出店名，而不是只有一個地址圖釘。
+    // 不要改回用「店名＋地址」查詢：實測會被 Google 帶到竹北，位置完全錯誤。
+    googleCid: '35871848415741035',
+    googleMapsUrl: 'https://maps.google.com/?cid=35871848415741035',
+    // 診所在地圖上的座標，取自 Google 商家頁，給結構化資料用
+    geo: { lat: 24.8949729, lng: 121.0419893 },
   },
 
   // 看診時間（地理位置頁 + 頁尾使用）
@@ -61,7 +67,7 @@ export const site = {
     //   格式：['https://...', 'https://...']；留空陣列則不輸出。
     sameAs: [
       'https://www.facebook.com/cc.huang32',   // Facebook 粉絲專頁「君禾診所 - 黃佳君醫師」
-      // 'https://...',                        // ★ Google 商家檔案建立後，把網址加在這裡
+      'https://maps.google.com/?cid=35871848415741035', // Google 商家檔案「君禾診所」
     ],
 
     // 首頁 <title> 會接在「君禾診所 Harmonia Clinic」後面，讓搜尋看得到地區與科別。
