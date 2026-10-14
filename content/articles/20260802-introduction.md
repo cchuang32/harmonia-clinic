@@ -5,7 +5,7 @@ author: 黃佳君 醫師
 authorRole: 麻醉科．疼痛科專科醫師
 tag: 診所公告
 date: 2026-08-02
-card: /assets/img/space-3-waiting.jpg
+card: /assets/img/space-3-waiting-202610.jpg
 excerpt: 一間診所要用什麼方式對待走進來的人？這是君禾診所的第一篇文章，想先把我們的想法說清楚。
 ---
 

@@ -78,23 +78,23 @@ const pillars = [
         caption: '大門是電動門，寬 120 公分，門口設有斜坡板，方便輪椅進出。',
       },
       {
-        src: '/assets/img/space-1-entrance.jpg',
-        alt: '從衛教室看向診所大門：左側木質牆面貼有「健康從來就不是願望，而是我們一起經營的日常。」與 HARMONIA CLINIC 字樣，正前方是整面玻璃門，陽光照進室內，右側為櫃檯。',
+        src: '/assets/img/space-1-entrance-202610.jpg',
+        alt: '從衛教室旁看向診所大門：左側木質牆面貼有「健康從來就不是願望，而是我們一起經營的日常。」與 HARMONIA CLINIC 字樣，正前方是整面玻璃自動門，門外是騎樓與行道樹，陽光照進走道，右側為櫃檯與血壓計。',
         caption: '整面玻璃採光，白天光線會照進走道。',
       },
       {
-        src: '/assets/img/space-2-reception.jpg',
-        alt: '君禾診所櫃檯：白色大理石檯面上有診所標誌，後方木質牆面掛著 HARMONIA CLINIC 君禾診所字樣，右側走道通往衛教室。',
+        src: '/assets/img/space-2-reception-202610.jpg',
+        alt: '君禾診所櫃檯正面：白色大理石檯面上有綠色圓形的診所標誌，後方木質牆面掛著 HARMONIA CLINIC 君禾診所字樣，右側木質牆面貼著標語，走道盡頭是衛教室。',
         caption: '櫃檯的檯面上有診所標誌，掛號與批價在這裡。',
       },
       {
-        src: '/assets/img/space-3-waiting.jpg',
-        alt: '候診區：落地窗旁沿牆擺放兩張木質長椅，陽光灑在木紋地板上，走道盡頭可見標示著診間、病歷室的門。',
+        src: '/assets/img/space-3-waiting-202610.jpg',
+        alt: '候診區：沿著落地窗擺放兩張木質長椅，陽光灑在木紋地板上，右側是標示「診間」的木門與牆上的告示，走道盡頭擺著盆栽。',
         caption: '候診區在落地窗旁，白天採光充足。',
       },
       {
-        src: '/assets/img/space-4-corridor.jpg',
-        alt: '從櫃檯望向診所內部走道：左側為木質牆面與衛教室，右側是落地窗與木質長椅，天花板為嵌燈照明。',
+        src: '/assets/img/space-4-corridor-202610.jpg',
+        alt: '從櫃檯望向診所內部：左側是大理石櫃檯與掛著 HARMONIA CLINIC 君禾診所字樣的木牆，中間木質牆面貼著標語，走道牆上有衛教海報，右側落地窗旁擺著木質長椅與盆栽。',
         caption: '從櫃檯通往候診區與診間的動線。',
       },
       {

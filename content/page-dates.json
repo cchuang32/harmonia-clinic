@@ -1,7 +1,7 @@
 {
   "/": {
-    "hash": "52b38e33f129b510",
-    "updated": "2026-10-08"
+    "hash": "d723f2084b8b1808",
+    "updated": "2026-10-14"
   },
   "services": {
     "hash": "93a51fbb7d93fa68",
@@ -12,16 +12,16 @@
     "updated": "2026-09-26"
   },
   "features": {
-    "hash": "68d100bfaccf8539",
-    "updated": "2026-10-11"
+    "hash": "e32cd378184af168",
+    "updated": "2026-10-14"
   },
   "doctors": {
     "hash": "72949e2526b99d4b",
     "updated": "2026-09-26"
   },
   "articles": {
-    "hash": "30cedb272df8bdb0",
-    "updated": "2026-10-08"
+    "hash": "4e4ad12eb172d463",
+    "updated": "2026-10-14"
   },
   "location": {
     "hash": "64250d99d64547b6",
