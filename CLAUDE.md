@@ -211,7 +211,7 @@ BMA／BMAC 那篇原本把三項補充擺在前面，讀者的注意力在重點
 
 - **位置不固定，每張圖自己判斷**。挑一個留白足夠、不會壓到圖上內容或標示的角落；
   同一篇文章裡的圖盡量放同一角。目前 `bma-aspiration.jpg` 與
-  `lumbar-stenosis-comparison-zh.jpg` 在左下角，`facility-xray.jpg` 在左上角
+  `lumbar-canal-comparison-zh.jpg` 在左下角，`facility-xray.jpg` 在左上角
 - 顏色：淺色底用深灰，深色底用白字加淡陰影。字級比圖上的標示小一號
 - 目的：圖被轉走時，看到的人知道去哪裡找診所
 - **例外：別人頒發的證書、感謝狀不要加**。在他人核發的文件上蓋診所標記，
