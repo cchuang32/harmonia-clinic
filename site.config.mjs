@@ -18,7 +18,9 @@ export const site = {
   contact: {
     phone: '03-5900298',
     phoneHref: 'tel:+88635900298',
-    lineId: '@855wbxpl',
+    // 2026-11 起顯示專屬 ID @harmoniaclinic。原本的 @855wbxpl 是同一個帳號的系統 ID，
+    // 下面的 lineUrl 與 QR 碼都還指向它，仍然有效，不用換。
+    lineId: '@harmoniaclinic',
     // 加入好友的連結與 QR 碼。兩者都是 LINE 官方網址（lin.ee），
     // QR 碼由 LINE 官方帳號後台產生，沒有經過第三方轉址。
     lineUrl: 'https://lin.ee/symEgb8',
