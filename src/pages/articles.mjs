@@ -7,7 +7,8 @@ import { postCard } from '../components.mjs';
 // 混在一起的話，舊公告會一直佔著最顯眼的位置，來找衛教的人得先跳過它。
 // 分區只是版面，沒有另外產生分類頁：文章量還少，薄頁面對搜尋排名反而不利。
 // 某一區沒有文章時整區不輸出，版面不會開天窗。
-const NOTICE_TAG = '診所公告';
+// 文章頁也用這個判斷要不要放 QR 碼與 LINE 分享（公告不放），兩邊共用同一個標準。
+export const NOTICE_TAG = '診所公告';
 
 export function articlesPage(articles) {
   // 兩區都保留原本「最新在前」的排序

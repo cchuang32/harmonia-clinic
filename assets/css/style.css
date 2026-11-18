@@ -743,6 +743,23 @@ ul.chip-list, .card ul.chip-list {
 .article-author-name a:hover { color: var(--green-700); text-decoration-color: currentColor; }
 .article-author-role { display: block; font-size: 12.5px; color: var(--ink-500); line-height: 1.4; }
 
+/* 衛教文章標題下方：左邊「用 LINE 分享」，右邊本篇網址的 QR 碼（公告不放，見 article.mjs）。
+   QR 碼一律深色點、白色底：掃描器靠明暗對比辨識，換成品牌綠或淺色底會變得難掃。
+   外框留白也是必要的（規範要求的靜區），不要為了版面把它裁掉。 */
+.article-share {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: 14px 20px; margin-top: 20px;
+}
+.article-share-line { margin: 0; }
+.article-qr { display: flex; align-items: center; gap: 12px; }
+.article-qr-code {
+  display: block; width: 104px; height: 104px; flex: 0 0 auto;
+  background: #fff; border: 1px solid var(--line); border-radius: 10px; overflow: hidden;
+}
+.article-qr-code svg { display: block; width: 100%; height: 100%; }
+.article-qr-text { font-size: 13.5px; line-height: 1.6; color: var(--ink-500); }
+@media print { .article-share-line { display: none; } }
+
 /* HERO 圖片：等比例縮放，寬度不超過內容文字區 */
 .article-hero { margin: clamp(24px, 4vw, 34px) auto 0; max-width: var(--measure); }
 .article-hero img {

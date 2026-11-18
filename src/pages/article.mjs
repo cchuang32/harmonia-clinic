@@ -1,6 +1,8 @@
 import { site } from '../../site.config.mjs';
 import { url, esc, jsonLd as ld, CLINIC_ID, PHYSICIAN_ID } from '../layout.mjs';
-import { articleMeta, eventNotice } from '../components.mjs';
+import { articleMeta, eventNotice, icons } from '../components.mjs';
+import { NOTICE_TAG } from './articles.mjs';
+import { qrSvg } from '../qr.mjs';
 
 /**
  * 單篇文章頁
@@ -34,6 +36,18 @@ export function articlePage(a, nav = {}) {
     ...(a.cover ? { image: site.url + url(a.cover) } : {}),
   };
 
+  // 衛教文章標題下方放「用 LINE 分享」與本篇網址的 QR 碼；公告不放。
+  // QR 碼給在診間看螢幕、或拿到列印版的病人，手機一掃就把文章帶回家。
+  // LINE 分享用 LINE 官方的分享網址，不必載入任何 LINE 的程式。
+  const pageUrl = `${site.url}/${a.slug}/`;
+  const share = a.tag === NOTICE_TAG ? '' : `<div class="article-share">
+        <a class="btn btn--ghost article-share-line" href="https://social-plugins.line.me/lineit/share?url=${encodeURIComponent(pageUrl)}" target="_blank" rel="noopener">${icons.chat} 用 LINE 分享</a>
+        <div class="article-qr">
+          <span class="article-qr-code" role="img" aria-label="本篇文章網址的 QR 碼">${qrSvg(pageUrl, { color: '#23261f' })}</span>
+          <span class="article-qr-text">手機掃描<br>把這篇帶回家</span>
+        </div>
+      </div>`;
+
   const body = `
 <article class="article">
   <div class="wrap article-head">
@@ -44,6 +58,7 @@ export function articlePage(a, nav = {}) {
       ${a.tag ? `<span class="article-tag">${esc(a.tag)}</span>` : ''}
       <h1 class="article-title">${esc(a.title)}</h1>
       ${articleMeta(a)}
+      ${share}
     </div>
     ${heroFigure}
   </div>
