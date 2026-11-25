@@ -246,7 +246,7 @@ update public.page_views set views = 0;                        -- 全部歸零
 
 | 平台 | 網址 | 怎麼觸發 |
 | --- | --- | --- |
-| Cloudflare（正式站） | https://harmonia-clinic.cc-huang32.workers.dev | Cloudflare 偵測到 GitHub 有新 commit，自動拉下來重建 |
+| Cloudflare（正式站） | https://harmoniaclinic.net | Cloudflare 偵測到 GitHub 有新 commit，自動拉下來重建 |
 
 Cloudflare 端的建置設定：
 
@@ -257,7 +257,27 @@ Cloudflare 端的建置設定：
 | Node 版本 | 由 repo 根目錄的 `.node-version`（20）決定 |
 
 > Cloudflare 目前是用新版的 **Workers + 靜態資源**（不是舊的 Pages 專案），
-> 所以網址結尾是 `.workers.dev` 而不是 `.pages.dev`。兩者對這個網站來說功能相同。
+> 所以舊的 Workers 網址結尾是 `.workers.dev` 而不是 `.pages.dev`。兩者對這個網站來說功能相同。
+>
+> **網域（2026-11-25 補記）**
+>
+> | 項目 | 值 |
+> | --- | --- |
+> | 網域 | `harmoniaclinic.net` |
+> | 註冊商 | Cloudflare Registrar（直接在 Cloudflare 註冊，不經第三方） |
+> | 註冊日 | 2026-08-15 |
+> | **到期日** | **2027-08-15** |
+> | 自動續約 | **已開啟**（2026-11-25 於後台確認） |
+> | 名稱伺服器 | `clyde.ns.cloudflare.com`、`erin.ns.cloudflare.com` |
+>
+> 到期日是公開註冊紀錄上的日期，隨時可以用 `whois harmoniaclinic.net` 自己再確認一次。
+> 自動續約已在 Cloudflare 後台 **Domains → Registrations** 開啟（2026-11-25 確認，狀態 Active），
+> 到期前會自動扣款，不需要手動操作。
+> 但**扣款失敗一樣會讓網域過期，網站會整個打不開**，所以每年八月前後仍要確認一次
+> 那裡的付款方式還有效。要查目前狀態就到同一個頁面看 Auto-renew 開關與 Expires 日期。
+>
+> 舊的 `harmonia-clinic.cc-huang32.workers.dev` 還能用，但會由 `worker.js` 以 301 轉到
+> `harmoniaclinic.net`，`www` 開頭的網址也一樣。對外公布請一律用 `harmoniaclinic.net`。
 >
 > 原本另有一份 GitHub Pages 備援副本（`cchuang32.github.io/harmonia-clinic/`），
 > 2026-09-22 已關閉並刪除 `.github/workflows/deploy.yml`：它沒有實際用途，
@@ -277,7 +297,7 @@ git push
 不用重推。想確認新版上線了沒，可以直接查頁面內容：
 
 ```bash
-curl -s https://harmonia-clinic.cc-huang32.workers.dev/ | grep -o '要找的那句話'
+curl -s https://harmoniaclinic.net/ | grep -o '要找的那句話'
 ```
 
 ---
