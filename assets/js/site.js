@@ -2,7 +2,8 @@
    君禾診所 Harmonia Clinic — 前端行為
    1) 手機選單開闔
    2) 文字大小按鈕（A− / A+）
-   3) Supabase 瀏覽計數器（每頁獨立、首頁卡片同步顯示）
+   3) 列印時展開文章摺疊區
+   4) Supabase 瀏覽計數器（每頁獨立、首頁卡片同步顯示）
    計數器沒設定或連線失敗時，網站其他功能完全不受影響。
    ========================================================================== */
 (function () {
@@ -68,7 +69,19 @@
     fsApply();
   }
 
-  /* ---------- 3. 瀏覽計數器 ---------- */
+  /* ---------- 3. 列印時展開摺疊區 ---------- */
+  // 印給病人的紙本不能缺內容。印之前把收起來的全部打開，印完再收回去。
+  var printOpened = [];
+  window.addEventListener('beforeprint', function () {
+    printOpened = Array.prototype.filter.call(document.querySelectorAll('details.fold'), function (d) { return !d.open; });
+    printOpened.forEach(function (d) { d.open = true; });
+  });
+  window.addEventListener('afterprint', function () {
+    printOpened.forEach(function (d) { d.open = false; });
+    printOpened = [];
+  });
+
+  /* ---------- 4. 瀏覽計數器 ---------- */
   var CFG = window.HARMONIA_CONFIG || {};
   if (!CFG.supabaseUrl || !CFG.supabaseAnonKey) return;
 

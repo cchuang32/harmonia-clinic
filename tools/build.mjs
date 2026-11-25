@@ -93,6 +93,40 @@ function wrapSummary(html) {
   );
 }
 
+/**
+ * 文章裡的摺疊區（規則見 CLAUDE.md 第十二節）。
+ *
+ * 只認兩個固定標題，文章裡不用加任何標記：
+ *   「## 常見問題」       標題保留在外面，底下每一題（### 問題＋答案）各自摺疊
+ *   「## 研究細節與限制」  整節摺起來，連標題一起放進可點開的那一列
+ *
+ * 摺疊範圍到下一個 ## 標題為止；遇到免責聲明「本篇為衛教資訊……」或 --- 分隔線也會停。
+ * 免責聲明沒有自己的標題，緊接在研究細節與限制後面，不能被一起摺進去。
+ *
+ * 用瀏覽器內建的 <details>：不需要任何程式就能開合，鍵盤操作、Google 收錄、
+ * 頁內搜尋（Chrome 會自動展開找到的那一題）都照常運作。列印時由 site.js 全部展開。
+ *
+ * 只套用在發佈日 ≥ FOLD_SINCE 的文章。在這之前發佈的文章維持原樣（2026-11-26 決定）。
+ */
+const FOLD_SINCE = '2026-11-26';
+const FOLD_END = '(?=<h2[ >]|<p>本篇為衛教資訊|<hr|$)';
+
+const foldBox = (summary, inner, extra = '') =>
+  `<details class="fold${extra}">\n<summary>${summary}</summary>\n<div class="fold-body">\n${inner}</div>\n</details>\n`;
+
+function foldSections(html) {
+  // 常見問題：一題一摺。標題前的引言（若有）留在外面。
+  html = html.replace(new RegExp(`(<h2>常見問題</h2>\\n)([\\s\\S]*?)${FOLD_END}`), (_, head, inner) =>
+    head + inner.replace(/<h3>([\s\S]*?)<\/h3>\n([\s\S]*?)(?=<h3>|$)/g,
+      (__, q, answer) => foldBox(`<h3>${q}</h3>`, answer)));
+
+  // 研究細節與限制：整節一摺
+  html = html.replace(new RegExp(`<h2>(研究細節與限制)</h2>\\n([\\s\\S]*?)${FOLD_END}`), (_, title, inner) =>
+    foldBox(`<h2>${title}</h2>`, inner, ' fold--section'));
+
+  return html;
+}
+
 /* ---------------------------------------------------------------------------
    讀文章 + 判斷更新日期
 --------------------------------------------------------------------------- */
@@ -239,7 +273,9 @@ async function loadArticles() {
       heroAlt: data.heroAlt || data.title,
       heroCaption: data.heroCaption || '',
       excerpt: data.excerpt || (text.length > 96 ? text.slice(0, 96) + '…' : text),
-      html: wrapSummary(markdownToHtml(body)),
+      html: data.date >= FOLD_SINCE
+        ? foldSections(wrapSummary(markdownToHtml(body)))
+        : wrapSummary(markdownToHtml(body)),
     });
   }
 

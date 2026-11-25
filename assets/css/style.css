@@ -822,6 +822,31 @@ ul.chip-list, .card ul.chip-list {
 }
 .article-body h3 { font-family: var(--serif); font-size: clamp(18px, 3.9vw, 21px); font-weight: 700; color: var(--green-700); margin-top: 1.6em; }
 .article-body p { color: var(--ink-700); line-height: 2.02; }
+
+/* 摺疊區（常見問題每一題、研究細節與限制整節；見 build.mjs 的 foldSections）。
+   整列都可以點，右邊的＋／－告訴讀者「這裡點得開」——長輩讀者不一定認得三角形箭頭。
+   標題沿用 .article-body 的 h2／h3 字型與顏色，只把間距收掉。 */
+.article-body .fold { border-bottom: 1px solid var(--line); }
+.article-body h2 + .fold, .article-body .fold--section { border-top: 1px solid var(--line); }
+.article-body .fold--section { margin-top: 1.9em; }
+.article-body .fold > summary {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 16px 4px; cursor: pointer; list-style: none;
+}
+.article-body .fold > summary::-webkit-details-marker { display: none; }
+.article-body .fold > summary > h2,
+.article-body .fold > summary > h3 { margin: 0; padding: 0; }
+.article-body .fold > summary::after {
+  content: '+'; flex: 0 0 auto; width: 30px; height: 30px; border-radius: 50%;
+  display: grid; place-items: center;
+  border: 1px solid var(--green-500); color: var(--green-700);
+  font-size: 20px; line-height: 1; font-weight: 500;
+}
+.article-body .fold[open] > summary::after { content: '−'; }
+.article-body .fold > summary:hover::after { background: var(--green-050); }
+.article-body .fold > summary:focus-visible { outline: 2px solid var(--green-700); outline-offset: 2px; border-radius: 6px; }
+.article-body .fold-body { padding: 0 4px 18px; }
+.article-body .fold-body > :first-child { margin-top: 0; }
 .article-body ul, .article-body ol { color: var(--ink-700); padding-left: 1.35em; }
 .article-body li { margin-top: .55em; line-height: 1.95; }
 .article-body li::marker { color: var(--green-500); }
