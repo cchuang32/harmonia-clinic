@@ -44,7 +44,7 @@ npm run new -- winter-flu "冬天的流感疫苗，什麼時候打最好？"
 title: 冬天的流感疫苗，什麼時候打最好？   # 文章標題
 slug: 20260805-winter-flu                # 網址（改了網址就會變，通常不用動）
 author: 黃佳君 醫師                       # 作者，會顯示在文章與卡片上
-authorRole:                               # 作者頭銜（可留空，例如「院長．家庭醫學專科」）
+authorRole: 麻醉科．疼痛科專科醫師          # 作者頭銜，一律寫這個（見 CLAUDE.md 第一節）
 tag: 健康知識                             # 分類標籤
 date: 2026-08-05                          # 發佈日期
 hero: /assets/img/hero-winter-flu.jpg     # HERO 照片
